@@ -9,6 +9,7 @@ const PageNotFound = () =>{
                 <h1>Return Home by pressing the button below : )</h1>
                 <Link to="/">Home</Link>
                 <h3>Save</h3>
+                <h2>This is crazy</h2>
             
         </div>
     );
