@@ -10,9 +10,10 @@ import Tab from './Tabs';
 import TrackTrace from './TrackNTrace';
 import Store from './OnlineStore';
 import Details from './Details';
+import Possessions from './Possessions';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-const Homepage = ({handleLogout, openMenu, closeMenu}, props) => {
+const Homepage = ({handleLogout, openMenu, closeMenu},props) => {
     const {email, setEmail} = props;
     return(
         <div>
@@ -72,7 +73,8 @@ const Homepage = ({handleLogout, openMenu, closeMenu}, props) => {
                     </BrowserRouter>
                 </aside>
                 <h2>SMART TRACE</h2>
-                <button onClick={handleLogout}>Login</button>
+               {//} <button onClick={handleLogout}>Login</button>
+               }
                 <button onClick={handleLogout}>Logout</button>
             </nav>
             <BrowserRouter>
@@ -91,6 +93,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}, props) => {
                         <Route path="/identity" exact={true} component={IdNumber}/>
                         <Route path="/store" exact={true} component={Store}/>
                         <Route path="/details" exact={true} component={Details}/>
+                        <Route path="/possessions" exact={true} component={Possessions} email={setEmail}/>
                    </switch>
                    
                </div>

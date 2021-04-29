@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react';
 import firebase from './Components/Firebase';
 import Login from './Pages/Login';
 import Homepage from './Pages/Homepage';
-import SessionTimeout from './Components/SessionTimeout';
 import { UnauthenticatedSessionControl, LogoutTypes} from 'react-session-control';
 import './App.css';
 
