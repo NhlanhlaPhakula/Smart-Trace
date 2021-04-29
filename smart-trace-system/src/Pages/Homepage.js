@@ -9,6 +9,7 @@ import IdNumber from './IdNumber';
 import Tab from './Tabs';
 import TrackTrace from './TrackNTrace';
 import Store from './OnlineStore';
+import Details from './Details';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const Homepage = ({handleLogout, openMenu, closeMenu}, props) => {
@@ -89,6 +90,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}, props) => {
                         <Route path="/email" exact={true} component={Email}/>
                         <Route path="/identity" exact={true} component={IdNumber}/>
                         <Route path="/store" exact={true} component={Store}/>
+                        <Route path="/details" exact={true} component={Details}/>
                    </switch>
                    
                </div>

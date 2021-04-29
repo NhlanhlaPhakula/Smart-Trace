@@ -277,3 +277,15 @@ ul {
 .name{
   font-size: 150%;
 }
+.onlineStore {
+  text-align: center;
+}
+
+.onlineStore h1,label{
+  color: white;
+}
+
+.details h1{
+  color: white;
+  text-align: center;
+}
