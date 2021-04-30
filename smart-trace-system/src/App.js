@@ -82,9 +82,24 @@ const App = () => {
     });
   };
 
+  //a function to automatically display signed in user
+  const handleCheckUser = () => {
+    firebase.auth().onAuthStateChanged(function(user){
+      if(user) {
+        //this user is signed
+        console.log('This user is logged in:', user);
+        setEmail(user);
+      }else{
+        //this user is not signed
+        console.log('There is no logged in user');
+      };
+    });
+  };
+
   //Add useEffect
   useEffect(() => {
     authListener();
+    handleCheckUser();
   },[]);
 
   //a sidebar
@@ -97,13 +112,15 @@ const App = () => {
 
   return (
       <div className="App">
-        
+
             {user ? (
               <Homepage handleLogout={handleLogout}
                 openMenu = {openMenu}
                 closeMenu = {closeMenu}
                 email = {email}
                 setEmail = {setEmail}
+                handleCheckUser={handleCheckUser}
+
               />
             ):(
               <Login 

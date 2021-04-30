@@ -11,10 +11,11 @@ import TrackTrace from './TrackNTrace';
 import Store from './OnlineStore';
 import Details from './Details';
 import Possessions from './Possessions';
+import firebase from '../Components/Firebase';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
-const Homepage = ({handleLogout, openMenu, closeMenu},props) => {
-    const {email, setEmail} = props;
+const Homepage = ({handleLogout, openMenu, closeMenu}) => {
+    const user = firebase.auth().currentUser;
     return(
         <div>
         <section className="hero">
@@ -73,8 +74,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu},props) => {
                     </BrowserRouter>
                 </aside>
                 <h2>SMART TRACE</h2>
-               {//} <button onClick={handleLogout}>Login</button>
-               }
+                <h>{user.email}</h>
                 <button onClick={handleLogout}>Logout</button>
             </nav>
             <BrowserRouter>
@@ -93,7 +93,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu},props) => {
                         <Route path="/identity" exact={true} component={IdNumber}/>
                         <Route path="/store" exact={true} component={Store}/>
                         <Route path="/details" exact={true} component={Details}/>
-                        <Route path="/possessions" exact={true} component={Possessions} email={setEmail}/>
+                        <Route path="/possessions" exact={true} component={Possessions}/>
                    </switch>
                    
                </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import firebase from '../Components/Firebase';
 
 const Email = () => {
 
@@ -8,6 +9,9 @@ const Email = () => {
 
     //a regex function
     const emailRegex = /\s+@\s+\.\s+/;
+
+    //check user
+    const user = firebase.auth().currentUser;
 
     //a validation function
     const validateEmail = (event) => {
@@ -29,6 +33,7 @@ const Email = () => {
             <div className={`message ${isValid ? 'success' : 'error'}`}>
                 {message}
             </div>
+            <p>I'm the current user: {user.email}</p>
         </div>
     );
 };
