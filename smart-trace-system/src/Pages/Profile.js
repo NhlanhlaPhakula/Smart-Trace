@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
-import Users from './Users';
-import Table from './Table';
 import { Link } from 'react-router-dom';
+import ProfileUploader from './ProfilePic';
 
 const Profile = (props) => {
     const {email, setEmail} = props;
 
-    const[selectedFile, setSelectedFile] = useState();
+   // const[selectedFile, setSelectedFile] = useState();
     //const [Username, setUsername] = useState();
    // const [password, setPassword] = useState();
     const [idNumber, setIdNumber] = useState();
@@ -53,9 +52,10 @@ const Profile = (props) => {
         clearInputs();
     };
 
-    const  fileSelectedHandler  = (event) => {
+   /* const  fileSelectedHandler  = (event) => {
             setSelectedFile(event.target.files[0]);
         };
+    */
 
     //a function to fetch data from the database so we can have it displayed into our system
     useEffect (() => {
@@ -73,19 +73,22 @@ const Profile = (props) => {
     return(
         <div className="profile">
            
-            <img className="image"/>
+            {/*<img className="image"/>
             <div className="profile-image">
                 <img src="Images/defaultPic.jfif" alt=""/><br />
                 <input type="file" onChange={fileSelectedHandler}/>
             </div>
+             */}
+             <div className="profile-picture">
+                <ProfileUploader />
+             </div>
             <label>Username : {user.email}</label><br></br>
-            <label>Password : {user.password}</label>
-            <br></br>
-            <label>ID Number : </label><input type="number" value={idNumber} onChange={e=> setIdNumber(e.target.value)}/>
-            <label>First Name : </label><input type="text" value={firstname} onChange={e=> setFirstname(e.target.value)}/>
-            <label>Last Name : </label><input type="text" value={lastname} onChange={e=> setLastname(e.target.value)}/>
-            <label>House Number : </label><input type="number" value={houseNumber} onChange={e=> setHouseNumber(e.target.value)}/>
-            <label>Street Name : </label><input type="text" value={streetName} onChange={e=> setStreetName(e.target.value)}/>
+            <label>Password : {user.password}</label><br></br>
+            <label>ID Number : </label><input type="number" value={idNumber} onChange={e=> setIdNumber(e.target.value)}/><br />
+            <label>First Name : </label><input type="text" value={firstname} onChange={e=> setFirstname(e.target.value)}/><br />
+            <label>Last Name : </label><input type="text" value={lastname} onChange={e=> setLastname(e.target.value)}/><br />
+            <label>House Number : </label><input type="number" value={houseNumber} onChange={e=> setHouseNumber(e.target.value)}/><br />
+            <label>Street Name : </label><input type="text" value={streetName} onChange={e=> setStreetName(e.target.value)}/><br />
             <label>Street Type: </label>
             <select value={streetType} onChange={e=> setStreetType(e.target.value)}>
                 <option value="">Avenue</option>
@@ -96,17 +99,17 @@ const Profile = (props) => {
                 <option value="Road">Road</option>
                 <option value="Square">Square</option>
                 <option value="Streer">Street</option>
-            </select>
-            <label>City : </label><input type="text" value={city} onChange={e=> setCity(e.target.value)}/>
-            <label>State : </label><input type="text" value={state} onChange={e=> setState(e.target.value)}/>
+            </select><br></br>
+            <label>City : </label><input type="text" value={city} onChange={e=> setCity(e.target.value)}/><br />
+            <label>State : </label><input type="text" value={state} onChange={e=> setState(e.target.value)}/><br />
             <label>Postal Code : </label><input type="number" value={postalCode} onChange={e=> setPostalCode(e.target.value)}/>
 
             <br></br>
-            <h1>List of Users</h1>
-            {nameList ? nameList.map((name, index) => <Users name={name} key={index}/>) : ''}
+            {/*<h1>List of Users</h1>
+            *{nameList ? nameList.map((name, index) => <Users name={name} key={index}/>) : ''}
             <br />
             <h1>Table of Possessions</h1>
-            {nameList ? nameList.map((name, index) => <Table name={name} key={index}/>) : ''}
+    {nameList ? nameList.map((name, index) => <Table name={name} key={index}/>) : ''}*/}
             <button onClick={saveData}>Upload</button>
             <Link to="/">Learn More</Link>
         </div>

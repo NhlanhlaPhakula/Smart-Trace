@@ -12,6 +12,7 @@ import Store from './OnlineStore';
 import Details from './Details';
 import Possessions from './Possessions';
 import firebase from '../Components/Firebase';
+import ProfileUploader from './ProfilePic';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
@@ -27,11 +28,8 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                 
             </div>
                 <aside className="sidebar">
-                    {//<h1 value={email} onChange={e=> setEmail(e.target.value)}>User: </h1>
-                    
-                    //<input type="text" value={email} onChange={e=> setEmail(e.target.value)} />
-                    }
-                    <h3 className="name">Extra Functions</h3>
+                   
+                    <h3 className="name">Trace Functions</h3>
                     
                     <button className="sidebar-close-button" onClick={closeMenu}>X</button>
                     <BrowserRouter>
@@ -94,6 +92,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/store" exact={true} component={Store}/>
                         <Route path="/details" exact={true} component={Details}/>
                         <Route path="/possessions" exact={true} component={Possessions}/>
+                        <Route path="/profilepic" exact={true} component={ProfileUploader}/>
                    </switch>
                    
                </div>
