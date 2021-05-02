@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
+import Users from './Users';
 import { Link } from 'react-router-dom';
-import ProfileUploader from './ProfilePic';
+//import ProfileUploader from './ProfilePic';
 
 const Profile = (props) => {
     const {email, setEmail} = props;
@@ -20,6 +21,19 @@ const Profile = (props) => {
     const [state, setState] = useState();
     const [postalCode, setPostalCode] = useState();
     const [nameList, setNameList] = useState(email);
+
+
+    //image variables
+    const [image, setImage] = useState(null);
+    const [url, setUrl] = useState('');
+    const [progress, setProgress] = useState(0);
+
+    //handle change function
+    const handleChange = e => {
+        if(e.target.files[0]){
+            setImage(e.target.files[0]);
+        }
+    };
 
     //clear input fields after submitting
     const clearInputs = () => {
@@ -47,15 +61,12 @@ const Profile = (props) => {
             firstname,
             lastname,
             address:[houseNumber,streetName,streetType,city,state,postalCode],
+            url,
         };
         saveRef.push(savingData);
         clearInputs();
     };
 
-   /* const  fileSelectedHandler  = (event) => {
-            setSelectedFile(event.target.files[0]);
-        };
-    */
 
     //a function to fetch data from the database so we can have it displayed into our system
     useEffect (() => {
@@ -70,6 +81,35 @@ const Profile = (props) => {
         });
     }, []);
 
+    //a function to upload the image into images folder in firebase storage
+    const handleUpload = () => {
+        const saveRef = firebase.storage().ref(`images/${image.name}`).put(image);
+        saveRef.on(
+            "state_changed",
+            snapshot => {
+                const progress = Math.round(
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+                );
+                setProgress(progress);
+            },
+            error => {
+                console.log(error);
+            },
+            () => {
+                firebase.storage()
+                .ref("images")
+                .child(image.name)
+                .getDownloadURL()
+                .then(url => {
+                    setUrl(url);
+                });
+            }
+        );
+    };//yey! it worked finally
+
+
+    console.log("image: ", image);
+
     return(
         <div className="profile">
            
@@ -80,7 +120,17 @@ const Profile = (props) => {
             </div>
              */}
              <div className="profile-picture">
-                <ProfileUploader />
+                {/*<ProfileUploader />*/}
+                <div>
+                    <progress value={progress} max="100"/>
+                    <h1>Hey a'll</h1>
+                    <input type="file" onChange={handleChange}/>
+                    <button onClick={handleUpload}>Upload</button>
+                    <br />
+                    {url}
+                    <br />
+                    <img src={url || "http://via.placeholder.com/300x300"} alt="firebase-image" />
+                </div>
              </div>
             <label>Username : {user.email}</label><br></br>
             <label>Password : {user.password}</label><br></br>
