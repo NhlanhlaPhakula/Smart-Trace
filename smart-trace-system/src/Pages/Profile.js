@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
 import Users from './Users';
+import Table from './Table';
 import { Link } from 'react-router-dom';
 //import ProfileUploader from './ProfilePic';
 
-const Profile = (props) => {
-    const {email, setEmail} = props;
+const Profile = () => {
+    //const {email, setEmail} = props;
 
    // const[selectedFile, setSelectedFile] = useState();
     //const [Username, setUsername] = useState();
@@ -20,7 +21,7 @@ const Profile = (props) => {
     const [city, setCity] = useState();
     const [state, setState] = useState();
     const [postalCode, setPostalCode] = useState();
-    const [nameList, setNameList] = useState(email);
+    const [nameList, setNameList] = useState();
 
 
     //image variables
@@ -44,6 +45,8 @@ const Profile = (props) => {
         setCity('');
         setState('');
         setPostalCode('');
+        setFirstname('');
+        setLastname('');
     };
     
 
@@ -107,9 +110,11 @@ const Profile = (props) => {
         );
     };//yey! it worked finally
 
-
     console.log("image: ", image);
 
+    //a function to display a saved file in firebase storage from react js
+    
+          
     return(
         <div className="profile">
            
@@ -155,13 +160,14 @@ const Profile = (props) => {
             <label>Postal Code : </label><input type="number" value={postalCode} onChange={e=> setPostalCode(e.target.value)}/>
 
             <br></br>
-            {/*<h1>List of Users</h1>
-            *{nameList ? nameList.map((name, index) => <Users name={name} key={index}/>) : ''}
+            <h1>List of Users</h1>
+             {nameList ? nameList.map((name, index) => <Users name={name} key={index}/>) : ''}
             <br />
             <h1>Table of Possessions</h1>
-    {nameList ? nameList.map((name, index) => <Table name={name} key={index}/>) : ''}*/}
+            {nameList ? nameList.map((name, index) => <Table name={name} key={index}/>) : ''}
             <button onClick={saveData}>Upload</button>
             <Link to="/">Learn More</Link>
+
         </div>
     );
 };

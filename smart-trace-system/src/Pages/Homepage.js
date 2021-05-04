@@ -13,6 +13,7 @@ import Details from './Details';
 import Possessions from './Possessions';
 import firebase from '../Components/Firebase';
 import ProfileUploader from './ProfilePic';
+import Cart from './Cart';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
@@ -40,6 +41,9 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         </li>
                         <li>
                             <a href="/profile">Profile</a>
+                        </li>
+                        <li>
+                            <a href="/cart">Shopping Cart</a>
                         </li>
                         <li>
                             <a href="/settings">Settings</a>
@@ -93,6 +97,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/details" exact={true} component={Details}/>
                         <Route path="/possessions" exact={true} component={Possessions}/>
                         <Route path="/profilepic" exact={true} component={ProfileUploader}/>
+                        <Route path="/cart" exact={true} component={Cart}/>
                    </switch>
                    
                </div>
