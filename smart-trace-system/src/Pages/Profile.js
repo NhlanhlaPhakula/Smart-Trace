@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
 import Users from './Users';
 import Table from './Table';
+import Picture from './Picture';
 import { Link } from 'react-router-dom';
 //import ProfileUploader from './ProfilePic';
 
@@ -22,6 +23,7 @@ const Profile = () => {
     const [state, setState] = useState();
     const [postalCode, setPostalCode] = useState();
     const [nameList, setNameList] = useState();
+    const [pictureList, setPictureList] = useState();
 
 
     //image variables
@@ -110,6 +112,15 @@ const Profile = () => {
         );
     };//yey! it worked finally
 
+    //a function to download files
+    useEffect(() => {
+        const retrieveRef = firebase.storage().ref("images/app.jpg");
+        retrieveRef.getDownloadURL().then(function(url){
+            console.log(url);
+            setUrl(url);
+        });
+    });
+
     console.log("image: ", image);
 
     //a function to display a saved file in firebase storage from react js
@@ -159,13 +170,16 @@ const Profile = () => {
             <label>State : </label><input type="text" value={state} onChange={e=> setState(e.target.value)}/><br />
             <label>Postal Code : </label><input type="number" value={postalCode} onChange={e=> setPostalCode(e.target.value)}/>
 
-            <br></br>
+            {/*<br></br>
             <h1>List of Users</h1>
              {nameList ? nameList.map((name, index) => <Users name={name} key={index}/>) : ''}
             <br />
             <h1>Table of Possessions</h1>
             {nameList ? nameList.map((name, index) => <Table name={name} key={index}/>) : ''}
+            {pictureList ? pictureList.map((names, index) => <Picture names={names} key={index} />) : ''}*/}
             <button onClick={saveData}>Upload</button>
+            {/*<h1>{url}</h1>*/} 
+            <Link to="/details"><img src={url}/></Link>
             <Link to="/">Learn More</Link>
 
         </div>

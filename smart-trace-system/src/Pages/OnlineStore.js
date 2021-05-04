@@ -53,6 +53,7 @@ const Store = () => {
             </div>
             */}
             <div className="store">
+                <br />
             <h1>List of products on sale</h1>
                 {productsList ? productsList.map((names, index) => <Products name={names} key={index} />) : ''}
             </div>

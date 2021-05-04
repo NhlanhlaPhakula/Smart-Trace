@@ -24,7 +24,7 @@ const Products = ({ name }) => {
     return(
         <div className="productlist">
             <div>
-                <h1>{name.names}</h1>
+                <h1>{name.itemName}</h1>
                 <button onClick={addToCart}>Add to Cart</button>
                 <button onClick={reportProduct}>Report</button>
             </div>
