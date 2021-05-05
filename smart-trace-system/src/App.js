@@ -68,6 +68,7 @@ const App = () => {
   //Logout function
   const handleLogout = (LogoutTypes) => {
     firebase.auth().signOut();
+    sessionStorage.removeItem(user);
   };
 
   //Listener (to check if a user exists or not)
@@ -76,6 +77,7 @@ const App = () => {
       if(user) {
         clearInputs();
         setUser(user);
+        sessionStorage.setItem('session-control', user);
       }else{
         setUser("");
       };
@@ -95,11 +97,12 @@ const App = () => {
       };
     });
   };
+  
 
   //Add useEffect
   useEffect(() => {
     authListener();
-    handleCheckUser();
+    //handleCheckUser();
   },[]);
 
   //a sidebar

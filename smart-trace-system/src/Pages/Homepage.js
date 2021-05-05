@@ -14,6 +14,8 @@ import Possessions from './Possessions';
 import firebase from '../Components/Firebase';
 import ProfileUploader from './ProfilePic';
 import Cart from './Cart';
+import Admin from './Admin';
+import AdminProducts from './AdminProducts';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
@@ -49,7 +51,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                             <a href="/settings">Settings</a>
                         </li>
                         <li>
-                            <a href="/products">Products</a>
+                            <a href="/store">Store</a>
                         </li>
                         <li>
                             <a href="/report">Report</a>
@@ -98,6 +100,8 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/possessions" exact={true} component={Possessions}/>
                         <Route path="/profilepic" exact={true} component={ProfileUploader}/>
                         <Route path="/cart" exact={true} component={Cart}/>
+                        <Route path="/admin" exact={true} component={Admin} />
+                        <Route path="/adminProducts" exact={true} component={AdminProducts} />
                    </switch>
                    
                </div>

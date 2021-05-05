@@ -13,7 +13,10 @@ const CartItems = ({ names }) => {
         <div className="cartItems">
             <br />
             <h1>Cart Item</h1>
-            <h1>{names.names}</h1>
+            <h1>
+                {names.id}
+                {names.serialNumber}
+            </h1>
             <button>Pay</button>
             <button onClick={removeItem}>Remove</button>
         </div>
