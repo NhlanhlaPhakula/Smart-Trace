@@ -112,14 +112,14 @@ const Profile = () => {
         );
     };//yey! it worked finally
 
-    //a function to download files
+    /*//a function to download files
     useEffect(() => {
         const retrieveRef = firebase.storage().ref("images/app.jpg");
         retrieveRef.getDownloadURL().then(function(url){
             console.log(url);
             setUrl(url);
         });
-    });
+    });//it works perfectly */
 
     console.log("image: ", image);
 
@@ -168,7 +168,7 @@ const Profile = () => {
             </select><br></br>
             <label>City : </label><input type="text" value={city} onChange={e=> setCity(e.target.value)}/><br />
             <label>State : </label><input type="text" value={state} onChange={e=> setState(e.target.value)}/><br />
-            <label>Postal Code : </label><input type="number" value={postalCode} onChange={e=> setPostalCode(e.target.value)}/>
+            <label>Postal Code : </label><input type="number" value={postalCode} onChange={e=> setPostalCode(e.target.value)}/><br />
 
             {/*<br></br>
             <h1>List of Users</h1>
@@ -177,7 +177,7 @@ const Profile = () => {
             <h1>Table of Possessions</h1>
             {nameList ? nameList.map((name, index) => <Table name={name} key={index}/>) : ''}
             {pictureList ? pictureList.map((names, index) => <Picture names={names} key={index} />) : ''}*/}
-            <button onClick={saveData}>Upload</button>
+            <button onClick={saveData}>Upload</button><br />
             {/*<h1>{url}</h1>*/} 
             <Link to="/details"><img src={url}/></Link>
             <Link to="/">Learn More</Link>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import firebase from '../Components/Firebase';
+import {Link} from 'react-router-dom';
 
 const Products = ({ name }) => {
     //user function
@@ -24,7 +25,13 @@ const Products = ({ name }) => {
     return(
         <div className="productlist">
             <div>
-                <h1>{name.itemName}</h1>
+                <h1>
+                    <Link to="/details"><img src={name.url} alt="product-image"/></Link><br/>
+                    Name: {name.itemName} <br />
+                    Serial Number: {name.serialNumber} <br />
+                    Desciption: {name.itemDescription}<br/>
+                    Id: {name.id}
+                </h1>
                 <button onClick={addToCart}>Add to Cart</button>
                 <button onClick={reportProduct}>Report</button>
             </div>
