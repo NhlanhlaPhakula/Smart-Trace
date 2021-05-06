@@ -22,16 +22,7 @@ const TrackTrace = () => {
     
             </div>
             <div>
-                <img className="picture" src="Images/app.jpg"/>
-            </div>
-            <div>
-                <img className="picture" src="Images/app1.png" />
-            </div>
-            <div>
-                <img className="picture" src="Images/download.jfif"/>
-            </div>
-            <div>
-                <img className="picture" src="Images/mobapp.png"/>
+                <img className="picture" src="Images/app.jpg"/><img className="picture" src="Images/app1.png" /><img className="picture" src="Images/download.jfif"/><img className="picture" src="Images/mobapp.png"/>
             </div>
             <button>Download App</button>
             <div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
 import { Link } from 'react-router-dom';
+import Popup from './Popup';
 
 const Admin = () => {
 
@@ -10,6 +11,14 @@ const Admin = () => {
     const [serialNumber, setSerialNumber] = useState('');
     const [url, setUrl] = useState('');
    // const [userId, setUserId] = useState();
+
+   //popup function variable
+   const [isOpen, setIsOpen] = useState(false);
+
+   //toggle function for popup
+   const togglePopup = () => {
+       setIsOpen(!isOpen);
+   };
 
     //image variables
     const [image, setImage] = useState(null);
@@ -85,6 +94,13 @@ const Admin = () => {
     return(
         <div className="profile">
             <Link to="/adminProducts">MyProducts</Link>
+            {isOpen && <Popup
+            content={<>
+                <b>Smart Trace</b>
+                <p>Successful!!!!!</p>
+            </>}
+            handleClose={togglePopup}
+            />}
             <div className="product-picture">
                 <progress value={progress} max="100"/>
                 <h1>Progress bar</h1>
@@ -101,7 +117,10 @@ const Admin = () => {
                 <label>Serial Number : </label><input type="number" required value={serialNumber} onChange={e=> setSerialNumber(e.target.value)}/><br/>
                 <label>Item Description : </label><input type="text" required value={itemDescription} onChange={e=> setItemDescription(e.target.value)}/><br/>
             </div>
-            <button onClick={saveData}>Add Item</button><br></br>
+            <button onClick={() => {
+                saveData();
+                togglePopup();
+            }}>Add Item</button><br></br>
         </div>
     );
 };

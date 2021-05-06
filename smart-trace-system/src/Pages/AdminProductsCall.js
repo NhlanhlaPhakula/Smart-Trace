@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import firebase from '../Components/Firebase';
+import Popup from './Popup';
 
 
 const AdminProductsCall = ({items}) => {
+
+    //popup variables
+    const [isOpen, setIsOpen] = useState(false);
+
+    //popup function toggle function
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    };
 
     //user function
     const user = firebase.auth().currentUser;
@@ -22,9 +31,21 @@ const AdminProductsCall = ({items}) => {
 
     return(
         <div className="admin-products">
+            {isOpen && <Popup
+            content={<>
+                <b>Smart Trace</b>
+                <p>Successfuly Deleted</p>
+            </>}
+            handleClose={togglePopup}
+            />}
             <h1>{items.itemName}</h1>
-            <button>Delete</button>
-            <button>Report</button>
+            <button onClick={()=> {
+                deleteProduct();
+                togglePopup();
+            }}>Delete</button>
+            <button onClick={()=> {
+                updateProduct();
+            }}>Report</button>
         </div>
     );
 };

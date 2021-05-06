@@ -5,6 +5,7 @@ import Table from './Table';
 import Picture from './Picture';
 import { Link } from 'react-router-dom';
 //import ProfileUploader from './ProfilePic';
+import Popup from './Popup';
 
 const Profile = () => {
     //const {email, setEmail} = props;
@@ -24,6 +25,14 @@ const Profile = () => {
     const [postalCode, setPostalCode] = useState();
     const [nameList, setNameList] = useState();
     const [pictureList, setPictureList] = useState();
+
+    //popup variables
+    const [isOpen, setIsOpen] = useState(false);
+
+    //a toggle function for a popup screen when user save profile info
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    };
 
 
     //image variables
@@ -69,7 +78,6 @@ const Profile = () => {
             url,
         };
         saveRef.push(savingData);
-        clearInputs();
     };
 
 
@@ -121,6 +129,7 @@ const Profile = () => {
         });
     });//it works perfectly */
 
+
     console.log("image: ", image);
 
     //a function to display a saved file in firebase storage from react js
@@ -135,13 +144,20 @@ const Profile = () => {
                 <input type="file" onChange={fileSelectedHandler}/>
             </div>
              */}
+             {isOpen && <Popup
+            content={<>
+                <b>Smart Trace</b>
+                <p>Successful!!!!!</p>
+            </>}
+            handleClose={togglePopup}
+            />}
              <div className="profile-picture">
                 {/*<ProfileUploader />*/}
                 <div>
                     <progress value={progress} max="100"/>
                     <h1>Hey a'll</h1>
                     <input type="file" onChange={handleChange}/>
-                    <button onClick={handleUpload}>Upload</button>
+                    <button onClick={handleUpload}>Upload Picture</button>
                     <br />
                     {url}
                     <br />
@@ -177,9 +193,13 @@ const Profile = () => {
             <h1>Table of Possessions</h1>
             {nameList ? nameList.map((name, index) => <Table name={name} key={index}/>) : ''}
             {pictureList ? pictureList.map((names, index) => <Picture names={names} key={index} />) : ''}*/}
-            <button onClick={saveData}>Upload</button><br />
+            <button onClick={()=>{
+                saveData();
+                togglePopup();
+            }}>Upload</button>
+            <br />
             {/*<h1>{url}</h1>*/} 
-            <Link to="/details"><img src={url}/></Link>
+            {/*<Link to="/details"><img src={url}/></Link>*/}
             <Link to="/">Learn More</Link>
 
         </div>

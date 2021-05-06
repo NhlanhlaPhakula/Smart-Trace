@@ -58,28 +58,7 @@ const Tab = () => {
                     should be registered individually with their unique attributes to ensure effectiveness!<br></br>
                     
                     Possessions to be registed are mainly electronic devices e.g.Laptops,Desktop computer and more</h3>
-                    <Link className="link" to="">Secure items</Link>
-                </div>
-                <br></br>
-                <br></br>
-                <div className="divs">
-                    <h1 className="heading">Hello There</h1>
-                    <h3>Trace 'N Trace</h3>
-                    <Link className="link" to="">Learn More</Link>
-                </div>
-                <br></br>
-                <br></br>
-                <div className="divs">
-                    <h1 className="heading">Hello There</h1>
-                    <h3>Trace 'N Trace</h3>
-                    <Link className="link" to="">Learn More</Link>
-                </div>
-                <br></br>
-                <br></br>
-                <div className="divs">
-                    <h1 className="heading">Hello There</h1>
-                    <h3>Trace 'N Trace</h3>
-                    <Link className="link" to="">Learn More</Link>
+                    <Link className="link" to="/admin">Secure items</Link>
                 </div>
                 
             </div>

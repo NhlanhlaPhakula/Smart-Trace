@@ -16,6 +16,7 @@ import ProfileUploader from './ProfilePic';
 import Cart from './Cart';
 import Admin from './Admin';
 import AdminProducts from './AdminProducts';
+import PopupPage from './PopupPage';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
@@ -102,6 +103,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/cart" exact={true} component={Cart}/>
                         <Route path="/admin" exact={true} component={Admin} />
                         <Route path="/adminProducts" exact={true} component={AdminProducts} />
+                        <Route path="/basicPopup" exact={true} component={PopupPage} />
                    </switch>
                    
                </div>
