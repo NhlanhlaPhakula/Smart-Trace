@@ -31,14 +31,14 @@ const AdminProductsCall = ({items}) => {
 
     return(
         <div className="admin-products">
+            <h1>{items.itemName}</h1>
             {isOpen && <Popup
             content={<>
                 <b>Smart Trace</b>
-                <p>Successfuly Deleted</p>
+                <p>Successfuly Deleted!!</p>
             </>}
             handleClose={togglePopup}
             />}
-            <h1>{items.itemName}</h1>
             <button onClick={()=> {
                 deleteProduct();
                 togglePopup();
