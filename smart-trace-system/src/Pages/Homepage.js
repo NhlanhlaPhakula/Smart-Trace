@@ -79,7 +79,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                     </BrowserRouter>
                 </aside>
                 <h2>SMART TRACE</h2>
-                <h>{user.email}</h>
+                <h className="user">{user.email}</h>
                 <button onClick={handleLogout}>Logout</button>
             </nav>
             <BrowserRouter>

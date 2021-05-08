@@ -6,11 +6,17 @@ import Popup from './Popup';
 const AdminProductsCall = ({items}) => {
 
     //popup variables
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenDelete, setIsOpenDelete] = useState(false);
+    const [isOpenReport, setIsOpenReport] = useState(false);
 
     //popup function toggle function
-    const togglePopup = () => {
-        setIsOpen(!isOpen);
+    const togglePopupDelete = () => {
+        setIsOpenDelete(!isOpenDelete);
+    };
+
+    //report toggle
+    const togglePopupReport = () => {
+        setIsOpenReport(!isOpenReport);
     };
 
     //user function
@@ -32,19 +38,27 @@ const AdminProductsCall = ({items}) => {
     return(
         <div className="admin-products">
             <h1>{items.itemName}</h1>
-            {isOpen && <Popup
+            {isOpenDelete && <Popup
             content={<>
                 <b>Smart Trace</b>
                 <p>Successfuly Deleted!!</p>
             </>}
-            handleClose={togglePopup}
+            handleClose={togglePopupDelete}
+            />}
+            {isOpenReport && <Popup
+            content={<>
+                <b>Smart Trace</b>
+                <p>Successfuly Deleted!!</p>
+            </>}
+            handleClose={togglePopupReport}
             />}
             <button onClick={()=> {
                 deleteProduct();
-                togglePopup();
+                togglePopupDelete();
             }}>Delete</button>
             <button onClick={()=> {
                 updateProduct();
+                togglePopupReport();
             }}>Report</button>
         </div>
     );

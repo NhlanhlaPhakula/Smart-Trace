@@ -9,11 +9,17 @@ const Products = ({ name }) => {
     const [userId, setUserId] = useState(user);
 
     //popup variables
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpenAdd, setIsOpenAdd] = useState(false);
+    const [isOpenReport, setIsOpenReport] = useState(false);
 
     //a toggle function for popup
-    const togglePopup = () => {
-        setIsOpen(!isOpen);
+    const togglePopupAddToCart = () => {
+        setIsOpenAdd(!isOpenAdd);
+    };
+
+    //a toggle function for report
+    const togglePopupReport = () => {
+        setIsOpenReport(!isOpenReport);
     };
 
     //add to cart function
@@ -35,12 +41,19 @@ const Products = ({ name }) => {
     return(
         <div className="productlist">
             <div>
-            {isOpen && <Popup
+            {isOpenAdd && <Popup
             content={<>
                 <b>Smart Trace</b>
                 <p>Item Added to Cart :)</p>
             </>}
-            handleClose={togglePopup}
+            handleClose={togglePopupAddToCart}
+            />}
+            {isOpenReport && <Popup
+            content={<>
+                <b>Smart Trace</b>
+                <p>Suspicious Item is reported !!!!</p>
+            </>}
+            handleClose={togglePopupReport}
             />}
                 <h1>
                     <Link to="/details"><img src={name.url} alt="product-image"/></Link><br/>
@@ -51,9 +64,12 @@ const Products = ({ name }) => {
                 </h1>
                 <button onClick={() => {
                     addToCart();
-                    togglePopup();
+                    togglePopupAddToCart();
                 }}>Add to Cart</button>
-                <button onClick={reportProduct}>Report</button>
+                <button onClick={() => {
+                    reportProduct();
+                    togglePopupReport();
+                }}>Report</button>
             </div>
         </div>
     );

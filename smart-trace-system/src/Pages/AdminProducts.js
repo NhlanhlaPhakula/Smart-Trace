@@ -24,7 +24,7 @@ const AdminProducts = () => {
 
     return(
         <div className="admin-products">
-            <h1>These are your products</h1>
+            <h1>These are my registered products</h1>
             <Link to="/admin">Add Products</Link>
             {itemList ? itemList.map((items, index) => <AdminProductsCall items={items} key={index}/>) : ''}
         </div>

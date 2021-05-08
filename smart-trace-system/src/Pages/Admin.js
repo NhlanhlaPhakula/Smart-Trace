@@ -93,7 +93,8 @@ const Admin = () => {
 
     return(
         <div className="profile">
-            <Link to="/adminProducts">MyProducts</Link>
+            <h1 className="profile">ADD NEW ITEMS</h1>
+            <Link className="link" to="/adminProducts">MyProducts</Link>
             {isOpen && <Popup
             content={<>
                 <b>Smart Trace</b>
