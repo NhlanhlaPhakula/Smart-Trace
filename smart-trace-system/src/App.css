@@ -299,12 +299,15 @@ ul {
 .cart {
   color: white;
 }
-.productlist img{
+.productlist img,.admin-products img{
   height: 50%;
   width: 50%;
 }
 .admin-products{
   text-align: center;
+}
+.admin-products h1{
+  color: white;
 }
 .trackNtrace{
   text-align: center;

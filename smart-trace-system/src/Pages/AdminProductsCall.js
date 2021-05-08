@@ -37,7 +37,13 @@ const AdminProductsCall = ({items}) => {
 
     return(
         <div className="admin-products">
-            <h1>{items.itemName}</h1>
+            <h1>
+                <img src ={items.url}/><br/>
+                Name:{items.itemName}<br/>
+                Serial Number : {items.serialNumber}<br/>
+                Id: {items.id}<br/>
+                Item Description : {items.itemDescription}<br/>
+            </h1>
             {isOpenDelete && <Popup
             content={<>
                 <b>Smart Trace</b>
