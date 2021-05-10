@@ -10,6 +10,7 @@ const Admin = () => {
     const [itemDescription, setItemDescription] = useState('');
     const [serialNumber, setSerialNumber] = useState('');
     const [url, setUrl] = useState('');
+    const [category, setCategory] = useState();
    // const [userId, setUserId] = useState();
 
    //popup function variable
@@ -82,6 +83,7 @@ const Admin = () => {
             report: false,
             itemName,
             itemDescription,
+            category,
         };
         saveRef.push(savingData);
         clearInputs();
@@ -117,6 +119,23 @@ const Admin = () => {
                 <label>Item Name : </label><input type="text" required value={itemName} onChange={e=> setItemName(e.target.value)}/><br/>
                 <label>Serial Number : </label><input type="number" required value={serialNumber} onChange={e=> setSerialNumber(e.target.value)}/><br/>
                 <label>Item Description : </label><input type="text" required value={itemDescription} onChange={e=> setItemDescription(e.target.value)}/><br/>
+                <select value={setCategory} required>
+                    <option></option>
+                    <option value="Camera"> Camera</option>
+                    <option value="Desktop Computer">Desktop Computer</option>
+                    <option value="DvD Player">DvD Player</option>
+                    <option value="Fan">Fan</option>
+                    <option value="Game Console">Game Console</option>
+                    <option value="iPad">iPad</option>
+                    <option value="iPod">iPod</option>
+                    <option value="Laptop">Laptop</option>
+                    <option value="Mobile Phone">Mobile Phone</option>
+                    <option value="Oven">Oven</option>
+                    <option value="Printer">Printer</option>
+                    <option value="Radio">Radio</option>
+                    <option value="Television">Television</option>
+                    <option value="Washing Machine">Washing Machine</option>
+                </select>
             </div>
             <button onClick={() => {
                 saveData();

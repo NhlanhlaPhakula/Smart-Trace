@@ -173,7 +173,7 @@ const Profile = () => {
             <label>Street Name : </label><input type="text" value={streetName} onChange={e=> setStreetName(e.target.value)}/><br />
             <label>Street Type: </label>
             <select value={streetType} onChange={e=> setStreetType(e.target.value)}>
-                <option value="">Avenue</option>
+                <option value="Avenue">Avenue</option>
                 <option value="Court">Court</option>
                 <option value="Drive">Drive</option>
                 <option value="Junction">Junction</option>

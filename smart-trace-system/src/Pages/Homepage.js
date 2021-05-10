@@ -17,6 +17,7 @@ import Cart from './Cart';
 import Admin from './Admin';
 import AdminProducts from './AdminProducts';
 import PopupPage from './PopupPage';
+import SearchFunction from './SearchBar';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
@@ -104,6 +105,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/admin" exact={true} component={Admin} />
                         <Route path="/adminProducts" exact={true} component={AdminProducts} />
                         <Route path="/basicPopup" exact={true} component={PopupPage} />
+                        <Route path="/searchBar" exact={true} component={SearchFunction} />
                    </switch>
                    
                </div>
