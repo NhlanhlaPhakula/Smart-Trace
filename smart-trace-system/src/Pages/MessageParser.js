@@ -11,6 +11,12 @@ class MessageParser {
       }else
       if (lowerCaseMessage.includes("insurance")){
           this.actionProvider.insurance()
+      }else
+      if (lowerCaseMessage.includes("report")){
+          this.actionProvider.report()
+      }else
+      if (lowerCaseMessage.includes("smart trace system")){
+          this.actionProvider.report()
       }
     }
   }

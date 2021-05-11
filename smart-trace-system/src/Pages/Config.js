@@ -42,6 +42,30 @@
                 ],
             },
         },
+        {
+            widgetName: "DatavisualizationLinks",
+            widgetFunc: (props) => <LinkList {...props}/>,
+            props: {
+                options: [
+                    {
+                        text: "What is data visualization and why is it important?",
+                        url: "https://www.import.io/post/what-is-data-visualization/",
+                        id: 1,
+                    },
+                    {
+                        text: "Why do we need data visualization",
+                        url: "https://www.import.io/post/what-is-data-visualization/",
+                        id: 2,
+                    },
+                    {
+                        text: "How is data visualization used?",
+                        url: "https://www.import.io/post/what-is-data-visualization/",
+                        id: 3,
+                    },
+
+                ],
+            },
+        },
     ],
     
   };

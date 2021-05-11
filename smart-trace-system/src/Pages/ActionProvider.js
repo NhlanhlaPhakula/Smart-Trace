@@ -14,8 +14,25 @@ class ActionProvider {
         this.updateChatbotState(insuranceMessage)
     }
 
+    report() {
+        const reportMessage = this.createChatBotMessage("To report any lost/stolen items check this information:")
+        this.updateChatbotState(reportMessage)
+    }
 
-    
+    informartion() {
+        const informationMessage = this.createChatBotMessage("Smart Trace System is a ......")
+        this.updateChatbotState(informationMessage)
+    }
+
+    handleDataVisualizationList = () => {
+        const message = this.createChatBotMessage(
+            "Great, check out the following :",
+            {
+                widget: "DatavisualizationLinks",
+            }
+        );
+        this.updateChatbotState(message);
+    };
   
     handleJavascriptList = () => {
       const message = this.createChatBotMessage(
@@ -27,6 +44,7 @@ class ActionProvider {
   
       this.updateChatbotState(message);
     };
+
   
     updateChatbotState(message) {
       // NOTICE: This function is set in the constructor, and is passed in from the top level Chatbot component. The setState function here actually manipulates the top level state of the Chatbot, so it's important that we make sure that we preserve the previous state.
