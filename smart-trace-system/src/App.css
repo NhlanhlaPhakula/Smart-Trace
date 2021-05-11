@@ -362,3 +362,7 @@ ul {
 .link :hover {
   color: orange;
 }
+
+.insurance-questions {
+  text-align: center;
+}

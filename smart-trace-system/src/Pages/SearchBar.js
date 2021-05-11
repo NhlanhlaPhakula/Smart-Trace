@@ -6,37 +6,40 @@ const SearchFunction = () => {
 
     //variables
     const [userInput, setUserInput] = useState();
-    const [list, setList] = useState();
+    const [productsList, setProductsList] = useState();
+    const [itemName, setItemName] = useState();
 
     //change handler
     const handleChange = e => {
         setUserInput(e.target.value);
     };
 
-    //a function to access the database to call all of the data that we want to view
+    //search function 
     const Search = () => {
-    const retrieveRef = firebase.database().ref('Products');
+        const retrieveRef = firebase.database().ref('Products');
         retrieveRef.on('value', (snapshot) => {
             const products = snapshot.val();
-            const list = [];
-            for( let itemName in products){
-                if(userInput == itemName){
-                    list.push({ itemName, ... products[itemName]});
+            const productsList = [];
+            if(userInput !== itemName){
+                for(let id in products){
+                    productsList.push({ id, ... products[id]});
                 }
-            }
-            console.log(list);
-            setList(list);
-        
+                console.log(productsList);
+                setProductsList(productsList);
+            }else{
+                console.log("There is no matching item in the database");
+            };
         },[]);
     };
+
     return(
-        <Fragment>
+        
             <div>
                 <input placeholder="Somethiing that needs to be done..." onChange={handleChange} value={userInput} />
                 <button onClick={Search}>Search</button>
-                {list ? list.map((names, index) => <SearchResults  name={names} key={index}/>): ''}
+                {productsList ? productsList.map((names, index) => <SearchResults name={names} key={index} />) : ''}
             </div>
-        </Fragment>
+        
     );
 };
 export default SearchFunction;
