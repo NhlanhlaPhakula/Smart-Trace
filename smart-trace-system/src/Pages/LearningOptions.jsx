@@ -5,17 +5,26 @@ import "./LearningOptions.css";
 const LearningOptions = (props) => {
   const options = [
     {
-      text: "Javascript",
-      handler: props.actionProvider.handleJavascriptList,
+      text: "InsuranceLinks",
+      handler: props.actionProvider.handleInsuranceList,
       id: 1,
     },
-    { text: "DatavisualizationLinks", 
-      handler: props.actionProvider.handleDataVisualizationList, 
-      id: 2 
+    { text: "SmartTraceLinks", 
+      handler: props.actionProvider.handleSmartTraceList, 
+      id: 2 ,
     },
-    { text: "APIs", handler: () => {}, id: 3 },
-    { text: "Security", handler: () => {}, id: 4 },
-    { text: "Interview prep", handler: () => {}, id: 5 },
+    { text: "OnlineStoreLinks",
+      handler: props.actionProvider.handleOnlineStoreList,
+      id: 3,
+    },
+    { text: "EnquiryForm", 
+      handler: props.actionProvider.handleEnquireForm, 
+      id: 4,
+    },
+    { text: "Report", 
+      handler: props.actionProvider.handleReportList, 
+      id: 5 
+    },
   ];
 
   const optionsMarkup = options.map((option) => (

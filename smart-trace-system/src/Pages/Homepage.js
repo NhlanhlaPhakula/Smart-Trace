@@ -20,8 +20,9 @@ import SearchFunction from './SearchBar';
 import InsuranceQuestions from './InsuranceQ';
 import Insurance from './Insurance';
 import AddInsurance from './InsuranceAdd';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
 import ChatBot from './Chatbot';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
+
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
     const user = firebase.auth().currentUser;
