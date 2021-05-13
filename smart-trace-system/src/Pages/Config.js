@@ -54,7 +54,7 @@
   const config = {
       botName : "Smart Trace Bot",
     initialMessages: [
-        createChatBotMessage("Hi, I'm here to help. What do you want to learn?", {
+        createChatBotMessage("Hi, I'm here to help. What can i do for you?", {
         widget: "learningOptions",
     }),
     ],
@@ -65,7 +65,7 @@
             widgetFunc: (props) => <LearningOptions {...props}/>,
         },
         {
-            widgetName: "InsuranceLinks",
+            widgetName: "Insurance",
             widgetFunc: (props) => <LinkList {...props} />,
             props: {
                 options: [
@@ -121,7 +121,7 @@
             },
         },
         {
-            widgetName: "SmartTraceLinks",
+            widgetName: "SmartTrace",
             widgetFunc: (props) => <LinkList {...props}/>,
             props: {
                 options: [
@@ -145,7 +145,7 @@
             },
         },
         {
-            widgetName: "OnlineStoreLinks",
+            widgetName: "OnlineStore",
             widgetFunc: (props) => <LinkList {...props} />,
             props: {
                 options: [

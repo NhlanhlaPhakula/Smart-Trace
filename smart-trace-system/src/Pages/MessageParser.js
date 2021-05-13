@@ -34,7 +34,17 @@ class MessageParser {
       if (lowerCaseMessage.includes("insure")) {
           this.actionProvider.insurance()
       }else
+      //reporting stolen items
       if (lowerCaseMessage.includes("report")){
+          this.actionProvider.report()
+      }else
+      if (lowerCaseMessage.includes("stolen")){
+          this.actionProvider.report()
+      }else
+      if (lowerCaseMessage.includes("lost")) {
+          this.actionProvider.report()
+      }else
+      if (lowerCaseMessage.includes("theft")) {
           this.actionProvider.report()
       }else
       if (lowerCaseMessage.includes("smart trace system")){
@@ -42,6 +52,12 @@ class MessageParser {
       }else
       if (lowerCaseMessage.includes("register")){
           this.actionProvider.register()
+      }else
+      if (lowerCaseMessage.includes("sell")) {
+          this.actionProvider.sell()
+      }else
+      if (lowerCaseMessage.includes("buy")) {
+          this.actionProvider.buy()
       }
     }
   }

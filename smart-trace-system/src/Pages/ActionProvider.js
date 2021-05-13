@@ -13,11 +13,31 @@ class ActionProvider {
         const insuranceMessage = this.createChatBotMessage(
             "Try these:",
             {
-                widget: "InsuranceLinks",
+                widget: "Insurance",
             }
         );
         this.updateChatbotState(insuranceMessage)
         
+    };
+
+    buy() {
+        const buyItems = this.createChatBotMessage(
+            "Cool, to buy and sell items via our system you gotta be registered with us first. If you interested in buying items from our store, just follow the link below:",
+            {
+                widget: "OnlineStore"
+            }
+        );
+        this.updateChatbotState(buyItems)
+    };
+
+    sell() {
+        const sellItems = this.createChatBotMessage(
+            "Great, selling items via our portal is easy! Visit the admin page to get more information on how its done",
+            {
+                widget: "SmartTrace",
+            }
+        );
+        this.updateChatbotState(sellItems)
     };
 
     report() {
@@ -44,7 +64,7 @@ class ActionProvider {
         const message = this.createChatBotMessage(
             "Great, check out the following :",
             {
-                widget: "SmartTraceLinks",
+                widget: "SmartTrace",
             }
         );
         this.updateChatbotState(message);
@@ -64,7 +84,7 @@ class ActionProvider {
       const message = this.createChatBotMessage(
         "Fantastic, here is a list of different insurance companies/plans to consider from:",
         {
-          widget: "InsuranceLinks",
+          widget: "Insurance",
         }
       );
   
@@ -75,7 +95,7 @@ class ActionProvider {
         const message = this.createChatBotMessage(
             "Great!",
             {
-                widget: "OnlineStoreLinks",
+                widget: "OnlineStore",
             }
         );
         this.updateChatbotState(message);

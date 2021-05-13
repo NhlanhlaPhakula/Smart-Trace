@@ -5,15 +5,15 @@ import "./LearningOptions.css";
 const LearningOptions = (props) => {
   const options = [
     {
-      text: "InsuranceLinks",
+      text: "Insurance",
       handler: props.actionProvider.handleInsuranceList,
       id: 1,
     },
-    { text: "SmartTraceLinks", 
+    { text: "SmartTrace", 
       handler: props.actionProvider.handleSmartTraceList, 
       id: 2 ,
     },
-    { text: "OnlineStoreLinks",
+    { text: "OnlineStore",
       handler: props.actionProvider.handleOnlineStoreList,
       id: 3,
     },
