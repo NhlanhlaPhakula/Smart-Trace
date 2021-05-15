@@ -10,6 +10,7 @@ const Report = () => {
     const [lastName, setLastName] = useState();
     const [serialNumber, setSerialNumber] = useState();
     const [description, setDescription] = useState();
+    const [date, setDate] = useState(Date);
     //user function
     const user = firebase.auth().currentUser;
 
@@ -26,6 +27,8 @@ const Report = () => {
 
         const savingData = {
             userId: user.email,
+            email: user.email,
+            date,
             category,
             productName,
             firstName,
@@ -70,13 +73,13 @@ const Report = () => {
                     <option value="Washing Machine">Washing Machine</option>
                 </select><br/>
                 <label>Owner' FirstName : </label>
-                <input type="text" value={firstName} onChange={e=> setFirstName(e.target.value)} /><br/>
+                <input type="text" value={firstName} required onChange={e=> setFirstName(e.target.value)} /><br/>
                 <label>Owner' LastName : </label>
-                <input type="text" value={lastName} onChange={e=> setLastName(e.target.value)} /><br/>
+                <input type="text" value={lastName} required onChange={e=> setLastName(e.target.value)} /><br/>
                 <label>Product Serial Number :</label>
-                <input type="text" value={serialNumber} onChange={e=> setSerialNumber(e.target.value)} /><br/>
+                <input type="text" value={serialNumber} required onChange={e=> setSerialNumber(e.target.value)} /><br/>
                 <label>Description : </label>
-                <input type="text" value={description} onChange={e=> setDescription(e.target.value)}/><br/>
+                <textarea value={description} required onChange={e=> setDescription(e.target.value)} /><br/>
                 <button onClick={() => {
                     saveData();
                     togglePopup();

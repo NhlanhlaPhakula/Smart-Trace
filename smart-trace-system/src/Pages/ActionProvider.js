@@ -48,7 +48,57 @@ class ActionProvider {
             }
         );
         this.updateChatbotState(reportMessage)
-    }
+    };
+
+    shopping() {
+        const shoppingCart = this.createChatBotMessage(
+            "Here is your shopping cart",
+            {
+                widget: "Shopping",
+            }
+        );
+        this.updateChatbotState(shoppingCart);
+    };
+
+    services() {
+        const serviceS = this.createChatBotMessage(
+            "Open it here",
+            {
+                widget: "Services",
+            }
+        );
+        this.updateChatbotState(serviceS);
+    };
+
+    admin() {
+        const administration = this.createChatBotMessage(
+            "Great",
+            {
+                widget: "Admin",
+            }
+        );
+        this.updateChatbotState(administration);
+    };
+
+    about() {
+        const aboutUs = this.createChatBotMessage(
+            "Nice",
+            {
+                widget: "AboutUs",
+            }
+        );
+        this.updateChatbotState(aboutUs);
+    };
+
+    contacts() {
+        const contactUs = this.createChatBotMessage(
+            "Great, here",
+            {
+                widget: "Contacts",
+            }
+        );
+        this.updateChatbotState(contactUs);
+    };
 
     informartion() {
         const informationMessage = this.createChatBotMessage("Smart Trace System is a ......")

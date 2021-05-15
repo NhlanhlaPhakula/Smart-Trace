@@ -1,55 +1,12 @@
   import React, { Component } from 'react';
-  import PropTypes from 'prop-types';
   import { createChatBotMessage } from "react-chatbot-kit";
 
   import LearningOptions from './LearningOptions';
   import LinkList from './LinkList';
+  import EnquiryForm from './EnquiryForm';
+  import Report from './Report';
 
-  class Review extends Component {
-      constructor(props) {
-          super(props);
 
-          this.state = {
-              name: '',
-              gender: '',
-              age: '',
-          };
-      }
-
-      componentWillMount() {
-          const { steps } = this.props;
-          const { name, gender, age } = steps;
-      }
-
-      render() {
-          const { name, gender, age } = this.state;
-          return (
-              <div style={{ width: '100%' }}>
-                  <h3>Summary</h3>
-                  <table>
-                      <tbody>
-                          <tr>
-                              <td>Name</td>
-                              <td>{name.value}</td>
-                          </tr>
-                          <tr>
-                              <td>Gender</td>
-                              <td>{gender.value}</td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-          );
-      }
-  }
-
-  Review.propTypes = {
-    steps: PropTypes.object,
-  };
-  
-  Review.defaultProps = {
-    steps: undefined,
-  };
   
   const config = {
       botName : "Smart Trace Bot",
@@ -164,73 +121,76 @@
         },
         {
             widgetName: "Report",
+            widgetFunc: (props) => <Report />,
+        },
+        {
+            widgetName: "Shopping",
             widgetFunc: (props) => <LinkList {...props} />,
             props: {
                 options: [
                     {
-                        text: "How to report missing items?",
-                        url: "/report",
+                        text: "To access access your shopping cart click here",
+                        url: "/cart",
                         id: 1,
                     },
+                ],
+            },
+        },
+        {
+            widgetName: "Admin",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
                     {
-                        text: "Report Now!",
-                        url: "/report",
-                        id: 2,
+                        text: "Navigate to the admin side through this widget, go ahead and click",
+                        url: "/admin",
+                        id: 1,
+                    },
+                ],
+            },
+        },
+        {
+            widgetName: "AboutUs",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "Wanna know more about us?",
+                        url: "/aboutUs",
+                        id: 1,
+                    },
+                ],
+            },
+        },
+        {
+            widgetName: "Services",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "To access our services you have to visit our services page to get more info",
+                        url: "/services",
+                        id: 1,
+                    },
+                ],
+            },
+        },
+        {
+            widgetName: "Contacts",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "If you want to contact our team press here!",
+                        url: "/",
+                        id: 1,
                     },
                 ],
             },
         },
         {
             widgetName: "EnquiryForm",
-            widgetFunc: (props) => <LinkList {...props} />,
-            props: {
-                options: [
-                    {
-                        id: 1,
-                        text: 'What is your name?',
-                        trigger: 2,
-                    },
-                    {
-                        id: 2,
-                        user: true,
-                        trigger: 3,
-                    },
-                    {
-                        id: 3,
-                        text: 'Hi {previousValue}! what is your genger?',
-                        trigger: 4,
-                    },
-                    {
-                        id: 4,
-                        options: [
-                            {value: 'male', label: 'Male', trigger: 5},
-                            {value: 'female', label: 'Female', trigger: 5},
-                        ],
-                    },
-                    {
-                        id: 5,
-                        text: 'How old are you?',
-                        trigger: 6,
-                    },
-                    {
-                        id: 6,
-                        user: true,
-                        trigger: 7,
-                        validator: (value) => {
-                            if (isNaN(value)) {
-                                return 'value must be a number';
-                            }else if (value < 0) {
-                                return 'value must be positive';
-                            }else if (value > 120) {
-                                return `${value}? Come on`;
-                            }
-
-                            return true;
-                        },
-                    },
-                    
-                ],
-            },
+            widgetFunc: (props) => <EnquiryForm />,
         },
     ],
     

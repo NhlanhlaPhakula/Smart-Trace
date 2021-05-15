@@ -58,6 +58,52 @@ class MessageParser {
       }else
       if (lowerCaseMessage.includes("buy")) {
           this.actionProvider.buy()
+      }else
+      //shopping cart 
+      if (lowerCaseMessage.includes("shopping")) {
+          this.actionProvider.shopping()
+      }else
+      if (lowerCaseMessage.includes("cart")) {
+        this.actionProvider.shopping()
+      }else
+      //contacts
+      if (lowerCaseMessage.includes("contact")) {
+          this.actionProvider.contacts()
+      }else
+      if (lowerCaseMessage.includes("message")){
+          this.actionProvider.contacts()
+      }else
+      if (lowerCaseMessage.includes("email")) {
+          this.actionProvider.contacts()
+      }else
+      if (lowerCaseMessage.includes("text")) {
+          this.actionProvider.contacts()
+      }else
+      if (lowerCaseMessage.includes("chat")) {
+          this.actionProvider.contacts()
+      }else 
+      if (lowerCaseMessage.includes("get hold")) {
+          this.actionProvider.contacts()
+      }else
+      if (lowerCaseMessage.includes("communicate")) {
+          this.actionProvider.contacts()
+      }else 
+      if (lowerCaseMessage.includes("talk")) {
+          this.actionProvider.contacts()
+      }else
+      if (lowerCaseMessage.includes("call")) {
+          this.actionProvider.contacts()
+      }else
+      if (lowerCaseMessage.includes("service")) {
+          this.actionProvider.services()
+      }else 
+      //administration page
+      if (lowerCaseMessage.includes("admin")) {
+          this.actionProvider.admin()
+      }else
+      //about us page
+      if (lowerCaseMessage.includes("about")) {
+          this.actionProvider.about()
       }
     }
   }
