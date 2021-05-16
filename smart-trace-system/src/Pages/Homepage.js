@@ -23,6 +23,7 @@ import AddInsurance from './InsuranceAdd';
 import UserProfile from './UserProfile';
 import ChatBot from './Chatbot';
 import EnquiryForm from './EnquiryForm';
+import CategorySearch from './Category';
 
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
@@ -118,6 +119,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/chatbot" exact={true} component={ChatBot} />
                         <Route path="/userProfile" exact={true} component={UserProfile} />
                         <Route path="/enquiry" exact={true} component={EnquiryForm} />
+                        <Route path="/category" exact={true} component={CategorySearch} />
 
                    </switch>
                    

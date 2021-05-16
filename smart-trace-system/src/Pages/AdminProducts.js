@@ -7,10 +7,11 @@ const AdminProducts = () => {
 
     //variables
     const [itemList, setItemList] = useState();
+    const user = firebase.auth().currentUser;
 
     //a function to call all of the products stored in the database
     useEffect(() => {
-        const retrieveRef = firebase.database().ref('Products');
+        const retrieveRef = firebase.database().ref('Products').orderByChild('userId').equalTo(user.email);
         retrieveRef.on('value', (snapshot) => {
             const items = snapshot.val();
             const itemList = [];

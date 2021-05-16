@@ -6,7 +6,7 @@ import Popup from './Popup';
 const Products = ({ name }) => {
     //user function
     const user = firebase.auth().currentUser;
-    const [userId, setUserId] = useState(user);
+    //const [userId, setUserId] = useState(user);
 
     //popup variables
     const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -27,6 +27,7 @@ const Products = ({ name }) => {
         const addRef = firebase.database().ref('Cart').child(name.id);
         addRef.push({
             name,
+            userId: user.email,
         });
     };
 

@@ -11,7 +11,7 @@ const Cart = () => {
 
     //a function to call to call our products
     useEffect (() => {
-        const retrieveRef = firebase.database().ref('Cart');
+        const retrieveRef = firebase.database().ref('Cart').orderByChild('userId').equalTo(user.email);
         retrieveRef.on('value', (snapshot) => {
             const products = snapshot.val();
             const productsList = [];

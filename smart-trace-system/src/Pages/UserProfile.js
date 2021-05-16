@@ -12,7 +12,7 @@ const UserProfile = () => {
 
     //a function to call all of the currently logged in user details
     useEffect(() => {
-        const retrieveRef = firebase.database().ref('Users');
+        const retrieveRef = firebase.database().ref('Users').orderByChild('userId').equalTo(userId.email);
         retrieveRef.on('value', (snapshot) => {
             const information = snapshot.val();
             const userInfo = [];

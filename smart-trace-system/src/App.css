@@ -392,3 +392,10 @@ ul {
 .report-page {
   background-color: cornflowerblue;
 }
+
+.search-bar {
+  text-align: center;
+}
+.products-category {
+  text-align: center;
+}

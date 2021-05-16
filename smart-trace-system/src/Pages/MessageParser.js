@@ -50,7 +50,11 @@ class MessageParser {
       if (lowerCaseMessage.includes("smart trace system")){
           this.actionProvider.information()
       }else
+      //registration of new items
       if (lowerCaseMessage.includes("register")){
+          this.actionProvider.register()
+      }else
+      if (lowerCaseMessage.includes("add")) {
           this.actionProvider.register()
       }else
       if (lowerCaseMessage.includes("sell")) {
@@ -104,6 +108,38 @@ class MessageParser {
       //about us page
       if (lowerCaseMessage.includes("about")) {
           this.actionProvider.about()
+      }else
+      //removing items from the database
+      if (lowerCaseMessage.includes("remove")) {
+          this.actionProvider.remove()
+      }else
+      if (lowerCaseMessage.includes("delete")) {
+          this.actionProvider.remove()
+      }else
+      if (lowerCaseMessage.includes("erase")) {
+          this.actionProvider.remove()
+      }else
+      if (lowerCaseMessage.includes("get rid")) {
+          this.actionProvider.remove()
+      }else
+      if (lowerCaseMessage.includes("clear")) {
+          this.actionProvider.remove()
+      }else
+      //change items from the database
+      if (lowerCaseMessage.includes("update")) {
+          this.actionProvider.update()
+      }else
+      if (lowerCaseMessage.includes("change")) {
+          this.actionProvider.update()
+      }else
+      if (lowerCaseMessage.includes("modify")) {
+          this.actionProvider.update()
+      }else
+      if (lowerCaseMessage.includes("correct")) {
+          this.actionProvider.update()
+      }else
+      if (lowerCaseMessage.includes("rectify")) {
+          this.actionProvider.update()
       }
     }
   }

@@ -137,6 +137,24 @@
             },
         },
         {
+            widgetName: "Updates",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "Update my products",
+                        url: "/adminProducts",
+                        id: 1,
+                    },
+                    {
+                        text: "Update my user account",
+                        url: "/profile",
+                        id: 2,
+                    },
+                ],
+            },
+        },
+        {
             widgetName: "Admin",
             widgetFunc: (props) => <LinkList {...props} />,
             props: {

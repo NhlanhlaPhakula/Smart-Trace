@@ -100,6 +100,16 @@ class ActionProvider {
         this.updateChatbotState(contactUs);
     };
 
+    update() {
+        const updates = this.createChatBotMessage(
+            "Don't sweat it, here we go:",
+            {
+                widget: "Updates",
+            }
+        );
+        this.updateChatbotState(updates);
+    };
+
     informartion() {
         const informationMessage = this.createChatBotMessage("Smart Trace System is a ......")
         this.updateChatbotState(informationMessage)
@@ -108,6 +118,11 @@ class ActionProvider {
     register() {
         const registerMessage = this.createChatBotMessage("If you are looking forward to register your account, head over to the side panel to access the profile function and for registering your products head over to the admin function to get items registered :)")
         this.updateChatbotState(registerMessage)
+    }
+
+    remove() {
+        const removeItems = this.createChatBotMessage("To delete products from the database you need to explore the admin page by accessing the navigation bar at the top left of the screen.")
+        this.updateChatbotState(removeItems)
     }
 
     handleSmartTraceList = () => {

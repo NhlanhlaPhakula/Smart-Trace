@@ -154,6 +154,7 @@ const Profile = () => {
              <div className="profile-picture">
                 {/*<ProfileUploader />*/}
                 <div>
+                    <Link className="link" to="/userProfile">My Profile</Link><br/>
                     <progress value={progress} max="100"/>
                     <h1>Hey a'll</h1>
                     <input type="file" onChange={handleChange}/>
