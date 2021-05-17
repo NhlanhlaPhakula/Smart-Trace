@@ -33,7 +33,8 @@ const SearchFunction = () => {
     return(
         
             <div className="search-bar">
-                <input placeholder="Somethiing that needs to be done..." onChange={handleChange} value={userInput} />
+                <h5>Type to search</h5><br/>
+                <input onChange={handleChange} value={userInput} /><br/>
                 <button onClick={Search}>Search</button>
                 {productsList ? productsList.map((names, index) => <SearchResults name={names} key={index} />) : ''}
             </div>

@@ -140,6 +140,22 @@ class MessageParser {
       }else
       if (lowerCaseMessage.includes("rectify")) {
           this.actionProvider.update()
+      }else
+      //track and trace info
+      if (lowerCaseMessage.includes("track")) {
+          this.actionProvider.track()
+      }else
+      if (lowerCaseMessage.includes("trace")) {
+          this.actionProvider.track()
+      }else 
+      if (lowerCaseMessage.includes("search")) {
+          this.actionProvider.track()
+      }else
+      if (lowerCaseMessage.includes("find")) {
+          this.actionProvider.track()
+      }else
+      if (lowerCaseMessage.includes("")) {
+          this.actionProvider.nothing()
       }
     }
   }

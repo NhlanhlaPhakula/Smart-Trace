@@ -5,17 +5,17 @@ import SearchResults from './SearchResults';
 
 const CategorySearch = () => {
     //variables and functions
-    const [Category, setCategory] = useState();
+    const [category, setCategory] = useState();
     const [productsList, setProductsList] = useState();
 
     //search function 
     const handleSearch = () => {
-        const retrieveRef = firebase.database().ref('Products').orderByChild('category').equalTo(Category);
+        const retrieveRef = firebase.database().ref('Products').orderByChild('category').equalTo(category);
         retrieveRef.on('value', (snapshot) => {
             const products = snapshot.val();
             const productsList = [];
             for(let id in products) {
-                productsList.push({ id, ... productsList[id]});
+                productsList.push({ id, ... products[id]});
             }
             console.log(productsList);
             setProductsList(productsList);
@@ -26,8 +26,8 @@ const CategorySearch = () => {
     return(
         <div className="products-category">
             <br/>
-            <h1>Search items by Category</h1><br/>
-            <select value={Category} onChange={e=> setCategory(e.target.value)}>
+            <h5>Search items by Category</h5><br/>
+            <select value={category} onChange={e=> setCategory(e.target.value)}>
                 <option></option>
                 <option value="Camera">Camera</option>
                 <option value="Music Instruments">Music Instruments</option>
@@ -47,7 +47,7 @@ const CategorySearch = () => {
                 <option value="Washing Machine">Washing Machine</option>
             </select><br/>
             <button onClick={handleSearch}>Search</button><br/>
-            {productsList ? productsList.map((names, index) => <Products name={names} key={index}/>) : ''}
+            {productsList ? productsList.map((names, index) => <SearchResults name={names} key={index}/>) : ''}
         </div>
     );
 };

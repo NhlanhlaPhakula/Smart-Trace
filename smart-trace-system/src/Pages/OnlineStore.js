@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
+import CategorySearch from './Category';
 import Products from './Products';
+import SearchFunction from './SearchBar';
 
 const Store = () => {
     //variables
@@ -25,7 +27,9 @@ const Store = () => {
 
     return(
         <div className="onlineStore">
-            <h1>This is our online store</h1>
+            <h1>This is our online store</h1><br/>
+            <CategorySearch /><br/><SearchFunction/><br/>
+            <hr/>
             {/*<div>
                 <a href="/details"><img src="Images/download (1).jfif" /></a><br/>
                 <label>(Item Name)</label> <label>(Price in Rands)</label>

@@ -9,9 +9,11 @@ const Cart = () => {
     //user function
     const user = firebase.auth().currentUser;
 
+    const [userId, setUserId] = useState(user);
+
     //a function to call to call our products
     useEffect (() => {
-        const retrieveRef = firebase.database().ref('Cart').orderByChild('userId').equalTo(user.email);
+        const retrieveRef = firebase.database().ref('Cart');
         retrieveRef.on('value', (snapshot) => {
             const products = snapshot.val();
             const productsList = [];

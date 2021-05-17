@@ -108,7 +108,7 @@
                 options: [
                     {
                         text: "How our online store operates",
-                        url: "",
+                        url: "/trackNtrace",
                         id: 1,
                     },
                     {
@@ -150,6 +150,29 @@
                         text: "Update my user account",
                         url: "/profile",
                         id: 2,
+                    },
+                ],
+            },
+        },
+        {
+            widgetName: "Tracking",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "Info on our tracking",
+                        url: "/trackNtrace",
+                        id: 1,
+                    },
+                    {
+                        text: "To track stolen goods, check this out",
+                        url: "/",
+                        id: 2,
+                    },
+                    {
+                        text: "Register your items for track and trace",
+                        url: "/admin",
+                        id: 3,
                     },
                 ],
             },

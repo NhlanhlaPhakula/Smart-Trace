@@ -300,8 +300,8 @@ ul {
   color: white;
 }
 .productlist img,.admin-products img{
-  height: 50%;
-  width: 50%;
+  height: 30%;
+  width: 30%;
 }
 .admin-products{
   text-align: center;
@@ -398,4 +398,9 @@ ul {
 }
 .products-category {
   text-align: center;
+}
+
+.search-results img{
+  height: 20%;
+  width: 20%;
 }

@@ -110,9 +110,24 @@ class ActionProvider {
         this.updateChatbotState(updates);
     };
 
+    track() {
+        const trace = this.createChatBotMessage(
+            "Nice, here's what we got for you:",
+            {
+                widget: "Tracking",
+            }
+        );
+        this.updateChatbotState(trace);
+    };
+
     informartion() {
         const informationMessage = this.createChatBotMessage("Smart Trace System is a ......")
         this.updateChatbotState(informationMessage)
+    }
+
+    nothing() {
+        const nothingMessage = this.createChatBotMessage("Could'nt get that, try again please")
+        this.updateChatbotState(nothingMessage)
     }
 
     register() {
