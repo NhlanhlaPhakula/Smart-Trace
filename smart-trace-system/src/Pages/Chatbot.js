@@ -7,8 +7,8 @@ import config from './Config';
 
 const ChatBot = () => {
     return(
-        <div>
-        <Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser} />
+        <div className="chatbot">
+        <Chatbot config={config} actionProvider={ActionProvider} messageParser={MessageParser}  />
         </div>
     );
 };

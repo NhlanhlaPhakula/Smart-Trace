@@ -191,6 +191,24 @@
             },
         },
         {
+            widgetName: "Security",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "Information on securing electronic devices",
+                        url: "/trackNtrace",
+                        id: 1,
+                    },
+                    {
+                        text: "Click on here to secure your electronic devices with us",
+                        url: "/admin",
+                        id: 2,
+                    },
+                ],
+            },
+        },
+        {
             widgetName: "AboutUs",
             widgetFunc: (props) => <LinkList {...props} />,
             props: {

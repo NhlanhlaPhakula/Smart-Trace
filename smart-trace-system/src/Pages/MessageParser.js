@@ -154,6 +154,31 @@ class MessageParser {
       if (lowerCaseMessage.includes("find")) {
           this.actionProvider.track()
       }else
+      //security
+      if (lowerCaseMessage.includes("secure")) {
+          this.actionProvider.secure()
+      }else
+      if (lowerCaseMessage.includes("protect")) {
+          this.actionProvider.secure()
+      }else
+      if (lowerCaseMessage.includes("store")) {
+          this.actionProvider.secure()
+      }else
+      if (lowerCaseMessage.includes("save")) {
+          this.actionProvider.secure()
+      }else
+      if (lowerCaseMessage.includes("guard")) {
+          this.actionProvider.secure()
+      }else 
+      if (lowerCaseMessage.includes("safeguard")) {
+          this.actionProvider.secure()
+      }else
+      if (lowerCaseMessage.includes("shield")) {
+          this.actionProvider.secure()
+      }else
+      if (lowerCaseMessage.includes("defend")) {
+          this.actionProvider.secure()
+      }else
       if (lowerCaseMessage.includes("")) {
           this.actionProvider.nothing()
       }

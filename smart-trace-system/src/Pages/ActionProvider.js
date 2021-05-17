@@ -119,6 +119,16 @@ class ActionProvider {
         );
         this.updateChatbotState(trace);
     };
+    
+    secure() {
+        const security = this.createChatBotMessage(
+            "Great, here you go:",
+            {
+                widget: "Security",
+            }
+        );
+        this.updateChatbotState(security);
+    };
 
     informartion() {
         const informationMessage = this.createChatBotMessage("Smart Trace System is a ......")
