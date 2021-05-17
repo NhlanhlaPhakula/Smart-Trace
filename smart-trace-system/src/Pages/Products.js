@@ -62,6 +62,7 @@ const Products = ({ name }) => {
                     Serial Number: {name.serialNumber} <br />
                     Desciption: {name.itemDescription}<br/>
                     Id: {name.id}
+                    
                 </h1>
                 <button onClick={() => {
                     addToCart();
