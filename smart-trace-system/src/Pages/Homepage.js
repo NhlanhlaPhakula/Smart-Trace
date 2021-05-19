@@ -24,6 +24,8 @@ import UserProfile from './UserProfile';
 import ChatBot from './Chatbot';
 import EnquiryForm from './EnquiryForm';
 import CategorySearch from './Category';
+import SerialNumberSearch from './ProductSearch';
+import Notifications from './Notifications';
 
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
@@ -73,13 +75,13 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                             <a href="/about">About Us</a>
                         </li>
                         <li>
-                            <a href="/services">Services</a>
+                            <a href="/myNotifications">Messages</a>
                         </li>
                         <li>
                             <a href="/covid-19">Covid-19</a>
                         </li>
                         <li>
-                            <a href="/investors">Investors</a>
+                            <a href="/chatbot">ChatBot</a>
                         </li>
                         <li>
                             <a href="/admin">Admin</a>
@@ -120,6 +122,8 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/userProfile" exact={true} component={UserProfile} />
                         <Route path="/enquiry" exact={true} component={EnquiryForm} />
                         <Route path="/category" exact={true} component={CategorySearch} />
+                        <Route path="/serialSearch" exact={true} component={SerialNumberSearch} />
+                        <Route path="/myNotifications" exact={true} component={Notifications} />
 
                    </switch>
                    

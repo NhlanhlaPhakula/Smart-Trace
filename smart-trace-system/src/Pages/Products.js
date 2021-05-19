@@ -24,11 +24,17 @@ const Products = ({ name }) => {
 
     //add to cart function
     const addToCart = () => {
-        const addRef = firebase.database().ref('Cart').child(name.id);
-        addRef.push({
-            name,
-            userId: user.email,
-        });
+        const addRef = firebase.database().ref('Cart');
+        
+        const saveData = {
+             userId: user.email,
+             url: name.url,
+             itemName: name.itemName,
+             serialNumber: name.serialNumber,
+             itemDescription: name.itemDescription,
+             id: name.id,
+        };
+        addRef.push(saveData);
     };
 
     //report stolen product

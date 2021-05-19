@@ -404,3 +404,21 @@ ul {
   height: 20%;
   width: 20%;
 }
+
+.serial-search-results{
+  text-align: center;
+}
+
+.search-serial-number {
+  text-align: center;
+}
+.notifications {
+  text-align: center;
+}
+.cartItems {
+  text-align: center;
+}
+.cartItems img {
+  height: 20%;
+  width: 20%;
+}
