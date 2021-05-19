@@ -72,7 +72,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                             <a href="/contactUs">Contact Us</a>
                         </li>
                         <li>
-                            <a href="/about">About Us</a>
+                            <a href="/serialSearch">Background Checker</a>
                         </li>
                         <li>
                             <a href="/myNotifications">Messages</a>

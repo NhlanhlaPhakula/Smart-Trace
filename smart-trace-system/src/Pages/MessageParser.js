@@ -70,6 +70,12 @@ class MessageParser {
       if (lowerCaseMessage.includes("cart")) {
         this.actionProvider.shopping()
       }else
+      if (lowerCaseMessage.includes("store")) {
+          this.actionProvider.shopping()
+      }else
+      if (lowerCaseMessage.includes("shop")) {
+          this.actionProvider.shopping()
+      }else
       //contacts
       if (lowerCaseMessage.includes("contact")) {
           this.actionProvider.contacts()

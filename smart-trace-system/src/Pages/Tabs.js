@@ -8,6 +8,8 @@ const Tab = () => {
     return(
         
             <div className="tab">
+                <br/>
+                <br/>
                 <div className="divs">
                     <h1 className="heading">Track 'N Trace</h1>
                     <h3>Smart Trace is an advanced innovative system that is built to help fight crime<br></br>
