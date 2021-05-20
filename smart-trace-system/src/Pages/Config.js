@@ -124,13 +124,62 @@
             widgetFunc: (props) => <Report />,
         },
         {
+            widgetName: "Stolen",
+            widgetFunc: (props) => <LinkList {...props}/>,
+            props: {
+                options: [
+                    {
+                        text: "Block stolen item",
+                        url: "/",
+                        id: 1,
+                    },
+                    {
+                        text: "Unblock stolen item",
+                        url: "/",
+                        id: 2,
+                    },
+                    {
+                        text: "Track stolen item",
+                        url: "/",
+                        id: 3,
+                    },
+                ],
+            },
+        },
+        {
             widgetName: "Shopping",
             widgetFunc: (props) => <LinkList {...props} />,
             props: {
                 options: [
                     {
-                        text: "To access access your shopping cart click here",
+                        text: "Shopping cart",
                         url: "/cart",
+                        id: 1,
+                    },
+                ],
+            },
+        },
+        {
+            widgetName: "Notifications",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "Latest updates",
+                        url: "/myNotifications",
+                        id: 1,
+                    },
+                ],
+            },
+        },
+        {
+            widgetName: "Checker",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "Background checker",
+                        url: "/serialSearch",
                         id: 1,
                     },
                 ],
@@ -151,6 +200,11 @@
                         url: "/profile",
                         id: 2,
                     },
+                    {
+                        text: "Read your latest updates",
+                        url: "/myNotifications",
+                        id: 3,
+                    },
                 ],
             },
         },
@@ -165,7 +219,7 @@
                         id: 1,
                     },
                     {
-                        text: "To track stolen goods, check this out",
+                        text: "Track stolen goods",
                         url: "/",
                         id: 2,
                     },
@@ -173,6 +227,15 @@
                         text: "Register your items for track and trace",
                         url: "/admin",
                         id: 3,
+                    },
+                    {
+                        text: "Search by Category",
+                        url: "/OnlineStore",
+                        id: 4,
+                    },
+                    {
+                        text: "Search by user input",
+                        url: "/OnlineStore"
                     },
                 ],
             },
@@ -183,7 +246,7 @@
             props: {
                 options: [
                     {
-                        text: "Navigate to the admin side through this widget, go ahead and click",
+                        text: "Admin handler",
                         url: "/admin",
                         id: 1,
                     },
@@ -201,9 +264,22 @@
                         id: 1,
                     },
                     {
-                        text: "Click on here to secure your electronic devices with us",
+                        text: "Secure electronic device now",
                         url: "/admin",
                         id: 2,
+                    },
+                ],
+            },
+        },
+        {
+            widgetName: "Profile",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "My Profile",
+                        url: "/userProfile",
+                        id: 1,
                     },
                 ],
             },
@@ -227,7 +303,7 @@
             props: {
                 options: [
                     {
-                        text: "To access our services you have to visit our services page to get more info",
+                        text: "Our Services",
                         url: "/services",
                         id: 1,
                     },
@@ -240,7 +316,7 @@
             props: {
                 options: [
                     {
-                        text: "If you want to contact our team press here!",
+                        text: "Contact Us",
                         url: "/",
                         id: 1,
                     },

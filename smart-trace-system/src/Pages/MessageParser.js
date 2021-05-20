@@ -39,13 +39,13 @@ class MessageParser {
           this.actionProvider.report()
       }else
       if (lowerCaseMessage.includes("stolen")){
-          this.actionProvider.report()
+          this.actionProvider.stolen()
       }else
       if (lowerCaseMessage.includes("lost")) {
-          this.actionProvider.report()
+          this.actionProvider.stolen()
       }else
       if (lowerCaseMessage.includes("theft")) {
-          this.actionProvider.report()
+          this.actionProvider.stolen()
       }else
       if (lowerCaseMessage.includes("smart trace system")){
           this.actionProvider.information()
@@ -80,9 +80,9 @@ class MessageParser {
       if (lowerCaseMessage.includes("contact")) {
           this.actionProvider.contacts()
       }else
-      if (lowerCaseMessage.includes("message")){
+     /* if (lowerCaseMessage.includes("message")){
           this.actionProvider.contacts()
-      }else
+      }else*/
       if (lowerCaseMessage.includes("email")) {
           this.actionProvider.contacts()
       }else
@@ -184,6 +184,32 @@ class MessageParser {
       }else
       if (lowerCaseMessage.includes("defend")) {
           this.actionProvider.secure()
+      }else
+      //notificatins 
+      if(lowerCaseMessage.includes("notification")) {
+        this.actionProvider.notifications()
+      }else
+      if (lowerCaseMessage.includes("messages")) {
+          this.actionProvider.notifications()
+      }else
+      if (lowerCaseMessage.includes("update")) {
+          this.actionProvider.notifications()
+      }else
+      if (lowerCaseMessage.includes("texts")) {
+          this.actionProvider.notifications()
+      }else
+      //background checker
+      if (lowerCaseMessage.includes("check")) {
+        this.actionProvider.checker()
+      }else
+      if (lowerCaseMessage.includes("profile")) {
+          this.actionProvider.profile()
+      }else
+      if (lowerCaseMessage.includes("enquiry")) {
+          this.actionProvider.enquiry()
+      }else
+      if (lowerCaseMessage.includes("enquiries")) {
+          this.actionProvider.enquiry()
       }else
       if (lowerCaseMessage.includes("")) {
           this.actionProvider.nothing()

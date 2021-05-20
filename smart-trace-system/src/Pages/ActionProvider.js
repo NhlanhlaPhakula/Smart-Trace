@@ -9,6 +9,12 @@ class ActionProvider {
         this.updateChatbotState(greetingMessage)
     }
 
+    enquiry() {
+        const enquiries = this.createChatBotMessage(
+            "Use the Enquiry form above to direct your queries to the relevant party");
+        this.updateChatbotState(enquiries)
+    }
+
     insurance() {
         const insuranceMessage = this.createChatBotMessage(
             "Try these:",
@@ -22,7 +28,7 @@ class ActionProvider {
 
     buy() {
         const buyItems = this.createChatBotMessage(
-            "Cool, to buy and sell items via our system you gotta be registered with us first. If you interested in buying items from our store, just follow the link below:",
+            "Buying and selling items via our system you gotta be registered with us first. If you interested in buying items from our store, just follow the link below:",
             {
                 widget: "OnlineStore"
             }
@@ -42,12 +48,22 @@ class ActionProvider {
 
     report() {
         const reportMessage = this.createChatBotMessage(
-            "To report any lost/stolen items check this information:",
+            "To report any lost/stolen items fill out the form and send it:",
             {
                 widget: "Report",
             }
         );
         this.updateChatbotState(reportMessage)
+    };
+
+    stolen() {
+        const stolenReport = this.createChatBotMessage(
+            "Stolen item properties",
+            {
+                widget: "Stolen",
+            }
+        );
+        this.updateChatbotState(stolenReport);
     };
 
     shopping() {
@@ -119,6 +135,16 @@ class ActionProvider {
         );
         this.updateChatbotState(trace);
     };
+
+    profile() {
+        const profile = this.createChatBotMessage(
+            "Here is your profile",
+            {
+                widget: "Profile",
+            }
+        );
+        this.updateChatbotState(profile);
+    };
     
     secure() {
         const security = this.createChatBotMessage(
@@ -128,6 +154,26 @@ class ActionProvider {
             }
         );
         this.updateChatbotState(security);
+    };
+
+    notifications() {
+        const messages = this.createChatBotMessage(
+            "Here are your latest updates",
+            {
+                widget: "Notifications",
+            }
+        );
+        this.updateChatbotState(messages);
+    };
+
+    checker() {
+        const Checker = this.createChatBotMessage(
+            "here:",
+            {
+                widget: "Checker",
+            }
+        );
+        this.updateChatbotState(Checker);
     };
 
     informartion() {
