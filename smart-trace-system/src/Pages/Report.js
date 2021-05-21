@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import firebase from '../Components/Firebase';
 import Popup from './Popup';
+import {Link} from 'react-router-dom';
 
 const Report = () => {
     //variables
@@ -42,6 +43,7 @@ const Report = () => {
     return(
         <div className="report-page">
             <h1>Report Page</h1>
+            <Link to="/blacklist">myBlacklistedItems</Link>
             <div>
                 {
                     isOpen && <Popup

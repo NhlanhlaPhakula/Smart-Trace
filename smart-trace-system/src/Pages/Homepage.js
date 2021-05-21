@@ -26,6 +26,8 @@ import EnquiryForm from './EnquiryForm';
 import CategorySearch from './Category';
 import SerialNumberSearch from './ProductSearch';
 import Notifications from './Notifications';
+import BlacklistedItems from './Blacklisted_Items'
+import MyBlacklist from './myBlacklist';
 
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
@@ -124,6 +126,8 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/category" exact={true} component={CategorySearch} />
                         <Route path="/serialSearch" exact={true} component={SerialNumberSearch} />
                         <Route path="/myNotifications" exact={true} component={Notifications} />
+                        <Route path="/blacklistedItems" exact={true} component={BlacklistedItems} />
+                        <Route path="/blacklist" exact={true} component={MyBlacklist} />
 
                    </switch>
                    

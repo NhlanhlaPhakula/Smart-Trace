@@ -11,6 +11,7 @@ const Products = ({ name }) => {
     //popup variables
     const [isOpenAdd, setIsOpenAdd] = useState(false);
     const [isOpenReport, setIsOpenReport] = useState(false);
+    const [isOpenWish, setIsOpenWish] = useState(false);
 
     //a toggle function for popup
     const togglePopupAddToCart = () => {
@@ -20,6 +21,11 @@ const Products = ({ name }) => {
     //a toggle function for report
     const togglePopupReport = () => {
         setIsOpenReport(!isOpenReport);
+    };
+
+    //a toggle function for adding to a wishlist
+    const toggleAddWish = () => {
+        setIsOpenWish(!isOpenWish);
     };
 
     //add to cart function
@@ -45,6 +51,26 @@ const Products = ({ name }) => {
         });
     };
 
+    //a function to add items into a wish list
+    const handleAddToWishlist = () => {
+        const addref = firebase.database().ref('Wishlist');
+        
+        const saveData = {
+            id: name.id,
+            userId: user.email,
+            itemName: name.itemName,
+            serialNumber: name.serialNumber,
+            itemDescription: name.itemDescription,
+            url: name.url,
+            category: name.category,
+            report: name.report,
+            /*sale: name.sale,
+            sold: name.sold,
+            stolen: name.stolen,*/
+        };
+        addref.push(saveData);
+    };
+
     return(
         <div className="productlist">
             <div>
@@ -62,6 +88,13 @@ const Products = ({ name }) => {
             </>}
             handleClose={togglePopupReport}
             />}
+            {isOpenWish && <Popup
+            content={<>
+                <b>Smart Trace</b>
+                <p>Item added to a wishlist !!!!</p>
+            </>}
+            handleClose={toggleAddWish}
+            />}
                 <h1>
                     <Link to="/details"><img src={name.url} alt="product-image"/></Link><br/>
                     Name: {name.itemName} <br />
@@ -71,13 +104,17 @@ const Products = ({ name }) => {
                     
                 </h1>
                 <button onClick={() => {
+                    reportProduct();
+                    togglePopupReport();
+                }}>Report</button>
+                <button onClick={() => {
                     addToCart();
                     togglePopupAddToCart();
                 }}>Add to Cart</button>
                 <button onClick={() => {
-                    reportProduct();
-                    togglePopupReport();
-                }}>Report</button>
+                    toggleAddWish();
+                    handleAddToWishlist();
+                }}>Wishlist</button>
             </div>
         </div>
     );
