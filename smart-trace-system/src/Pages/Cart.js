@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
 import Products from './Products';
 import CartItems from './CartItems';
+import Merger from './Merger';
 
 const Cart = () => {
     //variables 
@@ -29,6 +30,9 @@ const Cart = () => {
         <div className="cart">
             <h1>Shopping Cart</h1>
             {productsList ? productsList.map((names, index) => <CartItems names={names} key={index} />) : ''}
+            <br/>
+            <Merger /><br/>
+            <button>CheckOut</button>
         </div>
     );
 };
