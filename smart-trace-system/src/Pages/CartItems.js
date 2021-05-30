@@ -21,6 +21,7 @@ const CartItems = ({ names }) => {
                 <label>Desciption: {names.itemDescription}</label><br/>
                 <label>Price :</label><br/>
             <button onClick={removeItem}>Remove</button>
+            <button>CheckOut</button>
         </div>
     );
 };

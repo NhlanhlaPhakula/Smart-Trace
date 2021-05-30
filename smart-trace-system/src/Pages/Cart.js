@@ -29,10 +29,9 @@ const Cart = () => {
     return(
         <div className="cart">
             <h1>Shopping Cart</h1>
+            <Merger /><br/>
             {productsList ? productsList.map((names, index) => <CartItems names={names} key={index} />) : ''}
             <br/>
-            <Merger /><br/>
-            <button>CheckOut</button>
         </div>
     );
 };

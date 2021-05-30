@@ -176,7 +176,7 @@ class ActionProvider {
         this.updateChatbotState(Checker);
     };
 
-    informartion() {
+    information() {
         const informationMessage = this.createChatBotMessage("Smart Trace System is a ......")
         this.updateChatbotState(informationMessage)
     }

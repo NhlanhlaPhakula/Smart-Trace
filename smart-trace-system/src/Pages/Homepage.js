@@ -84,6 +84,9 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                             <a href="/covid-19">Covid-19</a>
                         </li>
                         <li>
+                            <a href="/wishlist">WishList</a>
+                        </li>
+                        <li>
                             <a href="/chatbot">ChatBot</a>
                         </li>
                         <li>
