@@ -39,6 +39,7 @@ const Products = ({ name }) => {
              serialNumber: name.serialNumber,
              itemDescription: name.itemDescription,
              id: name.id,
+             category: name.category,
         };
         addRef.push(saveData);
     };

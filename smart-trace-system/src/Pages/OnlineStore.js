@@ -30,32 +30,6 @@ const Store = () => {
             <h1>This is our online store</h1><br/>
             <CategorySearch /><br/><SearchFunction/><br/>
             <hr/>
-            {/*<div>
-                <a href="/details"><img src="Images/download (1).jfif" /></a><br/>
-                <label>(Item Name)</label> <label>(Price in Rands)</label>
-                <button>Add to Cart</button><br></br><button>Report</button>
-            </div>
-            <div>
-                <a href="/details"><img src="Images/download (1).jfif" /></a><br/>
-                <label>(Item Name)</label> <label>(Price in Rands)</label>
-                <button>Add to Cart</button><br></br><button>Report</button>
-            </div>
-            <div>
-                <a href="/details"><img src="Images/download (1).jfif" /></a><br/>
-                <label>(Item Name)</label> <label>(Price in Rands)</label>
-                <button>Add to Cart</button><br></br><button>Report</button>
-            </div>
-            <div>
-                <a href="/details"><img src="Images/download (1).jfif" /></a><br/>
-                <label>(Item Name)</label> <label>(Price in Rands)</label>
-                <button>Add to Cart</button><br></br><button>Report</button>
-            </div>
-            <div>
-                <a href="/details"><img src="Images/download (1).jfif" /></a><br/>
-                <label>(Item Name)</label> <label>(Price in Rands)</label>
-                <button>Add to Cart</button><br></br><button>Report</button>
-            </div>
-            */}
             <div className="store">
                 <br /> 
                 {productsList ? productsList.map((names, index) => <Products name={names} key={index} />) : ''}

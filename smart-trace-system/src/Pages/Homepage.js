@@ -29,6 +29,7 @@ import Notifications from './Notifications';
 import BlacklistedItems from './Blacklisted_Items'
 import MyBlacklist from './myBlacklist';
 import wishlist from './Wishlist';
+import Recommendation from './Recommendations';
 
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
@@ -133,6 +134,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/blacklistedItems" exact={true} component={BlacklistedItems} />
                         <Route path="/blacklist" exact={true} component={MyBlacklist} />
                         <Route path="/wishlist" exact={true} component={wishlist} />
+                        <Route path="/recommendations" exact={true} component={Recommendation} />
 
                    </switch>
                    
