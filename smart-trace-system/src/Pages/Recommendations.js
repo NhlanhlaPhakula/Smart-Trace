@@ -20,7 +20,20 @@ const Recommendation = () => {
     const user = firebase.auth().currentUser;
 
     //numbers
-    const [first, setFirst] = useState();
+    const [camera, setCamera] = useState();
+    const [desktop, setDesktop] = useState();
+    const [dvdPlayer, setDvDplayer] = useState();
+    const [fan, setFan] = useState();
+    const [gameConsole, setGameConsole] = useState();
+    const [ipad, setIpad] = useState();
+    const [ipod, setIpod] = useState();
+    const [laptop, setLaptop] = useState();
+    const [mobilePhone, setMobilePhone] = useState();
+    const [oven, setOven] = useState();
+    const [printer, setPrinter] = useState();
+    const [radio, setRadio] = useState();
+    const [television, setTelevision] = useState();
+    const [washingMachine, setWashingMachine] = useState();
 
     //a function to check how many iterations of a camera category can be made from the cart
     useEffect(() => {
@@ -34,7 +47,9 @@ const Recommendation = () => {
             const cameraLength = productsList.length;
             console.log('Camera:',productsList);
             console.log('Camera Count:', cameraLength);
-            //setCameraList(productsList);
+           
+            const camera = cameraLength;
+            setCamera(camera);
         });
     },[]);
 
@@ -50,7 +65,9 @@ const Recommendation = () => {
             const desktopLength = desktopList.length;
             console.log('Desktop Computer:',desktopList);
             console.log('Desktop Computer Count:', desktopLength);
-           // setDesktopList(desktopList);
+
+            const desktop = desktopLength;
+            setDesktop(desktop);
         });
     },[]);
 
@@ -66,7 +83,9 @@ const Recommendation = () => {
             const dvdPlayerLength = dvdList.length;
             console.log('DvD Player:',dvdList);
             console.log('DvD Player Count:', dvdPlayerLength);
-           // setDvdList(dvdList);
+
+            const dvdPlayer = dvdPlayerLength;
+            setDvDplayer(dvdPlayer);
         });
     },[]);
 
@@ -82,7 +101,9 @@ const Recommendation = () => {
             const fanLength = fanList.length;
             console.log('Fan:',fanList);
             console.log('Fan Count:', fanLength);
-            //setFanList(fanList);
+
+            const fan = fanLength;
+            setFan(fan);
         });
     },[]);
 
@@ -98,7 +119,9 @@ const Recommendation = () => {
             const consoleLength = consoleList.length;
             console.log('Game Console:',consoleList);
             console.log("Game Console Count:", consoleLength);
-           // setConsoleList(consoleList);
+
+            const gameConsole = consoleLength;
+            setGameConsole(gameConsole);
         });
     },[]);
 
@@ -114,7 +137,9 @@ const Recommendation = () => {
             const ipadLength = ipadList.length;
             console.log('iPad:',ipadList);
             console.log('iPad Count:', ipadLength);
-           // setIpadList(ipadList);
+
+            const ipad = ipadLength;
+            setIpad(ipad);
         });
     },[]);
 
@@ -130,7 +155,9 @@ const Recommendation = () => {
             const ipodLength = ipodList.length;
             console.log('iPod:',ipodList);
             console.log('iPod Count:', ipodLength);
-           // setIpodList(ipodList);
+
+            const ipod = ipodLength;
+            setIpod(ipod);
         });
     },[]);
 
@@ -146,7 +173,9 @@ const Recommendation = () => {
             const laptopLength = laptopList.length;
             console.log('Laptop:',laptopList);
             console.log('Laptop Count:', laptopLength);
-           // setLaptopList(laptopList);
+
+            const laptop = laptopLength;
+            setLaptop(laptop);
         });
     },[]);
 
@@ -162,9 +191,10 @@ const Recommendation = () => {
             const mobileLength = mobilePhoneList.length;
             console.log('Mobile Phone:',mobilePhoneList);
             console.log('Mobile Phone Count:', mobileLength);
-           // setMobilePhoneList(mobilePhoneList);
+
+            const mobilePhone = mobileLength;
+            setMobilePhone(mobilePhone);
         });
-        
     },[]);
 
     //a function to search all iterations under oven 
@@ -179,7 +209,9 @@ const Recommendation = () => {
             const ovenLength = ovenList.length;
             console.log('Oven:', ovenList);
             console.log('Oven Count:', ovenLength);
-            //setOvenList(ovenList);
+
+            const oven = ovenLength;
+            setOven(oven);
         });
     },[]);
 
@@ -195,7 +227,9 @@ const Recommendation = () => {
             const printerLength = printerList.length; 
             console.log('Printer:', printerList);
             console.log('Printer Count:', printerLength);
-            //setPrinterList(printerList);
+
+            const printer = printerLength;
+            setPrinter(printer);
         });
     },[]);
 
@@ -211,7 +245,9 @@ const Recommendation = () => {
             const radioLength = radioList.length;
             console.log('Radio:', radioList);
             console.log('Radio Count:', radioLength);
-            //setRadioList(radioList);
+
+            const radio = radioLength;
+            setRadio(radio);
         });
     },[]);
 
@@ -224,8 +260,12 @@ const Recommendation = () => {
             for(let id in products){
                 televisionList.push({ id, ... products[id]});
             }
+            const televisionLength = televisionList.length;
             console.log('Television:', televisionList);
-            //setTelevisionList(televisionList);
+            console.log('Television Count:', televisionLength);
+
+            const television = televisionLength;
+            setTelevision(television);
         });
     },[]);
 
@@ -238,8 +278,12 @@ const Recommendation = () => {
             for(let id in products){
                 washingList.push({ id, ... products[id]});
             }
+            const washingLength = washingList.length;
             console.log('Washing Machine:', washingList);
-            //setWashingList(washingList);
+            console.log('Washing Machine Count:', washingLength);
+
+            const washingMachine = washingLength;
+            setWashingMachine(washingMachine);
         });
     },[]);
 
@@ -251,11 +295,34 @@ const Recommendation = () => {
     });
 
     // fom the results that we've recieved from the different functions above we want to find whic array consists of a lot of items
-    /*useEffect(() => {
-        const array = [];
+    useEffect(() => {
+        const array = [camera, desktop, dvdPlayer,fan, gameConsole, ipad, ipod, laptop, mobilePhone, washingMachine, oven, printer, radio, television, washingMachine];
         const max = array.reduce((a, b) => { return Math.max(a, b) });
         console.log('This is the biggest array: ', max);
-    });*/
+
+        const retrieveRef = firebase.database().ref('Cart').orderByChild('category').equalTo(max);
+        retrieveRef.on('value', (snapshot) => {
+            const products = snapshot.val();
+            const productsList = [];
+            for(let id in products){
+                productsList.push({ id, ... products[id]});
+            }
+            console.log('Recommended item:', productsList);
+        },[]);
+    });
+    
+    //am attempting to display the category with [max] number of instances from the firebase
+    /*useEffect(() => {
+        const retrieveRef = firebase.database().ref('Cart').orderByChild('category').limitToFirst(max);
+        retrieveRef.on('value', (snapshot) => {
+            const products = snapshot.val();
+            const productsList = [];
+            for(let id in products){
+                productsList.push({ id, ... products[id]});
+            }
+            console.log('Recommended item:', productsList);
+        });
+    },[]);*/
 
     return(
         <div className="recommendations">
