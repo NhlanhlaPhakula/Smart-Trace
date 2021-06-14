@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
+import Recommendations from './Analytics';
 import CategorySearch from './Category';
 import Products from './Products';
 import SearchFunction from './SearchBar';
@@ -34,6 +35,8 @@ const Store = () => {
                 <br /> 
                 {productsList ? productsList.map((names, index) => <Products name={names} key={index} />) : ''}
             </div>
+            <hr/>
+            <Recommendations />
         </div>
     );
 };

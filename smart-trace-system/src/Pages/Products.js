@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
 import {Link} from 'react-router-dom';
 import Popup from './Popup';
@@ -71,6 +71,19 @@ const Products = ({ name }) => {
         };
         addref.push(saveData);
     };
+
+    //a function for recommendations based off of user past transactions
+    useEffect(() => {
+        const retrieveRef = firebase.database().ref('Cart').orderByChild('category').equalTo(name.category);
+        retrieveRef.on('value', (snapshot) => {
+            const products = snapshot.val();
+            const productsList = [];
+            for(let id in products) {
+                productsList.push({ id, ... products[id]});
+            }
+            console.log('Recommendations: ', productsList);
+        });
+    },[]);
 
     return(
         <div className="productlist">

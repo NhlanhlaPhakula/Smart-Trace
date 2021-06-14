@@ -35,6 +35,8 @@ const Recommendation = () => {
     const [television, setTelevision] = useState();
     const [washingMachine, setWashingMachine] = useState();
 
+    const [max, setMax] = useState();
+
     //a function to check how many iterations of a camera category can be made from the cart
     useEffect(() => {
         const retrieveRef = firebase.database().ref('Cart').orderByChild('category').equalTo('Camera');
@@ -299,8 +301,11 @@ const Recommendation = () => {
         const array = [camera, desktop, dvdPlayer,fan, gameConsole, ipad, ipod, laptop, mobilePhone, washingMachine, oven, printer, radio, television, washingMachine];
         const max = array.reduce((a, b) => { return Math.max(a, b) });
         console.log('This is the biggest array: ', max);
+        setMax(max);
+    });
 
-        const retrieveRef = firebase.database().ref('Cart').orderByChild('category').equalTo(max);
+    const handleRecommendation = () => {
+        const retrieveRef = firebase.database().ref('Cart').orderByChild('category').startAt(max);
         retrieveRef.on('value', (snapshot) => {
             const products = snapshot.val();
             const productsList = [];
@@ -309,7 +314,9 @@ const Recommendation = () => {
             }
             console.log('Recommended item:', productsList);
         },[]);
-    });
+    };
+
+
     
     //am attempting to display the category with [max] number of instances from the firebase
     /*useEffect(() => {
@@ -324,8 +331,21 @@ const Recommendation = () => {
         });
     },[]);*/
 
+    // a function to store user data into the analytics chamber for recommendations
+    /*useEffect(() => {
+        const saveRef = firebase.database().ref('AnalyticsData');
+         
+        const savingData = {
+            userId: user.email,
+            quantity: max,
+
+        }
+    });*/
+
     return(
         <div className="recommendations">
+            <br/>
+            <button onClick={handleRecommendation}>myRecommendations</button>
 
         </div>
     );
