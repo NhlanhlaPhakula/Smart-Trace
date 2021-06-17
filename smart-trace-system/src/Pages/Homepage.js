@@ -31,8 +31,8 @@ import MyBlacklist from './myBlacklist';
 import wishlist from './Wishlist';
 import Recommendation from './Recommendations';
 import Recommendations from './Analytics';
-
 import { BrowserRouter, Route, Link } from 'react-router-dom';
+//import PageNotFound from './404-page';
 
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
@@ -137,6 +137,8 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/wishlist" exact={true} component={wishlist} />
                         <Route path="/recommendations" exact={true} component={Recommendation} />
                         <Route path="/recommendation" exact={true} component={Recommendations} />
+                        {/*<Route path="/pageNotFound" exact={true} component={PageNotFound} />*/
+                        }
 
                    </switch>
                    

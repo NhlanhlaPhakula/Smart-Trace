@@ -23,7 +23,7 @@ const Recommendations = () => {
     return(
         <div className="recommendations">
             <h1>Recommendations</h1>
-            {productsList ? productsList.map((name, index) => <RecommendationList names={name} key={index} productsList />) : ''}
+            {productsList ? productsList.map((name, index) => <RecommendationList names={name} key={index} />) : ''}
             <hr/>
         </div>
 

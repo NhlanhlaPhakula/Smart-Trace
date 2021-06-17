@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link} from 'react-router-dom';
+import SimpleMap from './GoogleMap';
+
 
 const PageNotFound = () =>{
     return(
@@ -10,8 +12,10 @@ const PageNotFound = () =>{
                 <Link to="/">Home</Link>
                 <h3>Save</h3>
                 <h2>This is crazy</h2>
+               <SimpleMap />
             
         </div>
     );
 };
 export default PageNotFound;
+
