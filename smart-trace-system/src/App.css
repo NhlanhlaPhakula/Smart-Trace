@@ -248,7 +248,7 @@ tr:nth-child(even) {
   justify-content: space-around;
   align-items: center;
   margin-left: 0.5%;
-  position: relative;
+ 
 }
 .divs:hover {
   color: grey;

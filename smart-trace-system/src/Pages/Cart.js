@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
-import Products from './Products';
 import CartItems from './CartItems';
 import Merger from './Merger';
 

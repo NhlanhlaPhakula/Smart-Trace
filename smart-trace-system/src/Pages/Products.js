@@ -40,6 +40,7 @@ const Products = ({ name }) => {
              itemDescription: name.itemDescription,
              id: name.id,
              category: name.category,
+             price: name.price,
         };
         addRef.push(saveData);
     };
@@ -65,6 +66,7 @@ const Products = ({ name }) => {
             url: name.url,
             category: name.category,
             report: name.report,
+            price: name.price,
             /*sale: name.sale,
             sold: name.sold,
             stolen: name.stolen,*/
@@ -114,8 +116,8 @@ const Products = ({ name }) => {
                     Name: {name.itemName} <br />
                     Serial Number: {name.serialNumber} <br />
                     Desciption: {name.itemDescription}<br/>
-                    Id: {name.id}
-                    
+                    Id: {name.id}<br/>
+                    Price: {name.price}
                 </h1>
                 <button onClick={() => {
                     reportProduct();
