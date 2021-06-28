@@ -3,8 +3,10 @@ import firebase from '../Components/Firebase';
 
 const CartItems = ({ names }) => {
     //variables
-    const [totalPrice, setTotalPrice] = useState();
+    const [totalPrice, setTotalPrice] = useState(0);
     const [priceList, setPriceList] = useState();
+    const [total, setTotal] = useState();
+
 
     //delete function from the cart table
     const removeItem = () => {
@@ -21,9 +23,22 @@ const CartItems = ({ names }) => {
             for(let id in prices) {
                 priceList.push({ id, ... prices[id]});
             }
+            const total = names.price;
+            console.log('Price:', total);
+            setTotalPrice(total);
+            /*const totalPrice = total + names.price;
+            setTotalPrice(totalPrice);
+            console.log('Total Price: R', totalPrice);*/
+            var sum = 0;
+            for(var i = 0; i<=priceList.length; i++){
+                sum = total + names.price;
+            }
+            console.log('sum:', sum);
+         
             setPriceList(priceList);
-            setTotalPrice(priceList);
             console.log('These are the prices:',priceList);
+            
+            
         });
         
     },[]);
@@ -40,7 +55,6 @@ const CartItems = ({ names }) => {
                 <label>Desciption: {names.itemDescription}</label><br/>
                 <label>Price : {names.price}</label><br/>
             <button onClick={removeItem}>Remove</button>
-            <button>CheckOut</button>
         </div>
     );
 };
