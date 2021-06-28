@@ -37,7 +37,10 @@ const CartItems = ({ names }) => {
          
             setPriceList(priceList);
             console.log('These are the prices:',priceList);
-            
+
+            const arr = [total];
+            const addition = arr.reduce((a, b) => a + b, 0);
+            console.log("Addition:", addition);
             
         });
         
