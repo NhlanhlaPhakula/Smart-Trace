@@ -237,17 +237,9 @@ tr:nth-child(even) {
   color: white;
 }
 .divs {
-  border-style: solid;
-  border-color: rgb(238, 73, 14);
-  height: 300px;
-  width: 2000px;
-  background:#cfd9df ;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin-left: 0.5%;
+  grid-gap: 15px;
+  grid-template-columns: repeat(auto-fit, 200px);
+  color: #000000;
 }
 .divs:hover {
   color: grey;
@@ -256,7 +248,7 @@ tr:nth-child(even) {
   color: orange;
 }
 .heading {
-  color: #13547a;
+  color: orangered;
 }
 .list a{
   text-decoration: none;

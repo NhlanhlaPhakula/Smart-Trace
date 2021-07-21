@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">smartapp</string>
+    <string name="title_activity_main">smartapp</string>
+    <string name="package_name">io.ionic.smartapp</string>
+    <string name="custom_url_scheme">io.ionic.smartapp</string>
+</resources>
