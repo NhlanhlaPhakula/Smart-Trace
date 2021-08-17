@@ -8,8 +8,6 @@ const Cart = () => {
     const [productsList, setProductsList] = useState();
     //user function
     const user = firebase.auth().currentUser;
-
-    //const [userId, setUserId] = useState(user);
     const [cartLength, setCartLength] = useState();
 
     //a function to call to call our products
@@ -23,6 +21,7 @@ const Cart = () => {
             }
             console.log(productsList);
             setProductsList(productsList);
+
             //total number of items in the cart
             const cartLength = productsList.length;
             console.log('Number of Items in the Cart', cartLength);
@@ -37,6 +36,7 @@ const Cart = () => {
             <h2>Items in Cart :</h2>{cartLength}
             {productsList ? productsList.map((names, index) => <CartItems names={names} key={index} />) : ''}
             <br/>
+            <button>Checkout</button>
         </div>
     );
 };

@@ -33,6 +33,7 @@ import Recommendation from './Recommendations';
 import Recommendations from './Analytics';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 //import PageNotFound from './404-page';
+import CartCorrection from './CartCorrection';
 
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
@@ -139,6 +140,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/recommendation" exact={true} component={Recommendations} />
                         {/*<Route path="/pageNotFound" exact={true} component={PageNotFound} />*/
                         }
+                        <Route path="/cart2" exact={true} component={CartCorrection}/>
 
                    </switch>
                    
