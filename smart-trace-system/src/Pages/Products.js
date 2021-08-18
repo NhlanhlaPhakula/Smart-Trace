@@ -38,7 +38,6 @@ const Products = ({ name }) => {
              itemName: name.itemName,
              serialNumber: name.serialNumber,
              itemDescription: name.itemDescription,
-             id: name.id,
              category: name.category,
              price: name.price,
         };

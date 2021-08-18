@@ -22,7 +22,7 @@ const AdminProducts = () => {
             setItemList(itemList);
         });
     },[]);
-
+    
     return(
         <div className="admin-products">
             <h1>These are my registered products</h1>

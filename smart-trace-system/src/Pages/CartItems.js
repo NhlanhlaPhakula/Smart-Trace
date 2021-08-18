@@ -69,7 +69,6 @@ const CartItems = ({names}) => {
                {names.itemName}<br/>
                 <label>S/N:</label>{names.serialNumber}<br/>
                 <label>Desciption: {names.itemDescription}</label><br/>
-                <label>Id: {names.id}</label><br/>
                 <label>Price : {names.price}</label><br/>
             <button onClick={() => {
                 deleteProduct();
