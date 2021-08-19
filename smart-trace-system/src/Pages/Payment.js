@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
 import Popup from './Popup';
+import CardDetails from './CardDetails';
 
 const Payment = () => {
     //variables and functions 
@@ -18,7 +19,7 @@ const Payment = () => {
         setIsOpen(!isOpen);
     };
 
-    //function to save data in the database
+    //function to save card data into the database
     const handleSave = () => {
         const saveRef = firebase.database().ref('Card');
 
@@ -46,6 +47,9 @@ const Payment = () => {
             setCardDetailsList(cardDetailsList);
         });
     },[]);
+
+    //now that we have fetched user card info from the database it is time we display it on page load
+    
     
     return(
         <div className="payment">
@@ -89,6 +93,10 @@ const Payment = () => {
             </>}
             handleClose={togglePopup}
         />}
+
+        
+        {cardDetailsList ? cardDetailsList.map((details,index) => <CardDetails details={details} key={index}/>) : ''}
+        
         </div>
     );
 };
