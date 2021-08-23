@@ -81,15 +81,16 @@ const Profile = () => {
     };
 
 
-    //a function to fetch data from the database so we can have it displayed into our system
+    //a function to display user data from database
     useEffect (() => {
-        const retrieveRef = firebase.database().ref('Users');
+        const retrieveRef = firebase.database().ref('Users').orderByChild('userId').equalTo(user.email);
         retrieveRef.on('value', (snapshot) => {
             const names = snapshot.val();
             const nameList = [];
             for(let id in names){
                 nameList.push({ id, ... names[id] });
             }
+            //console.log(nameList);
             setNameList(nameList);
         });
     }, []);
@@ -154,7 +155,7 @@ const Profile = () => {
              <div className="profile-picture">
                 {/*<ProfileUploader />*/}
                 <div>
-                    <Link className="link" to="/userProfile">My Profile</Link><br/>
+                    <Link className="link" to="/profile">My Profile</Link><br/>
                     <progress value={progress} max="100"/>
                     <h1>Hey a'll</h1>
                     <input type="file" onChange={handleChange}/>
@@ -181,7 +182,7 @@ const Profile = () => {
                 <option value="Place">Place</option>
                 <option value="Road">Road</option>
                 <option value="Square">Square</option>
-                <option value="Streer">Street</option>
+                <option value="Street">Street</option>
             </select><br></br>
             <label>City : </label><input type="text" value={city} onChange={e=> setCity(e.target.value)}/><br />
             <label>State : </label><input type="text" value={state} onChange={e=> setState(e.target.value)}/><br />

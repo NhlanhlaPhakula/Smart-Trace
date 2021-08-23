@@ -34,6 +34,8 @@ import Recommendations from './Analytics';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 //import PageNotFound from './404-page';
 import CartCorrection from './CartCorrection';
+import ProfileEdit from './ProfileEdit';
+import ProfileEditDetails from './ProfileEditDetails';
 
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
@@ -98,8 +100,8 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                     </ul>
                     </BrowserRouter>
                 </aside>
-                <h2>SMART TRACE</h2>
-                <h className="user">{user.email}</h>
+                <h2 className="app">SMART TRACE</h2>
+                <h1 className="user">{user.email}</h1>
                 <button onClick={handleLogout}>Logout</button>
             </nav>
             <BrowserRouter>
@@ -109,7 +111,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                    <switch>
                        <Route path="/" exact={true} component={Tab}/>
                        <Route path="/trackNtrace" exact={true} component={TrackTrace}/>
-                       <Route path="/profile" exact={true} component={Profile} />
+                       <Route path="/profile" exact={true} component={UserProfile} />
                         <Route path="/insuranceQ" exact={true} component={InsuranceQuestions} />
                         <Route path="/report" exact={true} component={Report}/>
                         <Route path="/contactUs" exact={true} component={ContactUs}/>
@@ -128,7 +130,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/insurance" exact={true} component={Insurance} />
                         <Route path="/addInsurance" exact={true} component={AddInsurance} />
                         <Route path="/chatbot" exact={true} component={ChatBot} />
-                        <Route path="/userProfile" exact={true} component={UserProfile} />
+                        <Route path="/userProfile" exact={true} component={Profile} />
                         <Route path="/enquiry" exact={true} component={EnquiryForm} />
                         <Route path="/category" exact={true} component={CategorySearch} />
                         <Route path="/serialSearch" exact={true} component={SerialNumberSearch} />
@@ -141,6 +143,8 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         {/*<Route path="/pageNotFound" exact={true} component={PageNotFound} />*/
                         }
                         <Route path="/cart2" exact={true} component={CartCorrection}/>
+                        <Route path="/profileEdit" exact={true} component={ProfileEdit} />
+                        <Route path="/profileEditDetails" exact={true} component={ProfileEditDetails} />
 
                    </switch>
                    

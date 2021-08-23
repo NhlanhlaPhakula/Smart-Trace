@@ -7,6 +7,7 @@
 
 button {
   border: none;
+  border-radius: 12px;
   outline: none;
   width: 30%;
   padding: 15px 0;
@@ -54,6 +55,14 @@ button:hover{
   line-height: 1;
 }
 
+.link {
+  text-align: center;
+}
+
+.user-info {
+  text-align: center;
+}
+
 .login .loginContainer input {
   width: 100%;
   border: none;
@@ -97,16 +106,11 @@ button:hover{
 .hero {
   width: 100%;
   min-height: 100vh;
-  background: radial-gradient(
-    ellipse at left bottom,
-    rgba(22, 24, 47, 1) 0%,
-    rgba(21, 55, 78, 0.9) 59%,
-    rgba(17, 27, 75, 0.9) 100%
-  );
+  background: #fced67;
 }
 
 .hero nav {
-  background: #603bbb;
+  background: #5bccfc;
   width: 100%;
   padding: 20px 40px;
   display: flex;
@@ -114,8 +118,12 @@ button:hover{
   justify-content: space-between;
 }
 
-.hero nav h2 {
-  color: #fff;
+.hero nav h2  {
+  color: #3a2b58;
+}
+
+.user {
+  color: #3a2b58;
 }
 
 .hero nav button {
@@ -185,6 +193,7 @@ P.profname {
 
 .profile {
   text-align: center;
+  color: #3a2b58;
 }
 
 .table {
@@ -241,7 +250,7 @@ tr:nth-child(even) {
   border-color: rgb(238, 73, 14);
   height: 300px;
   width: 100%;
-  background:#cfd9df ;
+  background:transparent;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
@@ -355,7 +364,7 @@ ul {
 }
 
 .user {
-  color: white;
+  color: #3a2b58;
 }.link {
   color: white;
 }

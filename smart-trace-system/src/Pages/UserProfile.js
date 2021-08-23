@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import firebase from '../Components/Firebase';
 import UserDetails from './ProfileDetails';
 
@@ -24,6 +25,8 @@ const UserProfile = () => {
                 setUserInfo(userInfo);
             }else{
                 console.log("User info could not be accessed :(");
+                // put a link to create profile page to allow the user to create their own profile
+
             }
         });
     },[]);
@@ -31,6 +34,7 @@ const UserProfile = () => {
     return(
         <div className="user-info">
             {userInfo ? userInfo.map((names, index) => <UserDetails name={names} key={index}/>) : ''}
+            <Link className="link" to="/profileEdit">Edit</Link>  <Link className="link" to="/userProfile">Create</Link>
         </div>
     );
 };
