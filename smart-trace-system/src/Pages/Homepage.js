@@ -36,6 +36,9 @@ import { BrowserRouter, Route, Link } from 'react-router-dom';
 import CartCorrection from './CartCorrection';
 import ProfileEdit from './ProfileEdit';
 import ProfileEditDetails from './ProfileEditDetails';
+import WebcamCapture from './BarcodeScanner';
+import Home from './ScannerHome';
+import ImageToText from './ImageText';
 
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
@@ -145,6 +148,9 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/cart2" exact={true} component={CartCorrection}/>
                         <Route path="/profileEdit" exact={true} component={ProfileEdit} />
                         <Route path="/profileEditDetails" exact={true} component={ProfileEditDetails} />
+                        <Route path="/scanner" exact={true} component={WebcamCapture} />
+                        <Route path="/scanhome" exact={true} component={Home} />
+                        <Route path="/imagetotext" exact={true} component={ImageToText} />
 
                    </switch>
                    

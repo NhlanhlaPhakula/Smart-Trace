@@ -20,7 +20,9 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-slideshow-image": "^3.4.6",
+    "react-webcam": "^6.0.0",
     "styled-components": "^5.3.0",
+    "tesseract.js": "^2.1.5",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
