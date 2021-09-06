@@ -433,6 +433,11 @@ ul {
   width: 20%;
 }
 
+.message-pic {
+  height: 20%;
+  width: 20%;
+}
+
 .wishlist {
   text-align: center;
 }

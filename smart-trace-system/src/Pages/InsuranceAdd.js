@@ -11,13 +11,14 @@ const AddInsurance = () => {
         const saveRef = firebase.database().ref('Insurance');
 
         const savingData = {
-            userId: user.email,
+            //userId: user.email,
             insuranceCompany,
             coverLoss: true,
             coverMulfunction: true,
             coverTheft: true,
             coverDamage: true,
             coverAll: true,
+            
         };
         saveRef.push(savingData);
     };

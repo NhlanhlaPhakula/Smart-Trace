@@ -119,7 +119,7 @@ const Admin = () => {
                 <label>Item Name : </label><input type="text" required value={itemName} onChange={e=> setItemName(e.target.value)}/><br/>
                 <label>Serial Number : </label><input type="number" required value={serialNumber} onChange={e=> setSerialNumber(e.target.value)}/><br/>
                 <label>Item Description : </label><input type="text" required value={itemDescription} onChange={e=> setItemDescription(e.target.value)}/><br/>
-                <select value={setCategory} required>
+                <label>Category</label><select value={setCategory} required>
                     <option></option>
                     <option value="Camera"> Camera</option>
                     <option value="Desktop Computer">Desktop Computer</option>

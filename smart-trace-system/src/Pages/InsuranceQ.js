@@ -42,7 +42,7 @@ const InsuranceQuestions = () => {
     };
 
     //a function to search for the right insurance
-    const handleSearch = () => {
+   /* const handleSearch = () => {
         const retrieveRef = firebase.database().ref('Insurance');
         retrieveRef.on('value', (snapshot) => {
             const insurance = snapshot.val();
@@ -59,7 +59,19 @@ const InsuranceQuestions = () => {
             };
         },[]);
     };
-
+    */
+   const handleSearch = () => {
+       const findRef = firebase.database().ref('Insurance_Preferences').orderByChild('category').equalTo(category);
+       findRef.on('value',(snapshot) => {
+           const data = snapshot.val();
+           const dataList = [];
+           for(let id in data) {
+               dataList.push({ id, ... data[id]});
+           }
+           console.log('Results:',dataList);
+           setInsuranceList(dataList);
+       });
+   };
 
     return(
         <div className="insurance-questions">

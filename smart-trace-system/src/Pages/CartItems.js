@@ -8,14 +8,23 @@ const CartItems = ({names}) => {
     const [priceList, setPriceList] = useState();
     const [total, setTotal] = useState();
     const [priceLists, setPriceLists] = useState();
-
+    const [date, setDate] = useState(Date);
 
     //popUp variables
     const [isOpenDelete, setIsOpenDelete] = useState(false);
+    const [isOpenPay, setIsOpenPay] = useState(false);
+
+    //currently logged in user
+    const user = firebase.auth().currentUser;
 
     //a toggle function for delete popup
     const togglePopupDelete = () => {
         setIsOpenDelete(!isOpenDelete);
+    };
+
+    //a toggle function for pay popup
+    const togglePopupPay = () => {
+        setIsOpenPay(!isOpenPay);
     };
 
     //delete function from the cart table
@@ -23,7 +32,49 @@ const CartItems = ({names}) => {
         const deleteRef = firebase.database().ref('Cart').child(names.id);
         deleteRef.remove();
     };
-    
+
+    //pay function/purchase function(put everything into a purchase table)
+    const saveData = () => {
+        const saveRef = firebase.database().ref('Purchase');
+
+        const savingData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            url: names.url,
+            recentOwner: names.userId,
+            userId: user.email,
+            transactionDate: date,
+        };
+        saveRef.push(savingData);
+    };
+
+    //update function 
+    const updateFunction = () => {
+        const updateRef = firebase.database().ref('Products').child(names.id);
+        updateRef.update({
+            userId: user.email,
+        });
+    };
+
+    //a function to send a transcript as a proof of exchange
+    const transcriptFunction = () => {
+        const transcriptRef = firebase.database().ref('Transcript');
+
+        const savingData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            url: names.url,
+            recentOwner: names.userId,
+            userId: user.email,
+            transactionDate: date,
+        };
+        transcriptRef.push(savingData);
+    };
+
     /*useEffect(() => {
         const saveRef = firebase.database().ref('Prices');
 
@@ -64,6 +115,15 @@ const CartItems = ({names}) => {
             </>}
             handleClose={togglePopupDelete}
             />}
+            {
+                isOpenPay && <Popup 
+                content={<>
+                    <b>Smart Trace</b>
+                    <p>Paid and Confiscated :)</p>
+                </>}
+                handleClose={togglePopupPay}
+                />
+            }
                 <br/>
                <img src={names.url}/><br/>
                {names.itemName}<br/>
@@ -73,7 +133,12 @@ const CartItems = ({names}) => {
             <button onClick={() => {
                 deleteProduct();
                 togglePopupDelete();
-            }}>Remove</button>
+            }}>Remove</button> <button onClick={() => {
+                togglePopupPay();
+                saveData();
+                updateFunction();
+                transcriptFunction();
+            }}>Pay</button>
         </div>
     );
 };

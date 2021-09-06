@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Tesseract from 'tesseract.js';
 import firebase from '../Components/Firebase';
 import Popup from './Popup';
@@ -6,7 +6,7 @@ import Popup from './Popup';
 const ImageToText = () => {
     //variables
     const [imagePath, setImagePath] = useState("");
-    const [text, setText] = useState("");
+    const [text, setText] = useState();
     const [productsList, setProductsList] = useState();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -38,19 +38,33 @@ const ImageToText = () => {
         .then(({ data: { text } }) => {
             console.log(text);
             setText(text);
+            
             const findRef = firebase.database().ref('Products').orderByChild('serialNumber').equalTo(text);
             findRef.on('value',(snapshot) => {
                 const products = snapshot.val();
                 const productsList = [];
                 for(let id in products){
-                    productsList.push({ id, ... products[id]})
+                    productsList.push({ id, ... products[id]});
                 }
                 setProductsList(productsList);
                 console.log('The extracted S/N is related to this product:',productsList);
             },[]);
-        })
+        });
     
-    }
+    };
+
+    /*const handleFind = () => {
+        const searchRef = firebase.database().ref('Products').orderByChild('serialNumber').equalTo(text);
+        searchRef.on('value',(snapshot) => {
+            const serialNumber = snapshot.val();
+            const productsList = [];
+            for(let id in serialNumber) {
+                productsList.push({ id, ... serialNumber[id]});
+            }
+           //setProductsList(productsList);
+            console.log('Results:',productsList);
+        });
+    };*/
 
     return(
         <div className="image-to-text">
@@ -76,6 +90,7 @@ const ImageToText = () => {
                 handleClose={togglePopup}
                 />
                 }
+               {/* <button onClick={handleFind}>Find</button>*/}
             </main>
         </div>
     );

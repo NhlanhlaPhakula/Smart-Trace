@@ -39,6 +39,8 @@ import ProfileEditDetails from './ProfileEditDetails';
 import WebcamCapture from './BarcodeScanner';
 import Home from './ScannerHome';
 import ImageToText from './ImageText';
+import IntelligenceDerived from './Intelligence';
+import LocationAnalytics from './LocationAnalytics';
 
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
@@ -151,7 +153,8 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/scanner" exact={true} component={WebcamCapture} />
                         <Route path="/scanhome" exact={true} component={Home} />
                         <Route path="/imagetotext" exact={true} component={ImageToText} />
-
+                        <Route path="/intelligence" exact={true} component={IntelligenceDerived} />
+                        <Route path="/location" exact={true} component={LocationAnalytics} />
                    </switch>
                    
                </div>

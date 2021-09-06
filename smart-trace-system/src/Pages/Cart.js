@@ -36,7 +36,7 @@ const Cart = () => {
             <h2>Items in Cart :</h2>{cartLength}
             {productsList ? productsList.map((names, index) => <CartItems names={names} key={index} />) : ''}
             <br/>
-            <button>Checkout</button>
+            {/*<button>Checkout</button>*/}
         </div>
     );
 };

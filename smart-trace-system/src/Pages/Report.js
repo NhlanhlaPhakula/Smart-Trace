@@ -12,6 +12,8 @@ const Report = () => {
     const [serialNumber, setSerialNumber] = useState();
     const [description, setDescription] = useState();
     const [date, setDate] = useState(Date);
+    const [location,setLocation] = useState();
+   // const [location, setLocation] = useState();
     //user function
     const user = firebase.auth().currentUser;
 
@@ -36,6 +38,7 @@ const Report = () => {
             lastName,
             serialNumber,
             description,
+            location,
         };
         saveRef.push(savingData);
     };
@@ -82,6 +85,16 @@ const Report = () => {
                 <input type="text" value={serialNumber} required onChange={e=> setSerialNumber(e.target.value)} /><br/>
                 <label>Description : </label>
                 <textarea value={description} required onChange={e=> setDescription(e.target.value)} /><br/>
+                <label>Location :</label>
+                <select value={location} required onChange={e=> setLocation(e.target.value)}>
+                    <option></option>
+                    <option value="Johannesburg">Johannesburg</option>
+                    <option value="Sandton">Sandton</option>
+                    <option value="Midrand">Midrand</option>
+                    <option value="Alexandra">Alexandra</option>
+                    <option value="Roodepoort">Roodepoort</option>
+                    <option value="Soweto">Soweto</option>
+                </select>
                 <button onClick={() => {
                     saveData();
                     togglePopup();
