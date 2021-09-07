@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
+import LocationAnalytics from './LocationAnalytics';
 
 const IntelligenceDerived = () => {
     //variables
@@ -383,7 +384,7 @@ const IntelligenceDerived = () => {
         setMaxVal(maxVal);
     });
      // a function to find the top three stolen goods from the database
-     useEffect(() => {
+    /* useEffect(() => {
         var maxPoints = new Array();
         var scoreByPattern = new Array(93, 17, 56, 91, 98, 33, 98);
 
@@ -396,7 +397,7 @@ const IntelligenceDerived = () => {
             console.log('Results:',scoreByPattern.slice(1,2));
             console.log('Results:',scoreByPattern.slice(2,3));
         }
-    });
+    });*/
     // a function to display top three results from the database
     useEffect(() => {
         var camera = cameraLength;
@@ -424,7 +425,6 @@ const IntelligenceDerived = () => {
             scoreByPattern.sort((a,b) => a < b ? 1 : a > b ? -1 : 0);
             console.log('Results:',scoreByPattern.slice(0,3));
         }
-     
 
     });
 
@@ -435,7 +435,8 @@ const IntelligenceDerived = () => {
             other electronic devices.<br/>
             To be exact in number, there is a total of <br/>
             <u><b>{maxVal}</b></u> <b>{Key}</b>'s stolen so far.
-             </h4>
+             </h4><br/>
+             <LocationAnalytics />
         </div>
     );
 };

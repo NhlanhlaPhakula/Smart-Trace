@@ -66,6 +66,7 @@ const ImageToText = () => {
         });
     };*/
 
+
     return(
         <div className="image-to-text">
             <main className="main">
@@ -75,7 +76,7 @@ const ImageToText = () => {
                 <div className="text-box">
                     <p>{text}</p>
                 </div>
-                <input type="file" onChange={handleChange} />
+                <input type="file" onChange={handleChange} /><br/><br/>
                 <button onClick={() => {
                     handleClick();
                     togglePopup();
@@ -90,7 +91,7 @@ const ImageToText = () => {
                 handleClose={togglePopup}
                 />
                 }
-               {/* <button onClick={handleFind}>Find</button>*/}
+                {/*<button onClick={handleFind}>Find</button>*/}
             </main>
         </div>
     );

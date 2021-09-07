@@ -42,7 +42,6 @@ import ImageToText from './ImageText';
 import IntelligenceDerived from './Intelligence';
 import LocationAnalytics from './LocationAnalytics';
 
-
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
     const user = firebase.auth().currentUser;
     return(
