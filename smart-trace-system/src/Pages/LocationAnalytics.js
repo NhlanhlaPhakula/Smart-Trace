@@ -201,7 +201,7 @@ const LocationAnalytics = () => {
 
         if(second === Johannesburg) {
             console.log('Johannesburg:',second);
-            const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Johannesburg');
+            const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Johannesburg').limitToFirst(1);
             findRef.on('value',(snapshot) => {
                 const johannes = snapshot.val();
                 const johannesburgs = [];
@@ -214,7 +214,7 @@ const LocationAnalytics = () => {
         }else{
             if(second === Sandton) {
                 console.log('Sandton:',second);
-                const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Sandton');
+                const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Sandton').limitToFirst(1);
                 findRef.on('value',(snapshot) => {
                     const sandton = snapshot.val();
                     const sandtons = [];
@@ -227,7 +227,7 @@ const LocationAnalytics = () => {
             }else{
                 if(second === Midrand) {
                     console.log('Midrand:',second);
-                    const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Midrand');
+                    const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Midrand').limitToFirst(1);
                     findRef.on('value',(snapshot) => {
                         const midrand = snapshot.val();
                         const midrands = [];
@@ -240,7 +240,7 @@ const LocationAnalytics = () => {
                 }else{
                     if(second === Alexandra) {
                         console.log('Alexandra:',second);
-                        const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Alexandra');
+                        const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Alexandra').limitToFirst(1);
                         findRef.on('value',(snapshot) => {
                             const alex = snapshot.val();
                             const alexandras = [];
@@ -256,14 +256,14 @@ const LocationAnalytics = () => {
                         }else{
                             if(second === Soweto) {
                                 console.log('Soweto:',second);
-                                const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Soweto');
+                                const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Soweto').limitToFirst(1);
                                 findRef.on('value',(snapshot) => {
                                     const soweto = snapshot.val();
                                     const sowetos = [];
                                     for(let id in soweto) {
                                         sowetos.push({ id, ... soweto[id]});
                                     }
-                                    //setSowetos(sowetos);
+                                    setSowetos(sowetos);
                                     console.log('Soweto count:',sowetos);
                                 },[]);
                             };
@@ -318,7 +318,7 @@ const LocationAnalytics = () => {
 
         if(third === johannesburg){
             console.log('Johannesburg:',third);
-            const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Johannesburg');
+            const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Johannesburg').limitToFirst(1);
             findRef.on('value',(snapshot) => {
                 const joburg = snapshot.val();
                 const jhbThird = [];
@@ -331,7 +331,7 @@ const LocationAnalytics = () => {
         }else{
             if(third === sandton){
                 console.log('Sandton:',third);
-                const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Sandton');
+                const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Sandton').limitToFirst(1);
                 findRef.on('value',(snapshot) => {
                     const sand = snapshot.val();
                     const sandThird = [];
@@ -344,7 +344,7 @@ const LocationAnalytics = () => {
             }else{
                 if(third === midrand){
                     console.log('Midrand:',third);
-                    const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Midrand');
+                    const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Midrand').limitToFirst(1);
                     findRef.on('value',(snapshot) => {
                         const midrnd = snapshot.val();
                         const midrandThird = [];
@@ -357,7 +357,7 @@ const LocationAnalytics = () => {
                 }else{
                     if(third === alexandra){
                         console.log('Alexandra:',third);
-                        const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Alexandra');
+                        const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Alexandra').limitToFirst(1);
                         findRef.on('value',(snapshot) => {
                             const alex = snapshot.val();
                             const alexThird = [];
@@ -370,7 +370,7 @@ const LocationAnalytics = () => {
                     }else{
                         if(third === roodepoort){
                             console.log('Roodepoort:',third);
-                            const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Roodepoort');
+                            const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Roodepoort').limitToFirst(1);
                             findRef.on('value',(snapshot) => {
                                 const roode = snapshot.val();
                                 const roodeThird = [];
@@ -383,7 +383,7 @@ const LocationAnalytics = () => {
                         }else{
                             if(third === soweto) {
                                 console.log('Soweto:',third);
-                                const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Soweto');
+                                const findRef = firebase.database().ref('Reports').orderByChild('location').equalTo('Soweto').limitToFirst(1);
                                 findRef.on('value',(snapshot) => {
                                     const soweto = snapshot.val();
                                     const sowetoThird = [];
@@ -403,7 +403,7 @@ const LocationAnalytics = () => {
     });
     
     return(
-        <div>
+        <div className="intelligence">
             <h5>From all the items reported,<br/>{key} is the leading location with<br/>
             high rate of items reported.<br/>
             {key} is leading with {maxVal} reported cases.<br/><br/>
@@ -415,12 +415,13 @@ const LocationAnalytics = () => {
             {roodepoorts ? roodepoorts.map((names,index) => <RoodepoortList names={names} key={index} /> ) : ''}
             .<br/>
             Lost items have been reported {second} of times from this location.<br/><br/>
-            In the third place {jhbThird ? jhbThird.map((names,index) => <SowetoList names={names} key={index}/>) : ''}
+            In third place : {jhbThird ? jhbThird.map((names,index) => <SowetoList names={names} key={index}/>) : ''}
             {sandThird ? sandThird.map((names,index) =><SandtonList names={names} key={index} />) : ''}
             {midrandThird ? midrandThird.map((names,index) => <MidrandList names={names} key={index}/>) : ''}
             {alexThird ? alexThird.map((names,index) => <AlexandraList names={names} key={index} />) : ''}
             {roodeThird ? roodeThird.map((names,index) => <RoodepoortList names={names} key={index} />) : ''}
             {sowetoThird ? sowetoThird.map((names,index) => <SowetoList names={names} key={index} />) : ''}
+            In this location {third} report(s) have been made so far!
             </h5><br/>
         </div>
     );

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
+import DesktopIntell, { DvDIntell, FanIntell, GameConsoleIntell, IpadIntell, IPodIntell, LaptopIntell, MobilePhoneIntell, OvenIntell, PrinterIntell, RadioIntell, TelevisionIntell, WashingMachineIntell } from './DeviceData';
 import LocationAnalytics from './LocationAnalytics';
 
 const IntelligenceDerived = () => {
@@ -35,25 +36,43 @@ const IntelligenceDerived = () => {
     const [televisionLength,setTelevisionLength] = useState();
     const [washingLength,setWashingLength] = useState();
 
-    //length variables
-    /*const [cameras,setCameras] = useState();
-    const [desktops,setDesktops] = useState();
-    const [dvds,setDvds] = useState();
-    const [fans,setFans] = useState();
-    const [games,setGames] = useState();
-    const [ipads,setIpads] = useState();
-    const [ipods,setIpods] = useState();
-    const [laptops,setLaptops] = useState();
-    const [phones,setPhones] = useState();
-    const [ovens,setOvens] = useState();
-    const [printers,setPrinters] = useState();
-    const [radios,setRadios] = useState();
-    const [televisions,setTelevisions] = useState();
-    const [washings,setWashings] = useState();
-    */
-    const [max, setMax] = useState();
+    //second variables
+    const [cameraSec,setCameraSec] = useState();
+    const [desktopSec,setDesktopSec] = useState();
+    const [dvdSec,setDvdSec] = useState();
+    const [fanSec,setFanSec] = useState();
+    const [gameSec,setGameSec] = useState();
+    const [ipadSec,setIpadSec] = useState();
+    const [ipodSec,setIpodSec] = useState();
+    const [laptopSec,setLaptopSec] = useState();
+    const [phoneSec,setPhonesSec] = useState();
+    const [ovenSec,setOvenSec] = useState();
+    const [printerSec,setPrinterSec] = useState();
+    const [radioSec,setRadioSec] = useState();
+    const [televisionSec,setTelevisionSec] = useState();
+    const [washingSec,setWashingSec] = useState();
+
+    //third variables
+    const [cameraThird,setCameraThird] = useState();
+    const [desktopThird,setDesktopThird] = useState();
+    const [dvdThird,setDvdThird] = useState();
+    const [fanThird,setFanThird] = useState();
+    const [gameThird,setGameThird] = useState();
+    const [ipadThird,setIpadThird] = useState();
+    const [ipodThird,setIpodThird] = useState();
+    const [laptopThird,setLaptopThird] = useState();
+    const [phoneThird,setPhonesThird] = useState();
+    const [ovenThird,setOvenThird] = useState();
+    const [printerThird,setPrinterThird] = useState();
+    const [radioThird,setRadioThird] = useState();
+    const [televisionThird,setTelevisionThird] = useState();
+    const [washingThird,setWashingThird] = useState();
+
+    //max vaiables
     const [maxVal, setMaxVal] = useState();
     const [Key, setKey] = useState();
+    const [second, setSecond] = useState();
+    const [third, setThird] = useState();
 
     //a function to calcuate camera instances
     useEffect(() => {
@@ -427,6 +446,505 @@ const IntelligenceDerived = () => {
         }
 
     });
+    //a function to find the second largest device 
+    useEffect(() => {
+        var camera = cameraLength;
+        var desktop = desktopLength;
+        var dvd = dvdLength;
+        var fan = fanLength;
+        var game = gameLength;
+        var ipad = ipadLength;
+        var ipod = ipodLength;
+        var laptop = laptopLength;
+        var phone = phoneLength;
+        var oven = ovenLength;
+        var printer = printerLength;
+        var radio = radioLength;
+        var television = televisionLength;
+        var washing = washingLength;
+
+        var array = [camera, desktop, dvd, fan, game, ipad, ipod, laptop, phone, oven, printer, radio, television, washing];
+
+        function sLargest(arr) {
+			var max = Math.max.apply(null, array), 
+			maxi = array.indexOf(max);
+			arr[maxi] = -Infinity; 
+			var secondMax = Math.max.apply(null, array);  
+			arr[maxi] = max;
+			return secondMax;
+        }
+        const second = sLargest(array);
+        setSecond(second);
+        //console.log('Second Largest:',second);
+    });
+    //a function to compare and find the exact match
+    useEffect(() => {
+        var camera = cameraLength;
+        var desktop = desktopLength;
+        var dvd = dvdLength;
+        var fan = fanLength;
+        var game = gameLength;
+        var ipad = ipadLength;
+        var ipod = ipodLength;
+        var laptop = laptopLength;
+        var phone = phoneLength;
+        var oven = ovenLength;
+        var printer = printerLength;
+        var radio = radioLength;
+        var television = televisionLength;
+        var washing = washingLength;
+
+        //var array = [camera, desktop, dvd, fan, game, ipad, ipod, laptop, phone, oven, printer, radio, television, washing];
+        if(second === camera) {
+            console.log('Camera:',second);
+            const findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Camera').limitToFirst(1);
+            findRef.on('value',(snapshot) => {
+                const cameras = snapshot.val();
+                const cameraSec = [];
+                for(let id in cameras) {
+                    cameraSec.push({ id, ... cameras[id]});
+                }
+                console.log('Cameras:',cameraSec);
+                setCameraSec(cameraSec);
+            },[]);
+        }else{
+            if(second === desktop) {
+                console.log('Camera:',second);
+                const findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Desktop Computer').limitToFirst(1);
+                findRef.on('value',(snapshot) => {
+                    const desk = snapshot.val();
+                    const desktopSec = [];
+                    for(let id in desk) {
+                        desktopSec.push({ id, ... desk[id]});
+                    }
+                    console.log('Desktop Computer:',desktopSec);
+                    setDesktopSec(desktopSec);
+                },[]);
+            }else{
+                if(second === dvd) {
+                    console.log('Fan:',dvd);
+                    const findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Fan').limitToFirst(1);
+                    findRef.on('value',(snapshot) => {
+                        const fans = snapshot.val();
+                        const fanSec = [];
+                        for(let id in fans) {
+                            fanSec.push({ id, ... fans[id]});
+                        }
+                        console.log('Fan:',fanSec);
+                        setFanSec(fanSec);
+                    },[]);
+                }else{
+                    if(second === game) {
+                        console.log('Game:',game);
+                        const findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Game Console').limitToFirst(1);
+                        findRef.on('value',(snapshot) => {
+                            const games = snapshot.val();
+                            const gameSec = [];
+                            for(let id in games) {
+                                gameSec.push({ id, ... games[id]});
+                            }
+                            console.log('Game Console:',gameSec);
+                            setGameSec(gameSec);
+                        },[]);
+                    }else{
+                        if(second === ipad) {
+                            console.log('iPads',ipad);
+                            const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('iPad').limitToFirst(1);
+                            findRef.on('value',(snapshot) => {
+                                const ipads = snapshot.val();
+                                const ipadSec = [];
+                                for(let id in ipads) {
+                                    ipadSec.push({ id, ... ipads[id]});
+                                }
+                                console.log('iPad:',ipadSec);
+                                setIpadSec(ipadSec);
+                            },[]);
+                        }else{
+                            if(second === ipod) {
+                                console.log('iPods',ipod);
+                                const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('iPod').limitToFirst(1);
+                                findRef.on('value',(snapshot) => {
+                                    const ipods = snapshot.val();
+                                    const ipodSec = [];
+                                    for(let id in ipods) {
+                                        ipodSec.push({ id, ... ipods[id]});
+                                    }
+                                    console.log('iPod:',ipodSec);
+                                    setIpodSec(ipodSec);
+                                },[]);
+                            }else{
+                                if(second === laptop) {
+                                    console.log('Laptops',laptop);
+                                    const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Laptop').limitToFirst(1);
+                                    findRef.on('value',(snapshot) => {
+                                        const laptops = snapshot.val();
+                                        const laptopSec = [];
+                                        for(let id in laptops) {
+                                            laptopSec.push({ id, ... laptops[id]});
+                                        }
+                                        console.log('Laptop:',laptopSec);
+                                        setLaptopSec(laptopSec);
+                                    },[]);
+                                }else{
+                                    if(second === phone) {
+                                        console.log('Mobile',phone);
+                                        const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Mobile Phone').limitToFirst(1);
+                                        findRef.on('value',(snapshot) => {
+                                            const phones = snapshot.val();
+                                            const phoneSec = [];
+                                            for(let id in phones) {
+                                                phoneSec.push({ id, ... phones[id]});
+                                            }
+                                            console.log('Mobiles:',phoneSec);
+                                            setPhonesSec(phoneSec);
+                                        },[]);
+                                    }else{
+                                        if(second === oven) {
+                                            console.log('Ovens',oven);
+                                            const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Oven').limitToFirst(1);
+                                            findRef.on('value',(snapshot) => {
+                                                const ovens = snapshot.val();
+                                                const ovenSec = [];
+                                                for(let id in ovens) {
+                                                    ovenSec.push({ id, ... ovens[id]});
+                                                }
+                                                console.log('iPad:',ovenSec);
+                                                setOvenSec(ovenSec);
+                                            },[]);
+                                        }else{
+                                            if(second === printer) {
+                                                console.log('Printer:',printer);
+                                                const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Printer').limitToFirst(1);
+                                                findRef.on('value',(snapshot) => {
+                                                    const printers = snapshot.val();
+                                                    const printerSec = [];
+                                                    for(let id in printers) {
+                                                        printerSec.push({ id, ... printers[id]});
+                                                    }
+                                                    console.log('iPad:',printerSec);
+                                                    setPrinterSec(printerSec);
+                                                },[]);
+                                            }else{
+                                                if(second === radio) {
+                                                    console.log('Radio:',radio);
+                                                    const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Radio').limitToFirst(1);
+                                                    findRef.on('value',(snapshot) => {
+                                                        const radios = snapshot.val();
+                                                        const radioSec = [];
+                                                        for(let id in radios) {
+                                                            radioSec.push({ id, ... radios[id]});
+                                                        }
+                                                        console.log('Radios:',radioSec);
+                                                        setRadioSec(radioSec);
+                                                    },[]);
+                                                }else{
+                                                    if(second === television) {
+                                                        console.log('Televisions:',television);
+                                                        const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Television').limitToFirst(1);
+                                                        findRef.on('value',(snapshot) => {
+                                                            const televisions = snapshot.val();
+                                                            const televisionSec = [];
+                                                            for(let id in televisions) {
+                                                                televisionSec.push({ id, ... televisions[id]});
+                                                            }
+                                                            console.log('Television:',televisionSec);
+                                                            setTelevisionSec(televisionSec);
+                                                        },[]);
+                                                    }else{
+                                                        if(second === washing) {
+                                                            console.log('Washing Machine',washing);
+                                                            const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Washing Machine').limitToFirst(1);
+                                                            findRef.on('value',(snapshot) => {
+                                                                const washings = snapshot.val();
+                                                                const washingSec = [];
+                                                                for(let id in washings) {
+                                                                    washingSec.push({ id, ... washings[id]});
+                                                                }
+                                                                console.log('Washing Machines:',washingSec);
+                                                                setWashingSec(washingSec);
+                                                            },[]);
+                                                        }else{
+                                                            if(second === fan) {
+                                                                console.log('Fans:',fan);
+                                                                const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Fan').limitToFirst(1);
+                                                                findRef.on('value',(snapshot) => {
+                                                                    const fans = snapshot.val();
+                                                                    const fanSec = [];
+                                                                    for(let id in fans) {
+                                                                        fanSec.push({ id, ... fans[id]});
+                                                                    }
+                                                                    console.log('Fan:',fanSec);
+                                                                    setFanSec(fanSec);
+                                                                },[]);
+                                                            }
+                                                        }
+                                                    };
+                                                };
+                                            };
+                                        };
+                                    };
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    });
+
+    // a function to find the third largest number of devices reported
+    useEffect(() => {
+        var camera = cameraLength;
+        var desktop = desktopLength;
+        var dvd = dvdLength;
+        var fan = fanLength;
+        var game = gameLength;
+        var ipad = ipadLength;
+        var ipod = ipodLength;
+        var laptop = laptopLength;
+        var phone = phoneLength;
+        var oven = ovenLength;
+        var printer = printerLength;
+        var radio = radioLength;
+        var television = televisionLength;
+        var washing = washingLength;
+
+        var arr = [camera, desktop, dvd, fan, game, ipad, ipod, laptop, phone, oven, printer, radio, television, washing];
+        const findThirdMax = (arr) => {
+            let [first, second, third] = [-Infinity, -Infinity, -Infinity];
+            for (let el of arr) {
+                if (el === first || el === second || el === third) {
+                    continue; };
+                    if (el > first) {
+                        [first, second, third] = [el, first, second]; continue; };
+                    if (el > second) {
+                        [second, third] = [el, second]; continue;
+                    };
+                    if (el > third) {
+                        third = el; continue;
+                };
+            };
+            return third !== -Infinity ? third : first;
+            };
+            console.log(findThirdMax(arr));
+            const third = findThirdMax(arr);
+            setThird(third);
+
+    });
+    // a function to find the third device stolen mostly
+    useEffect(() => {
+        var camera = cameraLength;
+        var desktop = desktopLength;
+        var dvd = dvdLength;
+        var fan = fanLength;
+        var game = gameLength;
+        var ipad = ipadLength;
+        var ipod = ipodLength;
+        var laptop = laptopLength;
+        var phone = phoneLength;
+        var oven = ovenLength;
+        var printer = printerLength;
+        var radio = radioLength;
+        var television = televisionLength;
+        var washing = washingLength;
+
+        if(third === camera) {
+            console.log('Camera:',third);
+            const findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Camera').limitToFirst(1);
+            findRef.on('value',(snapshot) => {
+                const camerass = snapshot.val();
+                const cameraThird = [];
+                for(let id in camerass) {
+                    cameraThird.push({ id, ... camerass[id]});
+                }
+                console.log('Cameras:',cameraThird);
+                setCameraThird(cameraThird);
+            },[]);
+        }else{
+            if(third === desktop) {
+                console.log('Camera:',third);
+                const findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Desktop Computer').limitToFirst(1);
+                findRef.on('value',(snapshot) => {
+                    const desks = snapshot.val();
+                    const desktopThird = [];
+                    for(let id in desks) {
+                        desktopThird.push({ id, ... desks[id]});
+                    }
+                    console.log('Desktop Computer:',desktopThird);
+                    setDesktopThird(desktopThird);
+                },[]);
+            }else{
+                if(third === dvd) {
+                    console.log('Fan:',dvd);
+                    const findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Fan').limitToFirst(1);
+                    findRef.on('value',(snapshot) => {
+                        const fanss = snapshot.val();
+                        const fanThird = [];
+                        for(let id in fanss) {
+                            fanThird.push({ id, ... fanss[id]});
+                        }
+                        console.log('Fan:',fanThird);
+                        setFanThird(fanThird);
+                    },[]);
+                }else{
+                    if(third === game) {
+                        console.log('Game:',game);
+                        const findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Game Console').limitToFirst(1);
+                        findRef.on('value',(snapshot) => {
+                            const gamess = snapshot.val();
+                            const gameThird = [];
+                            for(let id in gamess) {
+                                gameThird.push({ id, ... gamess[id]});
+                            }
+                            console.log('Game Console:',gameThird);
+                            setGameThird(gameThird);
+                        },[]);
+                    }else{
+                        if(third === ipad) {
+                            console.log('iPads',ipad);
+                            const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('iPad').limitToFirst(1);
+                            findRef.on('value',(snapshot) => {
+                                const ipadss = snapshot.val();
+                                const ipadThird = [];
+                                for(let id in ipadss) {
+                                    ipadThird.push({ id, ... ipadss[id]});
+                                }
+                                console.log('iPad:',ipadThird);
+                                setIpadThird(ipadThird);
+                            },[]);
+                        }else{
+                            if(third === ipod) {
+                                console.log('iPods',ipod);
+                                const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('iPod').limitToFirst(1);
+                                findRef.on('value',(snapshot) => {
+                                    const ipodss = snapshot.val();
+                                    const ipodThird = [];
+                                    for(let id in ipodss) {
+                                        ipodThird.push({ id, ... ipodss[id]});
+                                    }
+                                    console.log('iPod:',ipodThird);
+                                    setIpodThird(ipodThird);
+                                },[]);
+                            }else{
+                                if(third === laptop) {
+                                    console.log('Laptops',laptop);
+                                    const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Laptop').limitToFirst(1);
+                                    findRef.on('value',(snapshot) => {
+                                        const laptopss = snapshot.val();
+                                        const laptopThird = [];
+                                        for(let id in laptopss) {
+                                            laptopThird.push({ id, ... laptopss[id]});
+                                        }
+                                        console.log('Laptop:',laptopThird);
+                                        setLaptopThird(laptopThird);
+                                    },[]);
+                                }else{
+                                    if(third === phone) {
+                                        console.log('Mobile',phone);
+                                        const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Mobile Phone').limitToFirst(1);
+                                        findRef.on('value',(snapshot) => {
+                                            const phoness = snapshot.val();
+                                            const phoneThird = [];
+                                            for(let id in phoness) {
+                                                phoneThird.push({ id, ... phoness[id]});
+                                            }
+                                            console.log('Mobiles:',phoneThird);
+                                            setPhonesThird(phoneThird);
+                                        },[]);
+                                    }else{
+                                        if(third === oven) {
+                                            console.log('Ovens',oven);
+                                            const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Oven').limitToFirst(1);
+                                            findRef.on('value',(snapshot) => {
+                                                const ovenss = snapshot.val();
+                                                const ovenThird = [];
+                                                for(let id in ovenss) {
+                                                    ovenThird.push({ id, ... ovenss[id]});
+                                                }
+                                                console.log('iPad:',ovenThird);
+                                                setOvenThird(ovenThird);
+                                            },[]);
+                                        }else{
+                                            if(third === printer) {
+                                                console.log('Printer:',printer);
+                                                const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Printer').limitToFirst(1);
+                                                findRef.on('value',(snapshot) => {
+                                                    const printerss = snapshot.val();
+                                                    const printerThird = [];
+                                                    for(let id in printerss) {
+                                                        printerThird.push({ id, ... printerss[id]});
+                                                    }
+                                                    console.log('iPad:',printerThird);
+                                                    setPrinterThird(printerThird);
+                                                },[]);
+                                            }else{
+                                                if(third === radio) {
+                                                    console.log('Radio:',radio);
+                                                    const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Radio').limitToFirst(1);
+                                                    findRef.on('value',(snapshot) => {
+                                                        const radioss = snapshot.val();
+                                                        const radioThird = [];
+                                                        for(let id in radioss) {
+                                                            radioThird.push({ id, ... radioss[id]});
+                                                        }
+                                                        console.log('Radios:',radioThird);
+                                                        setRadioThird(radioThird);
+                                                    },[]);
+                                                }else{
+                                                    if(third === television) {
+                                                        console.log('Televisions:',television);
+                                                        const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Television').limitToFirst(1);
+                                                        findRef.on('value',(snapshot) => {
+                                                            const televisionss = snapshot.val();
+                                                            const televisionThird = [];
+                                                            for(let id in televisionss) {
+                                                                televisionThird.push({ id, ... televisionss[id]});
+                                                            }
+                                                            console.log('Television:',televisionThird);
+                                                            setTelevisionThird(televisionThird);
+                                                        },[]);
+                                                    }else{
+                                                        if(third === washing) {
+                                                            console.log('Washing Machine',washing);
+                                                            const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Washing Machine').limitToFirst(1);
+                                                            findRef.on('value',(snapshot) => {
+                                                                const washingss = snapshot.val();
+                                                                const washingThird = [];
+                                                                for(let id in washingss) {
+                                                                    washingThird.push({ id, ... washingss[id]});
+                                                                }
+                                                                console.log('Washing Machines:',washingThird);
+                                                                setWashingThird(washingThird);
+                                                            },[]);
+                                                        }else{
+                                                            if(third === fan) {
+                                                                console.log('Fans:',fan);
+                                                                const  findRef = firebase.database().ref('Reports').orderByChild('category').equalTo('Fan').limitToFirst(1);
+                                                                findRef.on('value',(snapshot) => {
+                                                                    const fanss = snapshot.val();
+                                                                    const fanThird = [];
+                                                                    for(let id in fanss) {
+                                                                        fanThird.push({ id, ... fanss[id]});
+                                                                    }
+                                                                    console.log('Fan:',fanThird);
+                                                                    setFanThird(fanThird);
+                                                                },[]);
+                                                            }
+                                                        }
+                                                    };
+                                                };
+                                            };
+                                        };
+                                    };
+                                };
+                            };
+                        };
+                    };
+                };
+            };
+        };
+    });
+
 
     return(
         <div className="intelligence"> 
@@ -434,9 +952,41 @@ const IntelligenceDerived = () => {
             <u><b>{Key}</b></u>'s are stolen more than any<br/> 
             other electronic devices.<br/>
             To be exact in number, there is a total of <br/>
-            <u><b>{maxVal}</b></u> <b>{Key}</b>'s stolen so far.
-             </h4><br/>
+            <u><b>{maxVal}</b></u> <b>{Key}</b>'s stolen so far.<br/><br/>
+            The next device that is stolen the most is a(n) :
+            {desktopSec ? desktopSec.map((names,index) => <DesktopIntell names={names} key={index}/>):''}
+            {dvdSec ? dvdSec.map((names,index) => <DvDIntell names={names} key={index}/>):''}
+            {fanSec ? fanSec.map((names,index) => <FanIntell names={names} key={index} />) :''}
+            {gameSec ? gameSec.map((names,index) => <GameConsoleIntell names={names} key={index} />):''}
+            {ipadSec ? ipadSec.map((names,index) => <IpadIntell names={names} key={index}/>):''}
+            {ipodSec ? ipodSec.map((names,index) => <IPodIntell names={names} key={index}/>):''}
+            {laptopSec ? laptopSec.map((names,index) => <LaptopIntell names={names} key={index} />):''}
+            {phoneSec ? phoneSec.map((names,index) => <MobilePhoneIntell names={names} key={index} />) :''}
+            {ovenSec ? ovenSec.map((names,index) => <OvenIntell names={names} key={index} />):''}
+            {printerSec ? printerSec.map((names,index) => <PrinterIntell names={names} key={index} />) :''}
+            {radioSec ? radioSec.map((names,index) => <RadioIntell names={names} key={index} />):''}
+            {televisionSec ? televisionSec.map((names,index) => <TelevisionIntell names={names} key={index} />) :''}
+            {washingSec ? washingSec.map((names,index) => <WashingMachineIntell names={names} key={index} />) : ''}
+            With a total of {second} devices stolen. <br/><br/>
+
+            Device in third place is a(n):
+            {desktopThird ? desktopThird.map((names,index) => <DesktopIntell names={names} key={index} />) : ''}
+            {dvdThird ? dvdThird.map((names,index) => <DvDIntell names={names} key={index} />) : ''}
+            {fanThird ? fanThird.map((names,index) => <FanIntell names={names} key={index} />) : ''}
+            {gameThird ? gameThird.map((names,index) => <GameConsoleIntell names={names} key={index} />) : ''}
+            {ipadThird ? ipadThird.map((names,index) => <IpadIntell names={names} key={index} />):''}
+            {ipodThird ? ipodThird.map((names,index) => <IPodIntell names={names} key={index} />) : ''}
+            {laptopThird ? laptopThird.map((names,index) => <LaptopIntell names={names} key={index} />) : ''}
+            {phoneThird ? phoneThird.map((names,index) => <MobilePhoneIntell names={names} key={index} />) : ''}
+            {ovenThird ? ovenThird.map((names,index) => <OvenIntell names={names} key={index} />) : ''}
+            {printerThird ? printerThird.map((names,index) => <PrinterIntell names={names} key={index} />) : ''}
+            {radioThird ? radioThird.map((names,index) => <RadioIntell names={names} key={index} />):''}
+            {televisionThird ? televisionThird.map((names,index) => <TelevisionIntell names={names} key={index} />) : ''}
+            {washingThird ? washingThird.map((names,index) => <WashingMachineIntell names={names} key={index} />):''}
+            This device has a total of {third} reports made so far!
+            </h4><br/>
              <LocationAnalytics />
+             
         </div>
     );
 };
