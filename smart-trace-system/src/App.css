@@ -245,19 +245,12 @@ tr:nth-child(even) {
 .trackNtrace {
   color: white;
 }
-.divs {
-  border-style: solid;
-  border-color: rgb(238, 73, 14);
-  height: 300px;
-  width: 100%;
-  background:transparent;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  margin-left: 0.5%;
- 
+.links {
+  color: orangered;
+  text-decoration: none;
+}
+.links:hover {
+  color: purple;
 }
 .divs:hover {
   color: grey;
