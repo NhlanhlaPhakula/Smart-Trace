@@ -10,6 +10,14 @@ const DesktopIntell = ({names}) => {
 };
 export default DesktopIntell;
 
+const CameraIntell = ({names}) => {
+    return(
+        <div>
+            {names.category}
+        </div>
+    );
+};
+
 const DvDIntell = ({names}) => {
     return(
         <div>
@@ -106,4 +114,4 @@ const WashingMachineIntell = ({names}) => {
     );
 };
 
-export {DvDIntell,FanIntell,GameConsoleIntell,IpadIntell,IPodIntell,LaptopIntell,MobilePhoneIntell,OvenIntell,PrinterIntell,RadioIntell,TelevisionIntell,WashingMachineIntell};
+export {DvDIntell,CameraIntell,FanIntell,GameConsoleIntell,IpadIntell,IPodIntell,LaptopIntell,MobilePhoneIntell,OvenIntell,PrinterIntell,RadioIntell,TelevisionIntell,WashingMachineIntell};

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
-import DesktopIntell, { DvDIntell, FanIntell, GameConsoleIntell, IpadIntell, IPodIntell, LaptopIntell, MobilePhoneIntell, OvenIntell, PrinterIntell, RadioIntell, TelevisionIntell, WashingMachineIntell } from './DeviceData';
+import DesktopIntell, { CameraIntell, DvDIntell, FanIntell, GameConsoleIntell, IpadIntell, IPodIntell, LaptopIntell, MobilePhoneIntell, OvenIntell, PrinterIntell, RadioIntell, TelevisionIntell, WashingMachineIntell } from './DeviceData';
 import LocationAnalytics from './LocationAnalytics';
 
 const IntelligenceDerived = () => {
@@ -418,7 +418,7 @@ const IntelligenceDerived = () => {
         }
     });*/
     // a function to display top three results from the database
-    useEffect(() => {
+    /*useEffect(() => {
         var camera = cameraLength;
         var desktop = desktopLength;
         var dvd = dvdLength;
@@ -445,7 +445,7 @@ const IntelligenceDerived = () => {
             console.log('Results:',scoreByPattern.slice(0,3));
         }
 
-    });
+    });*/
     //a function to find the second largest device 
     useEffect(() => {
         var camera = cameraLength;
@@ -954,6 +954,7 @@ const IntelligenceDerived = () => {
             To be exact in number, there is a total of <br/>
             <u><b>{maxVal}</b></u> <b>{Key}</b>'s stolen so far.<br/><br/>
             The next device that is stolen the most is a(n) :
+            {cameraSec ? cameraSec.map((names,index) => <CameraIntell names={names} key={index} />):''}
             {desktopSec ? desktopSec.map((names,index) => <DesktopIntell names={names} key={index}/>):''}
             {dvdSec ? dvdSec.map((names,index) => <DvDIntell names={names} key={index}/>):''}
             {fanSec ? fanSec.map((names,index) => <FanIntell names={names} key={index} />) :''}
@@ -970,6 +971,7 @@ const IntelligenceDerived = () => {
             With a total of {second} devices stolen. <br/><br/>
 
             Device in third place is a(n):
+            {cameraThird ? cameraThird.map((names,index) => <CameraIntell names={names} key={index}/>):''}
             {desktopThird ? desktopThird.map((names,index) => <DesktopIntell names={names} key={index} />) : ''}
             {dvdThird ? dvdThird.map((names,index) => <DvDIntell names={names} key={index} />) : ''}
             {fanThird ? fanThird.map((names,index) => <FanIntell names={names} key={index} />) : ''}

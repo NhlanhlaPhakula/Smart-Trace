@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
-import InsuranceList from './InsuranceList';
+import InsuranceCategory, { InsuranceActivityPeriod, InsuranceCoverAll, InsuranceCoverDamage, InsuranceCoverFire, InsuranceCoverLoss, InsuranceCoverMulfunction, InsuranceCoverTheft, InsuranceMonthlyFee, InsuranceNiche, InsurancePurchasePrice } from './InsuranceList';
 
 const InsuranceQuestions = () => {
     //variables
@@ -15,7 +15,20 @@ const InsuranceQuestions = () => {
     const [coverDamage, setCoverDamage] = useState(false);
     const [coverFire, setCoverFire] = useState(false);
     const [coverAll, setCoverAll] = useState(false);
-    const [insuranceList, setInsuranceList] = useState();
+   // const [insuranceList, setInsuranceList] = useState();
+
+    //List variables
+    const [categoryList,setCategoryList] = useState();
+    const [nicheList,setNicheList] = useState();
+    const [activityPeriodList,setActivityPeriodList] = useState();
+    const [purchasePriceList,setPurchasePriceList] = useState();
+    const [monthlyFeeList,setmonthlyFeeList] = useState();
+    const [coverLossList,setCoverLossList] = useState();
+    const [coverMulfunctionList,setCoverMulfunctionList] = useState();
+    const [coverTheftList,setCoverTheftList] = useState();
+    const [coverDamageList,setCoverDamageList] = useState();
+    const [coverFireList,setCoverFireList] = useState();
+    const [coverAllList,setCoverAllList] = useState();
 
     //user function 
     const user = firebase.auth().currentUser;
@@ -40,38 +53,232 @@ const InsuranceQuestions = () => {
         };
         saveRef.push(savingData);
     };
-
-    //a function to search for the right insurance
-   /* const handleSearch = () => {
-        const retrieveRef = firebase.database().ref('Insurance');
-        retrieveRef.on('value', (snapshot) => {
-            const insurance = snapshot.val();
-            const insuranceList = [];
-            if( coverTheft != true){
-                for(let id in insurance){
-                    insuranceList.push({ id, ... insurance[id]});
-                }
-                console.log(insuranceList);
-                setInsuranceList(insuranceList);
-            }else{
-                console.log("Match could not be found!");
-                setInsuranceList();
-            };
-        },[]);
-    };
-    */
-   const handleSearch = () => {
-       const findRef = firebase.database().ref('Insurance_Preferences').orderByChild('category').equalTo(category);
+   //a function to search for  Matching insurance category
+   const handleCategory = () => {
+       const findRef = firebase.database().ref('Insurance').orderByChild('category').equalTo(category);
        findRef.on('value',(snapshot) => {
            const data = snapshot.val();
-           const dataList = [];
+           const categoryList = [];
            for(let id in data) {
-               dataList.push({ id, ... data[id]});
+               categoryList.push({ id, ... data[id]});
            }
-           console.log('Results:',dataList);
-           setInsuranceList(dataList);
+           console.log('Category:',categoryList);
+           setCategoryList(categoryList);
        });
    };
+   //a function to search for a matching niche
+   const handleNiche = () => {
+        const findRef = firebase.database().ref('Insurance').orderByChild('niche').equalTo(niche).limitToFirst(2);
+        findRef.on('value',(snapshot) => {
+            const products = snapshot.val();
+            const nicheList = [];
+            for(let id in products) {
+                nicheList.push({ id, ... products[id]});
+            }
+            console.log('Niche:',nicheList);
+            setNicheList(nicheList);
+        },[]);
+   };
+   // search active period
+   const handleActivePeriod = () => {
+       const findRef = firebase.database().ref('Insurance').orderByChild('activityPeriod').equalTo(activityPeriod).limitToFirst(2);
+       findRef.on('value',(snapshot) => {
+           const products = snapshot.val();
+           const activityPeriodList = [];
+           for(let id in products) {
+               activityPeriodList.push({ id, ... products[id]});
+           }
+           console.log('Active period:',activityPeriodList);
+           setActivityPeriodList(activityPeriodList);
+       },[]);
+   };
+   // saerch purchase price
+   const handlePurchasePrice = () => {
+       const findRef = firebase.database().ref('Insurance').orderByChild('purchasePrice').equalTo(purchasePrice).limitToFirst(2);
+       findRef.on('value',(snapshot) => {
+           const products = snapshot.val();
+           const purchasePriceList = [];
+           for(let id in products) {
+               purchasePriceList.push({ id, ... products[id]});
+           }
+           console.log('Purchase price:',purchasePriceList);
+           setPurchasePriceList(purchasePriceList);
+       },[]);
+   };
+   //search monthly fee
+   const handleMonthlyFee = () => {
+       const findRef = firebase.database().ref('Insurance').orderByChild('monthlyFee').equalTo(monthlyFee).limitToFirst(2);
+       findRef.on('value',(snapshot) => {
+           const products = snapshot.val();
+           const monthlyFeeList = [];
+           for(let id in products) {
+               monthlyFeeList.push({ id, ... products[id]});
+           }
+           console.log('Monthly fee:',monthlyFeeList);
+           setmonthlyFeeList(monthlyFeeList);
+       },[]);
+   };
+   //search loss
+  /* const handleLoss = () => {
+       const findRef = firebase.database().ref('Insurance').orderByChild('coverLoss').equalTo(coverLoss).limitToFirst(2);
+       findRef.on('value',(snapshot) => {
+           const products = snapshot.val();
+           const coverLossList = [];
+           for(let id in products) {
+               coverLossList.push({ id, ... products[id]});
+           }
+           console.log('Loss cover:',coverLossList);
+           setCoverLossList(coverLossList);
+       },[]);
+   };
+   //search mulfunction
+   const handleMulfunction = () => {
+       const findRef = firebase.database().ref('Insurance').orderByChild('coverMulfunction').equalTo(coverMulfunction).limitToFirst(2);
+       findRef.on('value',(snapshot) => {
+           const products = snapshot.val();
+           const coverMulfunctionList = [];
+           for(let id in products) {
+               coverMulfunctionList.push({ id, ... products[id]});
+           }
+           console.log('Mulfunction cover:',coverMulfunctionList);
+           setCoverMulfunctionList(coverMulfunctionList);
+       },[]);
+   };
+   //search theft
+   const handleTheft = () => {
+       const findRef = firebase.database().ref('Insurance').orderByChild('coverTheft').equalTo(coverTheft).limitToFirst(2);
+       findRef.on('value',(snapshot) => {
+           const products = snapshot.val();
+           const coverTheftList = [];
+           for(let id in products) {
+               coverTheftList.push({ id, ... products[id]});
+           }
+           console.log('Theft cover:',coverTheftList);
+           setCoverTheftList(coverTheftList);
+       },[]);
+   };
+   //search damage
+   const handleDamage = () => {
+       const findRef = firebase.database().ref('Insurance').orderByChild('coverDamage').equalTo(coverDamage).limitToFirst(2);
+       findRef.on('value',(snapshot) => {
+           const products = snapshot.val();
+           const coverDamageList = [];
+           for(let id in products) {
+               coverDamageList.push({ id, ... products[id]});
+           }
+           console.log('Damage cover:',coverDamageList);
+           setCoverDamageList(coverDamageList);
+       },[]);
+   };
+   //search fire
+   const handleFire = () => {
+        const findRef = firebase.database().ref('Insurance').orderByChild('coverFire').equalTo(coverFire).limitToFirst(2);
+        findRef.on('value',(snapshot) => {
+            const products = snapshot.val();
+            const coverFireList = [];
+            for(let id in products) {
+                coverFireList.push({ id, ... products[id]});
+            }
+            console.log('Fire cover:',coverFireList);
+            setCoverFireList(coverFireList);
+        },[]);
+   };
+   //search all
+   const handleAll = () => {
+       const findRef = firebase.database().ref('Insurance').orderByChild('coverAll').equalTo(coverAll).limitToFirst(2);
+       findRef.on('value',(snapshot) => {
+           const products = snapshot.val();
+           const coverAllList = [];
+           for(let id in products) {
+               coverAllList.push({ id, ... products[id]});
+           }
+           console.log('Cover all:',coverAllList);
+           setCoverAllList(coverAllList);
+       },[]);
+   };
+*/
+   // a function to display selected items only
+   const handleShow = () => {
+     if(coverLoss === true) {
+        const findRef = firebase.database().ref('Insurance').orderByChild('coverLoss').equalTo(coverLoss).limitToFirst(2);
+        findRef.on('value',(snapshot) => {
+            const products = snapshot.val();
+            const coverLossList = [];
+            for(let id in products) {
+                coverLossList.push({ id, ... products[id]});
+            }
+            console.log('Loss cover:',coverLossList);
+            setCoverLossList(coverLossList);
+        },[]);
+     }else{
+         if(coverMulfunction === true) {
+            const findRef = firebase.database().ref('Insurance').orderByChild('coverMulfunction').equalTo(coverMulfunction).limitToFirst(2);
+            findRef.on('value',(snapshot) => {
+                const products = snapshot.val();
+                const coverMulfunctionList = [];
+                for(let id in products) {
+                    coverMulfunctionList.push({ id, ... products[id]});
+                }
+                console.log('Mulfunction cover:',coverMulfunctionList);
+                setCoverMulfunctionList(coverMulfunctionList);
+            },[]);
+         }else{
+             if(coverTheft === true) {
+                const findRef = firebase.database().ref('Insurance').orderByChild('coverTheft').equalTo(coverTheft).limitToFirst(2);
+                findRef.on('value',(snapshot) => {
+                    const products = snapshot.val();
+                    const coverTheftList = [];
+                    for(let id in products) {
+                        coverTheftList.push({ id, ... products[id]});
+                    }
+                    console.log('Theft cover:',coverTheftList);
+                    setCoverTheftList(coverTheftList);
+                },[]);
+             }else{
+                 if(coverDamage === true) {
+                    const findRef = firebase.database().ref('Insurance').orderByChild('coverDamage').equalTo(coverDamage).limitToFirst(2);
+                    findRef.on('value',(snapshot) => {
+                        const products = snapshot.val();
+                        const coverDamageList = [];
+                        for(let id in products) {
+                            coverDamageList.push({ id, ... products[id]});
+                        }
+                        console.log('Damage cover:',coverDamageList);
+                        setCoverDamageList(coverDamageList);
+                    },[]);
+                 }else{
+                     if(coverFire === true) {
+                        const findRef = firebase.database().ref('Insurance').orderByChild('coverFire').equalTo(coverFire).limitToFirst(2);
+                        findRef.on('value',(snapshot) => {
+                            const products = snapshot.val();
+                            const coverFireList = [];
+                            for(let id in products) {
+                                coverFireList.push({ id, ... products[id]});
+                            }
+                            console.log('Fire cover:',coverFireList);
+                            setCoverFireList(coverFireList);
+                        },[]);
+                     }else{
+                         if(coverAll === true) {
+                            const findRef = firebase.database().ref('Insurance').orderByChild('coverFire').equalTo(coverFire).limitToFirst(2);
+                            findRef.on('value',(snapshot) => {
+                                const products = snapshot.val();
+                                const coverFireList = [];
+                                for(let id in products) {
+                                    coverFireList.push({ id, ... products[id]});
+                                }
+                                console.log('Fire cover:',coverFireList);
+                                setCoverFireList(coverFireList);
+                            },[]);
+                         };
+                     };
+                 };
+             };
+         };
+     };
+   };
+
+
 
     return(
         <div className="insurance-questions">
@@ -81,20 +288,9 @@ const InsuranceQuestions = () => {
                     <label>1. What is the type of item you are Looking forward to insure?</label><br/>
                     <select value={category} required onChange={e=> setCategory(e.target.value)}>
                         <option></option>
-                        <option value="Camera">Camera</option>
-                        <option value="Desktop Computer">Desktop Computer</option>
-                        <option value="DvD Player">DvD Player</option>
-                        <option value="Fan">Fan</option>
-                        <option value="Game Console">Game Console</option>
-                        <option value="iPad">iPad</option>
-                        <option value="iPod">iPod</option>
-                        <option value="Laptop">Laptop</option>
-                        <option value="Mobile Phone">Mobile Phone</option>
-                        <option value="Oven">Oven</option>
-                        <option value="Printer">Printer</option>
-                        <option value="Radio">Radio</option>
-                        <option value="Television">Television</option>
-                        <option value="Washing Machine">Washing Machine</option>
+                        <option value="Mobile Devices">Mobile Devices</option>
+                        <option value="Desktop Devices">Desktop Devices</option>
+                        <option value="Home Appliances">Home Appliances</option>
                     </select>
                 </div>
                 <div>
@@ -121,10 +317,10 @@ const InsuranceQuestions = () => {
                     <select value={purchasePrice} required onChange={e=> setPurchasePrice(e.target.value)}>
                         <option></option>
                         <option value="R1000-R3500">R1000-R3500</option>
-                        <option value="R3500-R5000">R3500-R5000</option>
-                        <option value="R5000-R7500">R5000-R7500</option>
-                        <option value="R7500-R10000">R7500-R10000</option>
-                        <option value="R10000-R20000">R10000-R20000</option>
+                        <option value="R3600-R5000">R3600-R5000</option>
+                        <option value="R5500-R7500">R5500-R7500</option>
+                        <option value="R7600-R10000">R7600-R10000</option>
+                        <option value="R11000-R20000">R11000-R20000</option>
                         <option value="More">More</option>
                     </select>
                 </div>
@@ -135,12 +331,11 @@ const InsuranceQuestions = () => {
                         <option value="R150pm">R150pm</option>
                         <option value="R200pm">R200pm</option>
                         <option value="R350pm">R350pm</option>
-                        <option value="R400pm">R400pm</option>
                         <option value="R450pm">R450pm</option>
-                        <option value="R500pm">R500pm</option>
                         <option value="R550pm">R550pm</option>
+                        <option value="R650pm">R650pm</option>
                         <option value="R750pm">R750pm</option>
-                        <option value="R1500pm">R1500pm</option>
+                        <option value="R850pm">R850pm</option>
                     </select>
                 </div>
                 <div>
@@ -154,11 +349,44 @@ const InsuranceQuestions = () => {
                 </div>
                 <button onClick={() => {
                     saveData();
-                    handleSearch();
+                    handleCategory();
+                    handleActivePeriod();
+                    //handleAll();
+                    //handleDamage();
+                    //handleFire();
+                    //handleLoss();
+                    handleMonthlyFee();
+                   // handleMulfunction();
+                    handleNiche();
+                    handlePurchasePrice();
+                   // handleTheft();
+                   handleShow();
                 }}>Search</button>
 
                 <div className="insurance-results">
-                    {insuranceList ? insuranceList.map((names, index) => <InsuranceList name={names} key={index}/>) : ''}
+                <hr/>
+                    <h1>Insurance to cover {category}</h1>
+                    {categoryList ? categoryList.map((names, index) => <InsuranceCategory name={names} key={index}/>) : ''}<hr/>
+                    <h1>For a {niche} niche</h1>
+                    {nicheList ? nicheList.map((names,index) => <InsuranceNiche name={names} key={index} />) : ''}<hr/>
+                    <h1>With an active period of {activityPeriod} :</h1>
+                    {activityPeriodList ? activityPeriodList.map((names,index) => <InsuranceActivityPeriod name={names} key={index} />) :''}<hr/>
+                    <h1>For {category} bought under {purchasePrice}</h1>
+                    {purchasePriceList ? purchasePriceList.map((names,index) => <InsurancePurchasePrice name={names} key={index} />):''}<hr/>
+                    <h1>For a monthly fee of {monthlyFee}</h1>
+                    {monthlyFeeList ? monthlyFeeList.map((names,index) => <InsuranceMonthlyFee name={names} key={index} />):''}<hr/>
+                    <h1>To cover loss</h1>
+                    {coverLossList ? coverLossList.map((names,index) => <InsuranceCoverLoss name={names} key={index} />):''}<hr/>
+                    <h1>To cover mulfunction</h1>
+                    {coverMulfunctionList ? coverMulfunctionList.map((names,index) => <InsuranceCoverMulfunction name={names} key={index} />):''}<hr/>
+                    <h1>To cover theft</h1>
+                    {coverTheftList ? coverTheftList.map((names,index) => <InsuranceCoverTheft name={names} key={index} />):''}<hr/>
+                    <h1>To cover physical damage</h1>
+                    {coverDamageList ? coverDamageList.map((names,index) => <InsuranceCoverDamage name={names} key={index} />):''}<hr/>
+                    <h1>To cover fire</h1>
+                    {coverFireList ? coverFireList.map((names,index) => <InsuranceCoverFire name={names} key={index} />):''}<hr/>
+                    <h1>To cover everything</h1>
+                    {coverAllList ? coverAllList.map((names,index) => <InsuranceCoverAll name={names} key={index} />):''}
                 </div>
             
         </div>

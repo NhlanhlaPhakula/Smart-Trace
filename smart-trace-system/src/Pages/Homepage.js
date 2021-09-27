@@ -41,6 +41,7 @@ import Home from './ScannerHome';
 import ImageToText from './ImageText';
 import IntelligenceDerived from './Intelligence';
 import LocationAnalytics from './LocationAnalytics';
+import BackgroundChecker from './BackgroundChecker';
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
     const user = firebase.auth().currentUser;
@@ -84,19 +85,19 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                             <a href="/contactUs">Contact Us</a>
                         </li>
                         <li>
-                            <a href="/serialSearch">Background Checker</a>
+                            <a href="/backgroundChecker">Background Checker</a>
                         </li>
                         <li>
                             <a href="/myNotifications">Messages</a>
-                        </li>
-                        <li>
-                            <a href="/covid-19">Covid-19</a>
                         </li>
                         <li>
                             <a href="/wishlist">WishList</a>
                         </li>
                         <li>
                             <a href="/chatbot">ChatBot</a>
+                        </li>
+                        <li>
+                            <a href="/intelligence">Analytics</a>
                         </li>
                         <li>
                             <a href="/admin">Admin</a>
@@ -154,6 +155,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/imagetotext" exact={true} component={ImageToText} />
                         <Route path="/intelligence" exact={true} component={IntelligenceDerived} />
                         <Route path="/location" exact={true} component={LocationAnalytics} />
+                        <Route path="/backgroundChecker" exact={true} component={BackgroundChecker} />
                    </switch>
                    
                </div>

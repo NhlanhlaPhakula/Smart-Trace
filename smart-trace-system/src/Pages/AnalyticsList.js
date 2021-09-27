@@ -7,7 +7,7 @@ const RecommendationList = ({ names }) => {
     const [productsList, setProductsList] = useState();
 
     //a function to call related items from the products table
-    useEffect(() => {
+    /*useEffect(() => {
         const retrieveRef = firebase.database().ref('Products').orderByChild('category').equalTo(names.category);
         retrieveRef.on('value', (snapshot) => {
             const products = snapshot.val();
@@ -18,12 +18,13 @@ const RecommendationList = ({ names }) => {
             console.log('Related items: ', productsList);
             setProductsList(productsList);
         });
-    },[]);
+    },[]);*/
 
     return(
         <div className="recommendation-list">     
-
-            {productsList ? productsList.map((item, index) => <AnalyticsRecommendations items={item} key={index} />) : ''}
+            <img src={names.url} /><br/>
+            {/*{names.itemName}*/}
+            {/*{productsList ? productsList.map((item, index) => <AnalyticsRecommendations items={item} key={index} />) : ''}*/}
 
         </div>
     );

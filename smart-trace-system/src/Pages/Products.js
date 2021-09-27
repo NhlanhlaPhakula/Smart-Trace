@@ -12,6 +12,7 @@ const Products = ({ name }) => {
     const [isOpenAdd, setIsOpenAdd] = useState(false);
     const [isOpenReport, setIsOpenReport] = useState(false);
     const [isOpenWish, setIsOpenWish] = useState(false);
+    const [productsList,setProductsList] = useState();
 
     //a toggle function for popup
     const togglePopupAddToCart = () => {
@@ -74,8 +75,8 @@ const Products = ({ name }) => {
     };
 
     //a function for recommendations based off of user past transactions
-    useEffect(() => {
-        const retrieveRef = firebase.database().ref('Cart').orderByChild('category').equalTo(name.category);
+    /*useEffect(() => {
+        const retrieveRef = firebase.database().ref('Purchase').orderByChild('category').equalTo(name.category);
         retrieveRef.on('value', (snapshot) => {
             const products = snapshot.val();
             const productsList = [];
@@ -83,8 +84,9 @@ const Products = ({ name }) => {
                 productsList.push({ id, ... products[id]});
             }
             console.log('Recommendations: ', productsList);
+            setProductsList(productsList);
         });
-    },[]);
+    },[]);*/
 
     return(
         <div className="productlist">
@@ -121,12 +123,10 @@ const Products = ({ name }) => {
                 <button onClick={() => {
                     reportProduct();
                     togglePopupReport();
-                }}>Report</button>
-                <button onClick={() => {
+                }}>Report</button> <button onClick={() => {
                     addToCart();
                     togglePopupAddToCart();
-                }}>Add to Cart</button>
-                <button onClick={() => {
+                }}>Add to Cart</button> <button onClick={() => {
                     toggleAddWish();
                     handleAddToWishlist();
                 }}>Wishlist</button>

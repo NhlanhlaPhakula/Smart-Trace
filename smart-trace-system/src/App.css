@@ -471,3 +471,22 @@ ul {
 .intelligence {
   text-align: center;
 }
+
+.image-to-text {
+  text-align: center;
+}
+
+.background-checker {
+  text-align: center;
+}
+
+.program {
+  text-decoration: none;
+}
+.program:hover{
+  color: orangered;
+}
+
+.transcript {
+  color: #000000;
+}
