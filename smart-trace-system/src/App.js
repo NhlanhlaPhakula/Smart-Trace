@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import firebase from './Components/Firebase';
 import Login from './Pages/Login';
 import Homepage from './Pages/Homepage';
-import { UnauthenticatedSessionControl, LogoutTypes} from 'react-session-control';
+//import { UnauthenticatedSessionControl, LogoutTypes} from 'react-session-control';
 import './App.css';
 
 
@@ -27,7 +27,7 @@ const App = () => {
   };
 
   //Login function
-  const handleLogin = (LogoutTypes) =>{
+  const handleLogin = () =>{
     clearErrors();
     firebase
     .auth()
@@ -66,9 +66,8 @@ const App = () => {
   };
 
   //Logout function
-  const handleLogout = (LogoutTypes) => {
+  const handleLogout = () => {
     firebase.auth().signOut();
-    sessionStorage.removeItem(user);
   };
 
   //Listener (to check if a user exists or not)
@@ -77,7 +76,6 @@ const App = () => {
       if(user) {
         clearInputs();
         setUser(user);
-        sessionStorage.setItem('session-control', user);
       }else{
         setUser("");
       };
@@ -139,8 +137,7 @@ const App = () => {
               passwordError = {passwordError}
             />
             )};
-            <UnauthenticatedSessionControl storageTokenKey="token" onLogin={handleLogin}/>
-            <UnauthenticatedSessionControl inactivityTimeout={9000} modalInactivityTimeout={30} storageTokenKey="token" onLogout={handleLogout} />
+            
         
       </div>
   );
