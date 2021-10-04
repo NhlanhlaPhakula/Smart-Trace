@@ -13,10 +13,10 @@ const WishListResults = ({name}) => {
                     
                 </tr>
                 <tr>
-                    <th>{name.id}</th>
-                    <th>{name.itemName}</th>
-                    <th>{name.itemDescription}</th>
-                    <th>{name.category}</th>
+                    <td>{name.id}</td>
+                    <td>{name.itemName}</td>
+                    <td>{name.itemDescription}</td>
+                    <td>{name.category}</td>
                 </tr>
             </table>
         </div>

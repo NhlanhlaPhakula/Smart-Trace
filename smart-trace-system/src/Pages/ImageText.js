@@ -6,7 +6,7 @@ import Popup from './Popup';
 const ImageToText = () => {
     //variables
     const [imagePath, setImagePath] = useState("");
-    const [text, setText] = useState();
+    const [serialNumber, setText] = useState();
     const [productsList, setProductsList] = useState();
     const [isOpen, setIsOpen] = useState(false);
 
@@ -35,14 +35,16 @@ const ImageToText = () => {
         .catch(err => {
             console.error(err);
         })
-        .then(({ data: { text } }) => {
+        .then(({ data: {text} }) => {
             console.log(text);
             setText(text);
-            
-            const findRef = firebase.database().ref('Products').orderByChild('serialNumber').equalTo(text);
-            findRef.on('value',(snapshot) => {
+            const serialNumber = text;
+
+            const findRef = firebase.database().ref('Cart').orderByChild('serialNumber').equalTo(serialNumber);
+            findRef.on('value', (snapshot) => {
                 const products = snapshot.val();
                 const productsList = [];
+
                 for(let id in products){
                     productsList.push({ id, ... products[id]});
                 }
@@ -74,7 +76,7 @@ const ImageToText = () => {
                 <img src={imagePath} className="logo" alt="image" />
                 <h3>Extracted Text</h3>
                 <div className="text-box">
-                    <p>{text}</p>
+                    <p>{serialNumber}</p>
                 </div>
                 <input type="file" onChange={handleChange} /><br/><br/>
                 <button onClick={() => {
