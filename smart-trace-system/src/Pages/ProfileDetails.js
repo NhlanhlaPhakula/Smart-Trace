@@ -12,7 +12,6 @@ const UserDetails = ({ name }) => {
             <label>FirstName: {name.firstname}</label><br/>
             <label>LastName: {name.lastname}</label><br/>
             <label>Address: {name.address}</label><br/>
-            
         </div>
     );
 };

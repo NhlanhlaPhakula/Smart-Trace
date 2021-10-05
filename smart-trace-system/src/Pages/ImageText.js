@@ -6,9 +6,11 @@ import Popup from './Popup';
 const ImageToText = () => {
     //variables
     const [imagePath, setImagePath] = useState("");
-    const [serialNumber, setText] = useState();
+    //const [serialNumber, setText] = useState();
     const [productsList, setProductsList] = useState();
     const [isOpen, setIsOpen] = useState(false);
+    const [text,setText] = useState();
+    const [productList,setProductList] = useState();
 
     // progress function variables
     const [progress,setProgress] = useState(0);
@@ -38,9 +40,9 @@ const ImageToText = () => {
         .then(({ data: {text} }) => {
             console.log(text);
             setText(text);
-            const serialNumber = text;
 
-            const findRef = firebase.database().ref('Cart').orderByChild('serialNumber').equalTo(serialNumber);
+            //use the extracted text to search the the database for an item related to the serial number 
+            const findRef = firebase.database().ref('Products').orderByChild('serialNumber').equalTo(text);
             findRef.on('value', (snapshot) => {
                 const products = snapshot.val();
                 const productsList = [];
@@ -50,9 +52,11 @@ const ImageToText = () => {
                 }
                 setProductsList(productsList);
                 console.log('The extracted S/N is related to this product:',productsList);
-            },[]);
+            },[]);    
+            console.log('This is the extracted text:',text); 
+            
         });
-    
+        
     };
 
     /*const handleFind = () => {
@@ -67,18 +71,30 @@ const ImageToText = () => {
             console.log('Results:',productsList);
         });
     };*/
+    /*//use the extracted text to search the the database for an item related to the serial number
+            const findRef = firebase.database().ref('Products').orderByChild('serialNumber').equalTo(text);
+            findRef.on('value', (snapshot) => {
+                const products = snapshot.val();
+                const productsList = [];
 
+                for(let id in products){
+                    productsList.push({ id, ... products[id]});
+                }
+                setProductsList(productsList);
+                console.log('The extracted S/N is related to this product:',productsList);
+            },[]);    
+            console.log('This is the extracted text:',text);  */
 
     return(
         <div className="image-to-text">
             <main className="main">
                 <h3>Actual image uploaded</h3>
-                <img src={imagePath} className="logo" alt="image" />
+                <img src={imagePath || "http://via.placeholder.com/300x300"} className="logo" alt="image" />
                 <h3>Extracted Text</h3>
                 <div className="text-box">
-                    <p>{serialNumber}</p>
+                    <p>{text}</p>
                 </div>
-                <input type="file" onChange={handleChange} /><br/><br/>
+                <input type="file" onChange={handleChange}  className="file" /><br/><br/>
                 <button onClick={() => {
                     handleClick();
                     togglePopup();
@@ -87,7 +103,7 @@ const ImageToText = () => {
                     isOpen && <Popup 
                         content={<>
                             <b>Smart Trace</b>
-                            <p>Hang tight am still processing...</p>
+                            <p>Hang tight i'm still processing...</p>
                             <h6>To exit this press the x on top ^</h6>
                 </>}
                 handleClose={togglePopup}

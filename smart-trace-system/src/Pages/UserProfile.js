@@ -34,6 +34,8 @@ const UserProfile = () => {
     return(
         <div className="user-info">
             {userInfo ? userInfo.map((names, index) => <UserDetails name={names} key={index}/>) : ''}
+            <br/>
+            <br/>
             <Link className="link" to="/profileEdit">Edit</Link>  <Link className="link" to="/userProfile">Create</Link>
         </div>
     );
