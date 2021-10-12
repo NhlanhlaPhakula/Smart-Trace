@@ -258,7 +258,7 @@ tr:nth-child(even) {
   border-radius: 8px;
 }
 .trackNtrace {
-  color: white;
+  color: green;
 }
 .divs {
   /*grid-gap: 15px;*/
@@ -395,6 +395,16 @@ ul {
 }
 .admin-products h1{
   color: #344d56;
+}
+.trace-intro h1,h3 {
+  color: #344d56;
+}
+
+.trace-info link,a{
+  text-decoration: none;
+}
+.trace-info link:hover{
+  color: orangered;
 }
 
 .information h3 {

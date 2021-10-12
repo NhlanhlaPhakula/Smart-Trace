@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 
 
 const TrackTrace = () => {
     return(
         <div className="trackNtrace">
-            <div>
+            <div className="trace-intro">
                     <h1>Track 'N Trace</h1>
                     <h3>Smart Trace is an advanced innovative system that is built to help fight crime<br></br>
                     The system is centralized across various systems in our daily lives ones that deals with ecommerce,
@@ -24,11 +24,14 @@ const TrackTrace = () => {
             <div>
                 <img className="picture" src="Images/app.jpg"/><img className="picture" src="Images/app1.png" /><img className="picture" src="Images/download.jfif"/><img className="picture" src="Images/mobapp.png"/>
             </div>
-            <button>Download App</button>
-            <div>
+            
+            <div className="trace-info">
                 <h1>How to Track 'N Trace</h1>
-                <h3>i.Visit the registration page <Link to="https://drive.google.com/file/d/1JPw_f8fELz45olvfnDcDUKrpwbxoDquc/view?usp=sharing">Register</Link><br></br>
-                ii. Download mobile app <Link>Download Now</Link><br></br>
+                <h3>i.Visit the registration page <Link className="link" >Register</Link><br></br>
+                ii. Download mobile app<br></br>
+                <BrowserRouter>
+                <a className="link" href="https://drive.google.com/file/d/1JPw_f8fELz45olvfnDcDUKrpwbxoDquc/view?usp=sharing">Download App</a>
+                </BrowserRouter><br/>
                 iii. Register User Account<br></br>
                 iv. Register Products <br></br>
                 v. Happy possessions monitoring :)</h3>

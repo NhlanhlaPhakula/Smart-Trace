@@ -136,9 +136,8 @@ const App = () => {
               emailError = {emailError}
               passwordError = {passwordError}
             />
-            )};
+            )}
             
-        
       </div>
   );
 }
