@@ -27,7 +27,7 @@ const TrackTrace = () => {
             <button>Download App</button>
             <div>
                 <h1>How to Track 'N Trace</h1>
-                <h3>i.Visit the registration page <Link >Register</Link><br></br>
+                <h3>i.Visit the registration page <Link to="https://drive.google.com/file/d/1JPw_f8fELz45olvfnDcDUKrpwbxoDquc/view?usp=sharing">Register</Link><br></br>
                 ii. Download mobile app <Link>Download Now</Link><br></br>
                 iii. Register User Account<br></br>
                 iv. Register Products <br></br>

@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import firebase  from '../Components/Firebase';
+import Popup from './Popup';
 
 const SerialNumberSearchResult = ({ name }) => {
 
     const user = firebase.auth().currentUser;
     const [date, setDate] = useState(Date);
+
+    //popup function & variables
+    const [isOpen,setIsOpen] = useState(false);
+    const togglePopup = () => {
+        setIsOpen(!isOpen);
+    };
 
     //buy function
     const handleBuy = () => {
@@ -48,8 +55,34 @@ const SerialNumberSearchResult = ({ name }) => {
         reportRef.push(saveData);
     });
 
+    //handle purchase function
+    //a function for saving purchased items in the database
+    const handlePurchase = () => {
+        const saveRef = firebase.database().ref('Purchase');
+
+        const savingData = {
+            userId: user.email,
+            url:name.url,
+            date,
+            itemName: name.itemName,
+            serialNumber: name.serialNumber,
+            itemDescription: name.itemDescription,
+            category: name.category,
+            price: name.price,
+        };
+        saveRef.push(savingData);
+    };
+
     return(
         <div className="serial-search-results">
+            {isOpen && <Popup
+            content={<>
+                <b>Smart Trace</b>
+                <p>Purchased Successfully :)</p>
+            </>}
+            handleClose={togglePopup}
+            />
+            }
             <img src={name.url}/><br/>
             <h1>Item Id: {name.id}</h1><br/>
             <h1>Item Name: {name.itemName}</h1><br/>
@@ -57,7 +90,10 @@ const SerialNumberSearchResult = ({ name }) => {
             <h1>Report: {name.report}</h1><br/>
             <h1>Stolen: {name.stolen}</h1><br/>
             <h1>Owner: {name.userId}</h1><br/>
-            <button >Buy</button>
+            <button onClick={() => {
+                togglePopup();
+                handlePurchase();
+            }}>Buy</button>
         </div>
     );
 };

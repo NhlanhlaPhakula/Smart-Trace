@@ -45,8 +45,8 @@ const Report = () => {
 
     return(
         <div className="report-page">
-            <h1>Report Page</h1>
-            <Link to="/blacklist">myBlacklistedItems</Link>
+            <h1>Report</h1>
+            <Link className="link" to="/blacklist">myBlacklistedItems</Link>
             <div>
                 {
                     isOpen && <Popup
@@ -94,7 +94,7 @@ const Report = () => {
                     <option value="Alexandra">Alexandra</option>
                     <option value="Roodepoort">Roodepoort</option>
                     <option value="Soweto">Soweto</option>
-                </select>
+                </select><br/>
                 <button onClick={() => {
                     saveData();
                     togglePopup();

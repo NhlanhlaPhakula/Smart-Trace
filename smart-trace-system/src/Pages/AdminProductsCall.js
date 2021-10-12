@@ -61,8 +61,7 @@ const AdminProductsCall = ({items}) => {
             <button onClick={()=> {
                 deleteProduct();
                 togglePopupDelete();
-            }}>Delete</button>
-            <button onClick={()=> {
+            }}>Delete</button>      <button onClick={()=> {
                 updateProduct();
                 togglePopupReport();
             }}>Report</button>

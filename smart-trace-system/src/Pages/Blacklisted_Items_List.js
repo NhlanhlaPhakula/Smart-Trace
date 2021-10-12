@@ -17,15 +17,15 @@ const BlacklistedItemsList = ({name}) => {
                     <th>Product Description</th>
                 </tr>
                 <tr>
-                    <th>{name.id}</th>
-                    <th>{name.date}</th>
-                    <th>{name.reporterId}</th>
-                    <th>{name.productName}</th>
-                    <th>{name.userId}</th>
-                    <th>{name.firstName}</th>
-                    <th>{name.lastName}</th>
-                    <th>{name.serialNumber}</th>
-                    <th>{name.description}</th>
+                    <td>{name.id}</td>
+                    <td>{name.date}</td>
+                    <td>{name.reporterId}</td>
+                    <td>{name.productName}</td>
+                    <td>{name.userId}</td>
+                    <td>{name.firstName}</td>
+                    <td>{name.lastName}</td>
+                    <td>{name.serialNumber}</td>
+                    <td>{name.description}</td>
                 </tr>
             </table>
         </div>

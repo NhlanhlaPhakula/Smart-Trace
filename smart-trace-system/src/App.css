@@ -246,7 +246,7 @@ tr:nth-child(even) {
   text-align: center;
   color: white;
   padding: 60px;
-  margin: auto;
+  margin-left: 23%;
   width: 100%;
   max-width: 520px;
   min-height: 600px;
@@ -261,10 +261,75 @@ tr:nth-child(even) {
   color: white;
 }
 .divs {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
+  /*grid-gap: 15px;*/
+  /*grid-template-columns: repeat(auto-fit, 200px);*/
+  color: #000000;
+  /*margin: 0 auto;*/
+  /*transform: translate(0%, 50%);*/
+  background-color: white;
+  width: 750px;
+  height: 200px;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 0.5%;
 }
+
+.divs2 {
+  /*grid-gap: 15px;*/
+  /*grid-template-columns: repeat(auto-fit, 200px);*/
+  color: #000000;
+  /*margin: 0 auto;*/
+  /*transform: translate(0%, 50%);*/
+  background-color: white;
+  width: 750px;
+  height: 200px;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  
+  margin-left: 0.5%;
+}
+/*
+  border-style: solid;
+  border-color: rgb(238, 73, 14);
+  height: 300px;
+  width: 2000px;
+  background:#cfd9df ;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 0.5%;
+*/
+.flex-child {
+  flex: 1;
+  border: 2px solid yellow;
+}  
+
+.search-outcome {
+  align-items: center;
+  text-align: center;
+}
+
+.flex-child:first-child {
+  margin-right: 20px;
+} 
+.flex-container {
+  display: flex;
+}
+
+.divs h4 {
+  color: #344d56;
+}
+
+.divs2 img {
+  height: 200px;
+  width: 200px;
+}
+
 .divs:hover {
   color: grey;
 }
@@ -316,7 +381,10 @@ ul {
   text-align: center;
 }
 .cart {
-  color: white;
+  color: grey;
+}
+.cartItems {
+  color: grey;
 }
 .productlist img,.admin-products img{
   height: 30%;
@@ -326,8 +394,10 @@ ul {
   text-align: center;
 }
 .admin-products h1{
-  color: white;
+  color: #344d56;
 }
+
+
 .trackNtrace{
   text-align: center;
 }
@@ -383,7 +453,12 @@ ul {
 .insurance-questions {
   text-align: center;
 }
-
+.insurance-questions label {
+  color: #344d56;
+}
+.insurance-questions h1 {
+  color: #52ab98;
+}
 .report-page {
   text-align: center;
 }
@@ -403,6 +478,12 @@ ul {
   margin: 3px;
 }
 
+.shipping-address label {
+  color: grey;
+}
+.payment label {
+  color: grey;
+}
 .enquiry-form {
   background-color: cornflowerblue;
 }
@@ -434,6 +515,9 @@ ul {
 }
 .cartItems {
   text-align: center;
+}
+.cartItems label {
+  color: grey;
 }
 .cartItems img {
   height: 20%;
@@ -496,4 +580,8 @@ ul {
 
 .transcript {
   color: #000000;
+}
+
+.webcam-container {
+  text-align: center;
 }

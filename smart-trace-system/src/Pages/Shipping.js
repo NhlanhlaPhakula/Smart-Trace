@@ -35,7 +35,7 @@ const Shipping = () => {
     };
 
     return(
-        <div className="">
+        <div className="shipping-address">
             <h1>Shipping Address</h1>
             <label>Address Line 1</label><br/>
             <h6>(street address,P.O.Box,company name)</h6>

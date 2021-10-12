@@ -1,7 +1,7 @@
 import React from 'react';
 import Profile from './Profile';
 import Report from './Report';
-import ContactUs from './ContactUs';
+import AboutUs from './AboutUs';
 import Registration from './Registration';
 import Email from './Email';
 import IdNumber from './IdNumber';
@@ -82,9 +82,6 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                             <a href="/report">Report</a>
                         </li>
                         <li>
-                            <a href="/contactUs">Contact Us</a>
-                        </li>
-                        <li>
                             <a href="/backgroundChecker">Background Checker</a>
                         </li>
                         <li>
@@ -119,7 +116,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                        <Route path="/profile" exact={true} component={UserProfile} />
                         <Route path="/insuranceQ" exact={true} component={InsuranceQuestions} />
                         <Route path="/report" exact={true} component={Report}/>
-                        <Route path="/contactUs" exact={true} component={ContactUs}/>
+                        <Route path="/aboutUs" exact={true} component={AboutUs}/>
                         <Route path="/registration" exact={true} component={Registration} />
                         <Route path="/email" exact={true} component={Email}/>
                         <Route path="/identity" exact={true} component={IdNumber}/>
