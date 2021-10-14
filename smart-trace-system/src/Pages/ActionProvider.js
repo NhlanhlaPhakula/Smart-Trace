@@ -166,6 +166,26 @@ class ActionProvider {
         this.updateChatbotState(messages);
     };
 
+    insuranceFinder() {
+        const insuranceFind = this.createChatBotMessage(
+            "Here:",
+            {
+                widget: "Insurance-Finder",
+            }
+        );
+        this.updateChatbotState(insuranceFind);
+    };
+
+    backgroundCheck() {
+        const backgroundFind = this.createChatBotMessage(
+            "This is what i've found",
+            {
+                widget: "Background",
+            }
+        );
+        this.updateChatbotState(backgroundFind);
+    };
+
     checker() {
         const Checker = this.createChatBotMessage(
             "here:",
@@ -242,6 +262,36 @@ class ActionProvider {
             "Ok cool, you can go on:",
             {
                 widget: "EnquiryForm",
+            }
+        );
+        this.updateChatbotState(message);
+    };
+
+    handleBackground = () => {
+        const message = this.createChatBotMessage(
+            "Sure, here are various options:",
+            {
+                widget: "Background",
+            }
+        );
+        this.updateChatbotState(message);
+    };
+
+    handleAnalytics = () => {
+        const message = this.createChatBotMessage(
+            "This is the intelligence derived from all stolen/lost possessions:",
+            {
+                widget: "Analytics",
+            }
+        );
+        this.updateChatbotState(message);
+    };
+
+    handleInsuranceFinder = () => {
+        const message = this.createChatBotMessage(
+            "Sure?!",
+            {
+                widget: "Insurance-Finder",
             }
         );
         this.updateChatbotState(message);

@@ -327,6 +327,55 @@
             widgetName: "EnquiryForm",
             widgetFunc: (props) => <EnquiryForm />,
         },
+        {
+            widgetName: "Background",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "Serial Number Search",
+                        url: "/serialSearch",
+                        id: 1,
+                    },
+                    {
+                        text: "Image Scanner",
+                        url: "/scanner",
+                        id: 2,
+                    },
+                    {
+                        text: "Image to Text",
+                        url: "/imagetotext",
+                        id: 3,
+                    },
+                ]
+            }
+        },
+        {
+            widgetName: "Analytics",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "Here is what i found:",
+                        url: "/intelligence",
+                        id: 1,
+                    },
+                ]
+            }
+        },
+        {
+            widgetName: "Insurance-Finder",
+            widgetFunc: (props) => <LinkList {...props} />,
+            props: {
+                options: [
+                    {
+                        text: "Find your perfect insurance now",
+                        url: "/insuranceQ",
+                        id: 1,
+                    },
+                ]
+            }
+        }
     ],
     
   };

@@ -25,6 +25,20 @@ const LearningOptions = (props) => {
       handler: props.actionProvider.handleReportList, 
       id: 5 
     },
+    {text: "Background",
+    handler: props.actionProvider.handleBackground,
+    id: 6
+    },
+    {
+      text: "Analytics",
+      handler: props.actionProvider.handleAnalytics,
+      id: 7,
+    },
+    {
+      text: "Insurance-Finder",
+      handler: props.actionProvider.handleInsuranceFinder,
+      id: 8,
+    },
   ];
 
   const optionsMarkup = options.map((option) => (

@@ -198,6 +198,17 @@ class MessageParser {
       if (lowerCaseMessage.includes("texts")) {
           this.actionProvider.notifications()
       }else
+      if(lowerCaseMessage.includes("transcript")) {
+        this.actionProvider.notifications()
+      }else
+      //insurance finder
+      if(lowerCaseMessage.includes("finder")){
+        this.actionProvider.insuranceFinder()
+      }else
+      //background checker
+      if(lowerCaseMessage.includes("background")) {
+        this.actionProvider.backgroundCheck()
+      }else
       //background checker
       if (lowerCaseMessage.includes("check")) {
         this.actionProvider.checker()
