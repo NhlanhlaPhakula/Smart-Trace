@@ -14,6 +14,7 @@ const ProfileEditDetails = ({details}) => {
     const [city, setCity] = useState(details.address[3]);
     const [state, setState] = useState(details.address[4]);
     const [postalCode, setPostalCode] = useState(details.address[5]);
+    const [phone,setPhone] = useState();
     
     //a popup function variable
     const [isOpen, setIsOpen] = useState(false);
@@ -81,6 +82,7 @@ const ProfileEditDetails = ({details}) => {
             <label>Username : {details.userId}</label><br/>
             <label>Password : {user.password}</label><br/>
             <label>ID Number :</label><input type="text" value={idNumber} onChange={e=> setIdNumber(e.target.value)}></input><br/>
+            <label>Phone :</label><input type="number" value={phone} onChange={e=> setPhone(e.target.value)} /><br/>
             <label>First Name : </label><input type="text" value={firstname} onChange={e=> setFirstname(e.target.value)}></input><br/>
             <label>Last Name : </label><input type="text" value={lastname}  onChange={e=> setLastname(e.target.value)}></input><br/>
             <label>House Number : </label><input type="text" value={houseNumber} onChange={e=> setHouseNumber(e.target.value)}></input><br/>

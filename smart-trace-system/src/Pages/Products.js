@@ -112,13 +112,14 @@ const Products = ({ name }) => {
             </>}
             handleClose={toggleAddWish}
             />}
-                <h1>
+                <h1 className="products-details">
                     <Link to="/details"><img src={name.url} alt="product-image"/></Link><br/>
-                    Name: {name.itemName} <br />
-                    Serial Number: {name.serialNumber} <br />
-                    Desciption: {name.itemDescription}<br/>
-                    Id: {name.id}<br/>
-                    Price: {name.price}
+                    <label>{name.itemName}</label> <br />
+                    <label>Serial Number: {name.serialNumber}</label> <br />
+                    <label>Desciption: {name.itemDescription}</label><br/>
+                    {/*Id: {name.id}<br/>*/}
+                    <label>Price: {name.price}</label><br/>
+                    <label>Seller: {name.userId}</label>
                 </h1>
                 <button onClick={() => {
                     reportProduct();

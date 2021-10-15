@@ -260,6 +260,9 @@ tr:nth-child(even) {
 .trackNtrace {
   color: green;
 }
+.products-details{
+  color: #203040;
+}
 .divs {
   /*grid-gap: 15px;*/
   /*grid-template-columns: repeat(auto-fit, 200px);*/
@@ -389,6 +392,10 @@ ul {
 .productlist img,.admin-products img{
   height: 30%;
   width: 30%;
+  
+}
+.productlist label {
+  color: #203040;
 }
 .admin-products{
   text-align: center;

@@ -388,6 +388,7 @@ const InsuranceQuestions = () => {
                     <h1>To cover everything</h1>
                     {coverAllList ? coverAllList.map((names,index) => <InsuranceCoverAll name={names} key={index} />):''}
                 </div>
+                
             
         </div>
     );

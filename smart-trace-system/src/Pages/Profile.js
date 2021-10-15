@@ -25,6 +25,7 @@ const Profile = () => {
     const [postalCode, setPostalCode] = useState();
     const [nameList, setNameList] = useState();
     const [pictureList, setPictureList] = useState();
+    const [phone,setPhone] = useState();
 
     //popup variables
     const [isOpen, setIsOpen] = useState(false);
@@ -72,6 +73,7 @@ const Profile = () => {
         const savingData = {
             userId:user.email,
             idNumber,
+            phone,
             firstname,
             lastname,
             address:[houseNumber,streetName,streetType,city,state,postalCode],
@@ -169,6 +171,7 @@ const Profile = () => {
             <label>Username : {user.email}</label><br></br>
             <label>Password : {user.password}</label><br></br>
             <label>ID Number : </label><input type="number" value={idNumber} onChange={e=> setIdNumber(e.target.value)}/><br />
+            <label>Phone : </label><input type="number" value={phone} onChange={e=> setPhone(e.target.value)}/><br/>
             <label>First Name : </label><input type="text" value={firstname} onChange={e=> setFirstname(e.target.value)}/><br />
             <label>Last Name : </label><input type="text" value={lastname} onChange={e=> setLastname(e.target.value)}/><br />
             <label>House Number : </label><input type="number" value={houseNumber} onChange={e=> setHouseNumber(e.target.value)}/><br />
