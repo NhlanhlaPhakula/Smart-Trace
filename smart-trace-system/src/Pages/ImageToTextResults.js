@@ -32,6 +32,22 @@ const Serial1Results = ({names}) => {
         saveRef.push(savingData);
     };
 
+    //a function for change of sale status
+    const handleStatusChange = () => {
+        const statusChange = firebase.database().ref('Products').child(names.id);
+        statusChange.update({
+            onSale: true,
+        });
+    };
+
+    // a function for change of ownership
+    const handleChangeOfOwnership = () => {
+        const changeRef = firebase.database().ref('Products').child(names.id);
+        changeRef.update({
+            userId: user.email,
+        });
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -51,6 +67,8 @@ const Serial1Results = ({names}) => {
             <button onClick={() => {
                 togglePopup();
                 handlePurchase();
+                handleStatusChange();
+                handleChangeOfOwnership();
             }}>Buy</button>
         </div>
     );
@@ -87,6 +105,22 @@ const Serial2Results = ({names}) => {
         saveRef.push(savingData);
     };
 
+    //a function for change of sale status
+    const handleStatusChange = () => {
+        const statusChange = firebase.database().ref('Products').child(names.id);
+        statusChange.update({
+            onSale: true,
+        });
+    };
+
+    // a function for change of ownership
+    const handleChangeOfOwnership = () => {
+        const changeRef = firebase.database().ref('Products').child(names.id);
+        changeRef.update({
+            userId: user.email,
+        });
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -106,6 +140,8 @@ const Serial2Results = ({names}) => {
             <button onClick={() => {
                 handlePurchase();
                 togglePopup();
+                handleStatusChange();
+                handleChangeOfOwnership();
             }}>Buy</button>
         </div>
     );
@@ -141,6 +177,21 @@ const Serial3Results = ({names}) => {
          };
          saveRef.push(savingData);
      };
+     //a function for change of sale status
+    const handleStatusChange = () => {
+        const statusChange = firebase.database().ref('Products').child(names.id);
+        statusChange.update({
+            onSale: true,
+        });
+    };
+
+    // a function for change of ownership
+    const handleChangeOfOwnership = () => {
+        const changeRef = firebase.database().ref('Products').child(names.id);
+        changeRef.update({
+            userId: user.email,
+        });
+    };
 
     return(
         <div>
@@ -161,6 +212,8 @@ const Serial3Results = ({names}) => {
             <button onClick={() => {
                 handlePurchase();
                 togglePopup();
+                handleStatusChange();
+                handleChangeOfOwnership();
             }}>Buy</button>
         </div>
     );
@@ -197,6 +250,22 @@ const Serial4Results = ({names}) => {
         saveRef.push(savingData);
     };
 
+    //a function for change of sale status
+    const handleStatusChange = () => {
+        const statusChange = firebase.database().ref('Products').child(names.id);
+        statusChange.update({
+            onSale: true,
+        });
+    };
+
+    // a function for change of ownership
+    const handleChangeOfOwnership = () => {
+        const changeRef = firebase.database().ref('Products').child(names.id);
+        changeRef.update({
+            userId: user.email,
+        });
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -216,6 +285,8 @@ const Serial4Results = ({names}) => {
             <button onClick={() => {
                 handlePurchase();
                 togglePopup();
+                handleStatusChange();
+                handleChangeOfOwnership();
             }}>Buy</button>
         </div>
     );
@@ -252,6 +323,22 @@ const Serial5Results = ({names}) => {
         saveRef.push(savingData);
     };
 
+    //a function for change of sale status
+    const handleStatusChange = () => {
+        const statusChange = firebase.database().ref('Products').child(names.id);
+        statusChange.update({
+            onSale: true,
+        });
+    };
+
+    // a function for change of ownership
+    const handleChangeOfOwnership = () => {
+        const changeRef = firebase.database().ref('Products').child(names.id);
+        changeRef.update({
+            userId: user.email,
+        });
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -271,6 +358,8 @@ const Serial5Results = ({names}) => {
             <button onClick={() => {
                 handlePurchase();
                 togglePopup();
+                handleStatusChange();
+                handleChangeOfOwnership();
             }}>Buy</button>
         </div>
     );
@@ -307,6 +396,22 @@ const Serial6Results = ({names}) => {
         saveRef.push(savingData);
     };
 
+    //a function for change of sale status
+    const handleStatusChange = () => {
+        const statusChange = firebase.database().ref('Products').child(names.id);
+        statusChange.update({
+            onSale: true,
+        });
+    };
+
+    // a function for change of ownership
+    const handleChangeOfOwnership = () => {
+        const changeRef = firebase.database().ref('Products').child(names.id);
+        changeRef.update({
+            userId: user.email,
+        });
+    };
+
 
     return(
         <div>
@@ -327,6 +432,8 @@ const Serial6Results = ({names}) => {
             <button onClick={() => {
                 handlePurchase();
                 togglePopup();
+                handleStatusChange();
+                handleChangeOfOwnership();
             }}>Buy</button>
         </div>
     );
@@ -363,6 +470,22 @@ const Serial7Results = ({names}) => {
         saveRef.push(savingData);
     };
 
+    //a function for change of sale status
+    const handleStatusChange = () => {
+        const statusChange = firebase.database().ref('Products').child(names.id);
+        statusChange.update({
+            onSale: true,
+        });
+    };
+
+    // a function for change of ownership
+    const handleChangeOfOwnership = () => {
+        const changeRef = firebase.database().ref('Products').child(names.id);
+        changeRef.update({
+            userId: user.email,
+        });
+    };
+
 
     return(
         <div>
@@ -383,6 +506,8 @@ const Serial7Results = ({names}) => {
             <button onClick={() => {
                 handlePurchase();
                 togglePopup();
+                handleStatusChange();
+                handleChangeOfOwnership();
             }}>Buy</button>
         </div>
     );
@@ -419,6 +544,22 @@ const Serial8Results = ({names}) => {
         saveRef.push(savingData);
     };
 
+    //a function for change of sale status
+    const handleStatusChange = () => {
+        const statusChange = firebase.database().ref('Products').child(names.id);
+        statusChange.update({
+            onSale: true,
+        });
+    };
+
+    // a function for change of ownership
+    const handleChangeOfOwnership = () => {
+        const changeRef = firebase.database().ref('Products').child(names.id);
+        changeRef.update({
+            userId: user.email,
+        });
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -438,6 +579,8 @@ const Serial8Results = ({names}) => {
             <button onClick={() => {
                 handlePurchase();
                 togglePopup();
+                handleStatusChange();
+                handleChangeOfOwnership();
             }}>Buy</button>
         </div>
     );
@@ -474,6 +617,22 @@ const Serial9Results = ({names}) => {
         saveRef.push(savingData);
     };
 
+    //a function for change of sale status
+    const handleStatusChange = () => {
+        const statusChange = firebase.database().ref('Products').child(names.id);
+        statusChange.update({
+            onSale: true,
+        });
+    };
+
+    // a function for change of ownership
+    const handleChangeOfOwnership = () => {
+        const changeRef = firebase.database().ref('Products').child(names.id);
+        changeRef.update({
+            userId: user.email,
+        });
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -493,6 +652,8 @@ const Serial9Results = ({names}) => {
             <button onClick={() => {
                 handlePurchase();
                 togglePopup();
+                handleStatusChange();
+                handleChangeOfOwnership();
             }}>Buy</button>
         </div>
     );

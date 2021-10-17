@@ -25,7 +25,15 @@ const SerialNumberSearchResult = ({ name }) => {
         saveRef.push(saveData);
     };
 
-    const handleReport = () => {
+    //a function to handle sale status
+    const handleSaleStatus = () => {
+        const statusRef = firebase.database().ref('Products').child(name.id);
+        statusRef.update({
+            onSale: true,
+        });
+    };
+
+    /*const handleReport = () => {
         const reportRef = firebase.database().ref('Notifications');
         
         const saveData = {
@@ -38,7 +46,7 @@ const SerialNumberSearchResult = ({ name }) => {
     
         };
         reportRef.push(saveData);
-    };
+    };*/
 
     useEffect(() => {
         const reportRef = firebase.database().ref('Notifications');
@@ -54,6 +62,23 @@ const SerialNumberSearchResult = ({ name }) => {
         };
         reportRef.push(saveData);
     });
+
+    //a function for change of sale status
+    /*const handleStatusChange = () => {
+        const statusChange = firebase.database().ref('Products').child(name.id);
+        statusChange.update({
+            onSale: true,
+        });
+    };*/
+
+    // a function for change of ownership
+    const handleChangeOfOwnership = () => {
+        const changeRef = firebase.database().ref('Products').child(name.id);
+        changeRef.update({
+            userId: user.email,
+        });
+    };
+ 
 
     //handle purchase function
     //a function for saving purchased items in the database
@@ -93,6 +118,8 @@ const SerialNumberSearchResult = ({ name }) => {
             <button onClick={() => {
                 togglePopup();
                 handlePurchase();
+                handleSaleStatus();
+                handleChangeOfOwnership();
             }}>Buy</button>
         </div>
     );

@@ -8,7 +8,7 @@ const Recommendations = () => {
     const user = firebase.auth().currentUser;
 
     useEffect(() => {
-        const retrieveRef = firebase.database().ref('Purchase').orderByChild('userId').equalTo(user.email);
+        const retrieveRef = firebase.database().ref('Purchase').orderByChild('userId').equalTo(user.email).limitToLast(3);
         retrieveRef.on('value', (snapshot) => {
             const products = snapshot.val();
             const productsList = [];

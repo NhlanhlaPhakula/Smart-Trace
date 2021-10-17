@@ -7,6 +7,7 @@ const SearchFunction = () => {
     //variables
     const [userInput, setUserInput] = useState();
     const [productsList, setProductsList] = useState();
+    const [onSale,setIsOnSale] = useState(true);
     //const [itemName, setItemName] = useState();
 
     //change handler
@@ -23,7 +24,6 @@ const SearchFunction = () => {
     
                 for(let id in products){
                     productsList.push({ id, ... products[id]});
-                   
                 }
                 console.log(productsList);
                 setProductsList(productsList);

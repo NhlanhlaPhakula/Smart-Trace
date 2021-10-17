@@ -332,7 +332,12 @@ tr:nth-child(even) {
   height: 200px;
   width: 200px;
 }
-
+.wish {
+  text-decoration: none;
+}
+.wish:hover {
+  color: orangered;
+}
 .divs:hover {
   color: grey;
 }
@@ -371,8 +376,12 @@ ul {
   text-align: center;
 }
 
+.Wishlist-items {
+  text-align: center;
+}
+
 .onlineStore h1,label{
-  color: white;
+  color: #52ab98;
 }
 
 .details h1{
@@ -571,7 +580,8 @@ ul {
 
 .recommendations {
   text-align: center;
-  color: white;
+  color: orangered;
+  
 }
 
 .recommendation-list img {

@@ -9,6 +9,7 @@ const CartItems = ({names}) => {
     const [total, setTotal] = useState();
     const [priceLists, setPriceLists] = useState();
     const [date, setDate] = useState(Date);
+    const [onSale,setIsOnSale] = useState(true);
 
     //popUp variables
     const [isOpenDelete, setIsOpenDelete] = useState(false);
@@ -55,6 +56,14 @@ const CartItems = ({names}) => {
         const updateRef = firebase.database().ref('Products').child(names.id);
         updateRef.update({
             userId: user.email,
+        });
+    };
+
+    // a function to change the state of sale
+    const handleSaleStatus = () => {
+        const updateState = firebase.database().ref('Products').child(names.id);
+        updateState.update({
+            onSale: true,
         });
     };
 
@@ -138,6 +147,7 @@ const CartItems = ({names}) => {
                 saveData();
                 updateFunction();
                 transcriptFunction();
+                handleSaleStatus();
             }}>Pay</button>
         </div>
     );

@@ -35,13 +35,21 @@ const AdminProductsCall = ({items}) => {
         });
     };
 
+    //a function to put items on sale
+    const handleSell = () => {
+        const sellRef = firebase.database().ref('Products').child(items.id);
+        sellRef.update({
+            onSale: true,
+        });
+    };
+
     return(
         <div className="admin-products">
             <h1>
                 <img src ={items.url}/><br/>
                 Name:{items.itemName}<br/>
                 Serial Number : {items.serialNumber}<br/>
-                Id: {items.id}<br/>
+                {/*Id: {items.id}<br/>*/}
                 Item Description : {items.itemDescription}<br/>
             </h1>
             {isOpenDelete && <Popup
@@ -64,7 +72,7 @@ const AdminProductsCall = ({items}) => {
             }}>Delete</button>      <button onClick={()=> {
                 updateProduct();
                 togglePopupReport();
-            }}>Report</button>
+            }}>Report</button> <button onClick={handleSell}>Sell</button>
         </div>
     );
 };
