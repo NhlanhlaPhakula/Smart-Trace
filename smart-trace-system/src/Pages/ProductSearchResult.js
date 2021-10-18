@@ -98,6 +98,24 @@ const SerialNumberSearchResult = ({ name }) => {
         saveRef.push(savingData);
     };
 
+    //a function to  send a message to the owner of the product of their sold item
+    const handleReport = () => {
+        const reportRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            userId: name.userId,
+            url: name.url,
+            transactionDate: date,
+            itemName: name.itemName,
+            buyer: user.email,
+            category: name.category,
+            price: name.price,
+            serialNumber: name.serialNumber,
+            itemDescription: name.itemDescription,
+        };
+        reportRef.push(saveData);
+    };
+
     return(
         <div className="serial-search-results">
             {isOpen && <Popup
@@ -120,6 +138,7 @@ const SerialNumberSearchResult = ({ name }) => {
                 handlePurchase();
                 handleSaleStatus();
                 handleChangeOfOwnership();
+                handleReport();
             }}>Buy</button>
         </div>
     );

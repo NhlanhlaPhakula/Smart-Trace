@@ -11,7 +11,7 @@ const WebcamComponent = () => <Webcam />;
 const videoConstraints = {
     width: 220,
     height: 200,
-    facingMode: "Webcam0"
+    facingMode: "Webcam0",
 };
 
 const WebcamCapture = () => {

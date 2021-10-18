@@ -113,6 +113,23 @@ const CartItems = ({names}) => {
         });
     },[]);*/
 
+    // a function to send a seller a message after their product is bought by someone with all the buyer information
+    const handleMessage = () => {
+        const messageRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            url: names.url,
+            buyer: user.email,
+            userId: names.userId,
+            transactionDate: date,
+        };
+        messageRef.push(saveData);
+    };
+
     return(
         <div className="cartItems">
             <br />
@@ -148,6 +165,7 @@ const CartItems = ({names}) => {
                 updateFunction();
                 transcriptFunction();
                 handleSaleStatus();
+                handleMessage();
             }}>Pay</button>
         </div>
     );

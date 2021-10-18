@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
-import MessageList from './Messages';
+import MessageList, { MessagesList } from './Messages';
 import NotificationDetails from './NotificationDetails';
 
 const Nofications = () => {
@@ -8,6 +8,7 @@ const Nofications = () => {
     const user = firebase.auth().currentUser;
     const [notificationList, setNotificationList] = useState();
     const [notificationStateList, setNotificationStateList] = useState();
+    const [messagesList,setMessagesList] = useState();
 
     //function to display all notifications automatically
     useEffect(() => {
@@ -37,12 +38,26 @@ const Nofications = () => {
         });
     },[]);
 
+    // a function to display user notifications of their items purchsed
+    useEffect(() =>{
+        const findRef = firebase.database().ref('Notifications').orderByChild('userId').equalTo(user.email);
+        findRef.on('value',(snapshot) => {
+            const messages = snapshot.val();
+            const messagesList = [];
+            for(let id in messages) {
+                messagesList.push({ id, ... messages[id]});
+            }
+            setMessagesList(messagesList);
+        });
+    },[]);
+
     return(
         <div className="notifications">
             <br/>
             <h1>NOTIFICATIONS</h1>
             {notificationList ? notificationList.map((names, index) => <NotificationDetails name={names} key={index} />) : ''}
             {notificationStateList ? notificationStateList.map((name, index) => <MessageList  name={name} key={index} />) : ''}
+            {messagesList ? messagesList.map((names,index) => <MessagesList names={names} key={index}/>):''}
         </div>
     );
 };

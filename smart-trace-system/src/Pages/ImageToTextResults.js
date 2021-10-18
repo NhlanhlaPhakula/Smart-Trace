@@ -48,6 +48,23 @@ const Serial1Results = ({names}) => {
         });
     };
 
+    // a function to send a message to the owner of their bought item
+    const handleMessage = () => {
+        const sendRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            userId: names.userId,
+            url: names.url,
+            transactionDate: date,
+            buyer: user.email,
+        };
+        sendRef.push(saveData);
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -69,6 +86,7 @@ const Serial1Results = ({names}) => {
                 handlePurchase();
                 handleStatusChange();
                 handleChangeOfOwnership();
+                handleMessage();
             }}>Buy</button>
         </div>
     );
@@ -121,6 +139,23 @@ const Serial2Results = ({names}) => {
         });
     };
 
+    // a function to send a message to the owner of their bought item
+    const handleMessage = () => {
+        const sendRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            userId: names.userId,
+            url: names.url,
+            transactionDate: date,
+            buyer: user.email,
+        };
+        sendRef.push(saveData);
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -142,6 +177,7 @@ const Serial2Results = ({names}) => {
                 togglePopup();
                 handleStatusChange();
                 handleChangeOfOwnership();
+                handleMessage();
             }}>Buy</button>
         </div>
     );
@@ -193,6 +229,23 @@ const Serial3Results = ({names}) => {
         });
     };
 
+    // a function to send a message to the owner of their bought item
+    const handleMessage = () => {
+        const sendRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            userId: names.userId,
+            url: names.url,
+            transactionDate: date,
+            buyer: user.email,
+        };
+        sendRef.push(saveData);
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -214,6 +267,7 @@ const Serial3Results = ({names}) => {
                 togglePopup();
                 handleStatusChange();
                 handleChangeOfOwnership();
+                handleMessage();
             }}>Buy</button>
         </div>
     );
@@ -266,6 +320,23 @@ const Serial4Results = ({names}) => {
         });
     };
 
+    // a function to send a message to the owner of their bought item
+    const handleMessage = () => {
+        const sendRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            userId: names.userId,
+            url: names.url,
+            transactionDate: date,
+            buyer: user.email,
+        };
+        sendRef.push(saveData);
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -287,6 +358,7 @@ const Serial4Results = ({names}) => {
                 togglePopup();
                 handleStatusChange();
                 handleChangeOfOwnership();
+                handleMessage();
             }}>Buy</button>
         </div>
     );
@@ -339,6 +411,23 @@ const Serial5Results = ({names}) => {
         });
     };
 
+    // a function to send a message to the owner of their bought item
+    const handleMessage = () => {
+        const sendRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            userId: names.userId,
+            url: names.url,
+            transactionDate: date,
+            buyer: user.email,
+        };
+        sendRef.push(saveData);
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -360,6 +449,7 @@ const Serial5Results = ({names}) => {
                 togglePopup();
                 handleStatusChange();
                 handleChangeOfOwnership();
+                handleMessage();
             }}>Buy</button>
         </div>
     );
@@ -412,6 +502,23 @@ const Serial6Results = ({names}) => {
         });
     };
 
+    // a function to send a message to the owner of their bought item
+    const handleMessage = () => {
+        const sendRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            userId: names.userId,
+            url: names.url,
+            transactionDate: date,
+            buyer: user.email,
+        };
+        sendRef.push(saveData);
+    };
+
 
     return(
         <div>
@@ -434,6 +541,7 @@ const Serial6Results = ({names}) => {
                 togglePopup();
                 handleStatusChange();
                 handleChangeOfOwnership();
+                handleMessage();
             }}>Buy</button>
         </div>
     );
@@ -486,6 +594,23 @@ const Serial7Results = ({names}) => {
         });
     };
 
+    // a function to send a message to the owner of their bought item
+    const handleMessage = () => {
+        const sendRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            userId: names.userId,
+            url: names.url,
+            transactionDate: date,
+            buyer: user.email,
+        };
+        sendRef.push(saveData);
+    };
+
 
     return(
         <div>
@@ -508,6 +633,7 @@ const Serial7Results = ({names}) => {
                 togglePopup();
                 handleStatusChange();
                 handleChangeOfOwnership();
+                handleMessage();
             }}>Buy</button>
         </div>
     );
@@ -560,6 +686,23 @@ const Serial8Results = ({names}) => {
         });
     };
 
+    // a function to send a message to the owner of their bought item
+    const handleMessage = () => {
+        const sendRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            userId: names.userId,
+            url: names.url,
+            transactionDate: date,
+            buyer: user.email,
+        };
+        sendRef.push(saveData);
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -581,6 +724,7 @@ const Serial8Results = ({names}) => {
                 togglePopup();
                 handleStatusChange();
                 handleChangeOfOwnership();
+                handleMessage();
             }}>Buy</button>
         </div>
     );
@@ -633,6 +777,23 @@ const Serial9Results = ({names}) => {
         });
     };
 
+    // a function to send a message to the owner of their bought item
+    const handleMessage = () => {
+        const sendRef = firebase.database().ref('Notifications');
+
+        const saveData = {
+            category: names.category,
+            itemName: names.itemName,
+            price: names.price,
+            serialNumber: names.serialNumber,
+            userId: names.userId,
+            url: names.url,
+            transactionDate: date,
+            buyer: user.email,
+        };
+        sendRef.push(saveData);
+    };
+
     return(
         <div>
             {isOpen && <Popup
@@ -654,6 +815,7 @@ const Serial9Results = ({names}) => {
                 togglePopup();
                 handleStatusChange();
                 handleChangeOfOwnership();
+                handleMessage();
             }}>Buy</button>
         </div>
     );

@@ -8,6 +8,7 @@ const AdminProductsCall = ({items}) => {
     //popup variables
     const [isOpenDelete, setIsOpenDelete] = useState(false);
     const [isOpenReport, setIsOpenReport] = useState(false);
+    const [isOpenSell,setIsOpenSell] = useState(false);
 
     //popup function toggle function
     const togglePopupDelete = () => {
@@ -17,6 +18,11 @@ const AdminProductsCall = ({items}) => {
     //report toggle
     const togglePopupReport = () => {
         setIsOpenReport(!isOpenReport);
+    };
+
+    //sell toggle
+    const togglePopupSell = () => {
+        setIsOpenSell(!isOpenSell);
     };
 
     //user function
@@ -65,6 +71,14 @@ const AdminProductsCall = ({items}) => {
                 <p>Successfuly Deleted!!</p>
             </>}
             handleClose={togglePopupReport}
+            />}
+            {
+                isOpenSell && <Popup
+                content={<>
+                <b>Smart Trace</b>
+                <p>Item place for sale, I'll let you when it is bought :)</p>
+                </>}
+                handleClose={togglePopupSell}
             />}
             <button onClick={()=> {
                 deleteProduct();

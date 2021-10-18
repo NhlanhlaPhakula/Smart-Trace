@@ -966,6 +966,8 @@ const IntelligenceDerived = () => {
 
     return(
         <div className="intelligence"> 
+            <br/>
+            <h1>Data Analytics</h1><br/>
             <h4>According to the system : <br/>
             <u><b>{Key}</b></u>'s are stolen more than any<br/> 
             other electronic devices.<br/>
