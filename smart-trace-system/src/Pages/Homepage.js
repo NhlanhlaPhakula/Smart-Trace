@@ -43,6 +43,7 @@ import IntelligenceDerived from './Intelligence';
 import LocationAnalytics from './LocationAnalytics';
 import BackgroundChecker from './BackgroundChecker';
 import WishListItems from './WishlistItems';
+import LostAndFound from './FoundItems';
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
     const user = firebase.auth().currentUser;
@@ -155,6 +156,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/location" exact={true} component={LocationAnalytics} />
                         <Route path="/backgroundChecker" exact={true} component={BackgroundChecker} />
                         <Route path="/wishlistItems" exact={true} component={WishListItems} />
+                        <Route path="/lostAndFound"  exact={true} component={LostAndFound}/>
                    </switch>
                    
                </div>

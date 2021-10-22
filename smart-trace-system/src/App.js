@@ -7,7 +7,7 @@ import './App.css';
 
 
 const App = () => {
-
+  //user signup and signin variables
   const [user, setUser] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +15,7 @@ const App = () => {
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
 
-
+  //clear user inputs
   const clearInputs = () =>{
     setEmail('');
     setPassword('');
@@ -111,6 +111,7 @@ const App = () => {
     document.querySelector(".sidebar").classList.remove("open");
   };
 
+  //display signin/signup form
   return (
       <div className="App">
 

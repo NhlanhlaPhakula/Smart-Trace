@@ -27,7 +27,7 @@ const TrackTrace = () => {
             
             <div className="trace-info">
                 <h1>How to Track 'N Trace</h1>
-                <h3>i.Visit the registration page <Link className="link" >Register</Link><br></br>
+                <h3>i.Visit Smart Trace Webpage <Link className="link" to="/" >Go</Link><br></br>
                 ii. Download mobile app<br></br>
                 <BrowserRouter>
                 <a className="link" href="https://drive.google.com/file/d/1JPw_f8fELz45olvfnDcDUKrpwbxoDquc/view?usp=sharing">Download App</a>

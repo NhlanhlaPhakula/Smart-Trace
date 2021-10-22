@@ -23,6 +23,7 @@ const BlackListItems = () => {
     return(
         <div className="blacklist-items">
             <h1>Global List of Blacklisted Material</h1>
+            <br/>
             {reportList ? reportList.map((names, index) => <BlacklistedItemsList name={names} key={index}/>):''}
         </div>
     );

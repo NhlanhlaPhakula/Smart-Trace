@@ -688,4 +688,14 @@ const InsuranceCoverAll = ({name}) => {
     );
 };
 
-export {InsuranceNiche,InsuranceActivityPeriod,InsurancePurchasePrice,InsuranceMonthlyFee,InsuranceCoverLoss,InsuranceCoverMulfunction,InsuranceCoverTheft,InsuranceCoverDamage,InsuranceCoverFire,InsuranceCoverAll};
+export {InsuranceNiche,
+    InsuranceActivityPeriod,
+    InsurancePurchasePrice,
+    InsuranceMonthlyFee,
+    InsuranceCoverLoss,
+    InsuranceCoverMulfunction,
+    InsuranceCoverTheft,
+    InsuranceCoverDamage,
+    InsuranceCoverFire,
+    InsuranceCoverAll
+};

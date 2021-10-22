@@ -8,9 +8,9 @@ const MyBlacklist = () => {
     const user = firebase.auth().currentUser;
     const [blackList, setBlackList] =useState();
 
-    //function to call black list from the database
+    //function to call this user black list from the database
     useEffect(() => {
-        const retrieveRef = firebase.database().ref('Reports').orderByChild('reporterId').equalTo(user.email);
+        const retrieveRef = firebase.database().ref('Reports').orderByChild('userId').equalTo(user.email);
         retrieveRef.on('value', (snapshot) => {
             const products = snapshot.val();
             const blackList = [];
@@ -24,7 +24,8 @@ const MyBlacklist = () => {
 
     return(
         <div className="black-list">
-            <h1>myBlackList</h1><Link className="link" to="/blacklistedItems">Global List</Link>
+            <h1>myBlackList</h1><Link className="link" to="/blacklistedItems">Global List</Link><br/>
+            <Link className="link" to="/lostAndFound">Lost And Found</Link><br/><br/>
             {blackList ? blackList.map((names, index) => <BlacklistedItemsList name={names} key={index}/>) : ''}
         </div>
     );

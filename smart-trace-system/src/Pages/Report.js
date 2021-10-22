@@ -57,9 +57,9 @@ const Report = () => {
                     handleClose={togglePopup}
                     />
                 }
-                <label>Product Name</label>
+                <label>Product Name : </label>
                 <input type="text" value={productName} required onChange={e=> setProductName(e.target.value)} /><br/>
-                <label>Product Type</label>
+                <label>Product Type : </label>
                 <select value={category} required onChange={e=> setCategory(e.target.value)}>
                     <option></option>
                     <option value="Camera">Camera</option>

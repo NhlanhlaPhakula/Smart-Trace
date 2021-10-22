@@ -205,7 +205,7 @@ const Profile = () => {
             <br />
             {/*<h1>{url}</h1>*/} 
             {/*<Link to="/details"><img src={url}/></Link>*/}
-            <Link to="/">Learn More</Link>
+            
 
         </div>
     );

@@ -380,6 +380,10 @@ ul {
   color: #52ab98;
 }
 
+.report-page label {
+  color: #203040;
+}
+
 .Wishlist-items {
   text-align: center;
 }
@@ -478,11 +482,21 @@ ul {
 .user {
   color: #3a2b58;
 }.link {
-  color: #52ab98;
+  color: red;
   text-decoration: none;
 }
-
-
+.black-list {
+  text-align: center;
+}
+.lost-found {
+  text-align: center;
+}
+.blacklisted-items-list-table {
+  text-align: center;
+}
+.blacklist-items {
+  text-align: center;
+}
 .insurance-questions {
   text-align: center;
 }
