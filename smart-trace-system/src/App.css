@@ -396,7 +396,9 @@ ul {
   color: white;
   text-align: center;
 }
-
+.enquiry-form label {
+  color: #203040;
+}
 .possessions {
   text-align: center;
 }

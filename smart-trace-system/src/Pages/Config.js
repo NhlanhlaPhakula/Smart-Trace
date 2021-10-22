@@ -338,12 +338,12 @@
                         id: 1,
                     },
                     {
-                        text: "Image Scanner",
+                        text: "Scan Image",
                         url: "/scanner",
                         id: 2,
                     },
                     {
-                        text: "Image to Text",
+                        text: "Search by Image",
                         url: "/imagetotext",
                         id: 3,
                     },

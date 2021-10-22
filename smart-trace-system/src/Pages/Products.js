@@ -7,6 +7,7 @@ const Products = ({ name }) => {
     //user function
     const user = firebase.auth().currentUser;
     //const [userId, setUserId] = useState(user);
+    const [date,setDate] = useState(Date);
 
     //popup variables
     const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -47,11 +48,20 @@ const Products = ({ name }) => {
 
     //report stolen product
     const reportProduct = () => {
-        const reportRef = firebase.database().ref('Products').child(name.id);
-        reportRef.update({
-            report: !name.report,
-        });
+        const reportRef = firebase.database().ref('Reports').child(name.id);
+        
+        const saveData = {
+            reporterId: user.email,
+            itemName: name.itemName,
+            serialNumber: name.serialNumber,
+            description: name.itemDescription,
+            category: name.category,
+            price: name.price,
+            ownerId: name.userId,
+        };
+        reportRef.push(saveData);
     };
+
 
     //a function to add items into a wish list
     const handleAddToWishlist = () => {

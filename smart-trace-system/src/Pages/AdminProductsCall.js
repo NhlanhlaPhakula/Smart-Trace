@@ -87,6 +87,8 @@ const AdminProductsCall = ({items}) => {
                 updateProduct();
                 togglePopupReport();
             }}>Report</button> <button onClick={handleSell}>Sell</button>
+            <br/>
+            <br/>
         </div>
     );
 };

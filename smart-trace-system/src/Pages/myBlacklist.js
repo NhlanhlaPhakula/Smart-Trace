@@ -24,8 +24,7 @@ const MyBlacklist = () => {
 
     return(
         <div className="black-list">
-            <h1>myBlackList</h1><Link className="link" to="/blacklistedItems">Global List</Link><br/>
-            <Link className="link" to="/lostAndFound">Lost And Found</Link><br/><br/>
+            <h1>myBlackList</h1><Link className="link" to="/blacklistedItems">Global List</Link> <Link className="link" to="/lostAndFound">Lost And Found</Link><br/><br/>
             {blackList ? blackList.map((names, index) => <BlacklistedItemsList name={names} key={index}/>) : ''}
         </div>
     );

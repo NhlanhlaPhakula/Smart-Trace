@@ -24,6 +24,7 @@ const  LostAndFound = () => {
     return(
         <div className="lost-found">
             <h1>Lost And Found Items</h1>
+            <br/><br/>
             {itemsList ? itemsList.map((names,index) => <LostAndFoundItems names={names} key={index}/>):''}
         </div>
     );

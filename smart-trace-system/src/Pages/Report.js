@@ -29,8 +29,8 @@ const Report = () => {
         const saveRef = firebase.database().ref('Reports');
 
         const savingData = {
-            userId: user.email,
-            email: user.email,
+            reporterId: user.email,
+            ownerId: user.email,
             date,
             category,
             productName,

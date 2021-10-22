@@ -26,7 +26,7 @@ const BlacklistedItemsList = ({name}) => {
             itemName: name.productName,
             serialNumber: name.serialNumber,
             description: name.description,
-            reporterId: name.reporterId,
+           // reporterId: name.reporterId,
             userId: user.email,
             foundDate: date,
         };
@@ -39,7 +39,7 @@ const BlacklistedItemsList = ({name}) => {
             <label>Item: </label>{name.productName}<br/>
             <label>S/N: </label>{name.serialNumber}<br/>
             <label>Description: </label>{name.description}<br/>
-            <label>Reporter: </label>{name.reporterId}<br/>
+            {/*<label>Reporter: </label>{name.reporterId}<br/>*/}
             <button onClick={() => {
                 handleFound();
                 handleLostAndFound();
