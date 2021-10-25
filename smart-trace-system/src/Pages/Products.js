@@ -8,6 +8,7 @@ const Products = ({ name }) => {
     const user = firebase.auth().currentUser;
     //const [userId, setUserId] = useState(user);
     const [date,setDate] = useState(Date);
+    const [valueToUse,setValueToUse] = useState();
 
     //popup variables
     const [isOpenAdd, setIsOpenAdd] = useState(false);
@@ -46,9 +47,23 @@ const Products = ({ name }) => {
         addRef.push(saveData);
     };
 
+    useEffect(() => {
+        var Johannesburg = "Johannesburg";
+        var  Sandton = "Sandton";
+        var Midrand = "Midrand";
+        var Alexandra = "Alexandra";
+        var Roodepoort = "Roodepoort";
+        var Soweto = "Soweto";
+
+        var values = [Johannesburg,Sandton,Midrand,Alexandra,Roodepoort,Soweto];
+        var valueToUse = values[Math.floor(Math.random() * values.length)];
+        console.log('Random Value',valueToUse);
+        setValueToUse(valueToUse);
+    });
+
     //report stolen product
     const reportProduct = () => {
-        const reportRef = firebase.database().ref('Reports').child(name.id);
+        const reportRef = firebase.database().ref('Reports');
         
         const saveData = {
             reporterId: user.email,
@@ -58,6 +73,7 @@ const Products = ({ name }) => {
             category: name.category,
             price: name.price,
             ownerId: name.userId,
+            location: valueToUse,
         };
         reportRef.push(saveData);
     };

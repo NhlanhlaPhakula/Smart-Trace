@@ -43,8 +43,12 @@ const SerialNumberSearch = () => {
 
     return(
         <div className="search-serial-number">
+            <h1>Search by Serial Number</h1>
+            <br/>
             <label>Serial Number :</label><br/>
-            <input type="text" value={serialNumber} onChange={e=> setSerialNumber(e.target.value)}/><br/>
+            <input type="text" value={serialNumber} onChange={e=> setSerialNumber(e.target.value)}/>
+            <br/>
+            <br/>
             <button onClick={() => {
                 handleSearch();
                 handleNotification();

@@ -15,10 +15,16 @@ const Admin = () => {
 
    //popup function variable
    const [isOpen, setIsOpen] = useState(false);
+   const [isOpenRes,setIsOpenRes] = useState(false);
 
    //toggle function for popup
    const togglePopup = () => {
        setIsOpen(!isOpen);
+   };
+
+   //toggle function for popup
+   const togglePopupRes = () => {
+       setIsOpenRes(!isOpenRes);
    };
 
     //image variables
@@ -70,7 +76,7 @@ const Admin = () => {
     };//yey! it worked finally
 
     //a function to add product and its url into the firebase realtime database
-    const saveData = () => {
+   /* const saveData = () => {
         const saveRef = firebase.database().ref('Products');
 
         const savingData = {
@@ -87,6 +93,37 @@ const Admin = () => {
         };
         saveRef.push(savingData);
         clearInputs();
+    };*/
+
+    // a function to save data into the database and to check if an item exists first
+    const handleCheckFirst = () => {
+        const checkRef = firebase.database().ref('Products').orderByChild('serialNumber').equalTo(serialNumber);
+        checkRef.on('value',(snapshot) => {
+            if(snapshot.exists()){
+                const userData = snapshot.val();
+                console.log("exists!",userData);
+                //setIsOpenRes(!isOpenRes);
+            }else{
+                setIsOpen(isOpen);
+                const saveRef = firebase.database().ref('Products');
+
+                const savingData = {
+                    userId:user.email,
+                    url,
+                    stolen: false,
+                    sold: false,
+                    serialNumber,
+                    sale: false,
+                    report: false,
+                    itemName,
+                    itemDescription,
+                    category,
+                };
+                saveRef.push(savingData);
+                clearInputs();
+               
+            };
+        });
     };
 
     //print the image in the console log to check if its working
@@ -100,7 +137,7 @@ const Admin = () => {
             {isOpen && <Popup
             content={<>
                 <b>Smart Trace</b>
-                <p>Successful!!!!!</p>
+                <p>Empty input fields means <br/>Done!!<br/>Else, the serial number already exists (*try again*) </p>
             </>}
             handleClose={togglePopup}
             />}
@@ -119,9 +156,9 @@ const Admin = () => {
                 <label>Item Name : </label><input type="text" required value={itemName} onChange={e=> setItemName(e.target.value)}/><br/>
                 <label>Serial Number : </label><input type="number" required value={serialNumber} onChange={e=> setSerialNumber(e.target.value)}/><br/>
                 <label>Item Description : </label><input type="text" required value={itemDescription} onChange={e=> setItemDescription(e.target.value)}/><br/>
-                <label>Category</label><select value={setCategory} required>
+                <label>Category :</label><select value={category} onChange={e=> setCategory(e.target.value)}>
                     <option></option>
-                    <option value="Camera"> Camera</option>
+                    <option value="Camera">Camera</option>
                     <option value="Desktop Computer">Desktop Computer</option>
                     <option value="DvD Player">DvD Player</option>
                     <option value="Fan">Fan</option>
@@ -138,9 +175,12 @@ const Admin = () => {
                 </select>
             </div>
             <button onClick={() => {
-                saveData();
+                handleCheckFirst();
                 togglePopup();
-            }}>Add Item</button><br></br>
+            }}>Add Item</button>
+            <br>
+            </br>
+            
         </div>
     );
 };

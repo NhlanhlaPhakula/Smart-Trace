@@ -484,7 +484,7 @@ ul {
 .user {
   color: #3a2b58;
 }.link {
-  color: red;
+  color :#52ab98;
   text-decoration: none;
 }
 .black-list {
@@ -552,12 +552,20 @@ ul {
   width: 20%;
 }
 
+.serial-search-results img{
+  height: 20%;
+  width: 20%;
+}
+.serial-search-results h1{
+  color: #203040;
+}
 .serial-search-results{
   text-align: center;
 }
 
 .search-serial-number {
   text-align: center;
+  color: #203040;
 }
 .notifications {
   text-align: center;

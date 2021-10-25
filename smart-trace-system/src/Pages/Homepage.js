@@ -44,6 +44,7 @@ import LocationAnalytics from './LocationAnalytics';
 import BackgroundChecker from './BackgroundChecker';
 import WishListItems from './WishlistItems';
 import LostAndFound from './FoundItems';
+import RandomResults from './Random';
 
 const Homepage = ({handleLogout, openMenu, closeMenu}) => {
     const user = firebase.auth().currentUser;
@@ -157,6 +158,7 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <Route path="/backgroundChecker" exact={true} component={BackgroundChecker} />
                         <Route path="/wishlistItems" exact={true} component={WishListItems} />
                         <Route path="/lostAndFound"  exact={true} component={LostAndFound}/>
+                        <Route path="/random" exact={true} component={RandomResults} />
                    </switch>
                    
                </div>

@@ -1011,7 +1011,7 @@ const IntelligenceDerived = () => {
             <br/>
             <hr/>
             <br/>
-            <h3>Table showing top 3 stolen items:</h3>
+            <h3>Top 3 stolen items:</h3>
             <div className="wishlist-results">
                 <table className="table">
                     <tr>
@@ -1065,8 +1065,9 @@ const IntelligenceDerived = () => {
             <br/>
             <hr/>
             <br/>
-            <h3>Table of all reported items:</h3>
+            {/*<h3>Table of all reported items:</h3>
             {reportList ? reportList.map((names,index) => <IntelligenceTable names={names} key={index}/>):''}
+            */}
         </div>
     );
 };

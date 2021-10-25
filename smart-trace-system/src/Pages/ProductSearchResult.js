@@ -126,13 +126,15 @@ const SerialNumberSearchResult = ({ name }) => {
             handleClose={togglePopup}
             />
             }
+            <br/>
+            <br/>
             <img src={name.url}/><br/>
-            <h1>Item Id: {name.id}</h1><br/>
-            <h1>Item Name: {name.itemName}</h1><br/>
-            <h1>Item Description: {name.itemDescription}</h1><br/>
-            <h1>Report: {name.report}</h1><br/>
-            <h1>Stolen: {name.stolen}</h1><br/>
-            <h1>Owner: {name.userId}</h1><br/>
+            {/*<h1>Item Id: {name.id}</h1><br/>*/}
+            <h3>Name: {name.itemName}</h3><br/>
+            <h3>Description: {name.itemDescription}</h3><br/>
+            {/*<h1>Report: {name.report}</h1><br/>
+            <h1>Stolen: {name.stolen}</h1><br/>*/}
+            <h3>Owner: {name.userId}</h3><br/>
             <button onClick={() => {
                 togglePopup();
                 handlePurchase();
@@ -140,6 +142,8 @@ const SerialNumberSearchResult = ({ name }) => {
                 handleChangeOfOwnership();
                 handleReport();
             }}>Buy</button>
+            <br/>
+            <br/>
         </div>
     );
 };

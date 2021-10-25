@@ -762,7 +762,7 @@ const LocationAnalytics = () => {
             <br/>
             <hr/>
             <br/>
-            <h3>Table showing top 3 crime hotspots:</h3>
+            <h3>Top 3 crime hotspots:</h3>
             <div className="wishlist-results">
                 <table className="table"></table>
                     <tr>
@@ -795,7 +795,7 @@ const LocationAnalytics = () => {
             <br/>
             <hr/>
             <br/>
-            <h3>Table showing top 3 crime hotspots and Items stolen:</h3>
+            <h3>Top 3 crime hotspots and Items stolen:</h3>
             <div className="wishlist-results">
                 <table className="table">
                     <tr>
