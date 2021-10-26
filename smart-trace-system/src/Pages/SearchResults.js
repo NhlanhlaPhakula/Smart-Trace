@@ -46,7 +46,6 @@ const SearchResults = ({name}) => {
                 addToCart();
                 togglePopupAddToCart();
             }}>Add to Cart</button>
-            <button>Report</button>
         </div>
     );
 };

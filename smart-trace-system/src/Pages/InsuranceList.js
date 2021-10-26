@@ -37,17 +37,30 @@ const InsuranceCategory = ({ name }) => {
         addRef.push(saveData);
     };
 
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
+
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     
     return(
-        <div className="insurance-list">
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {
@@ -101,16 +114,29 @@ const InsuranceNiche = ({name}) => {
         addRef.push(saveData);
     };
 
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
+
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     return(
-        <div>
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {
@@ -163,16 +189,29 @@ const InsuranceActivityPeriod = ({name}) => {
         addRef.push(saveData);
     };
 
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
+
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     return(
-        <div>
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {
@@ -225,16 +264,29 @@ const InsurancePurchasePrice = ({name}) => {
         addRef.push(saveData);
     };
 
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
+
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     return(
-        <div>
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {
@@ -287,16 +339,29 @@ const InsuranceMonthlyFee = ({name}) => {
         addRef.push(saveData);
     };
 
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
+
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     return(
-        <div>
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {
@@ -349,16 +414,29 @@ const InsuranceCoverLoss = ({name}) => {
         addRef.push(saveData);
     };
 
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
+
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     return(
-        <div>
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {
@@ -411,16 +489,29 @@ const InsuranceCoverMulfunction = ({name}) => {
         addRef.push(saveData);
     };
 
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
+
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     return(
-        <div>
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {
@@ -473,16 +564,29 @@ const InsuranceCoverTheft = ({name}) => {
         addRef.push(saveData);
     };
 
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
+
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     return(
-        <div>
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {
@@ -535,16 +639,29 @@ const InsuranceCoverDamage = ({name}) => {
         addRef.push(saveData);
     };
 
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
+
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     return(
-        <div>
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {
@@ -596,17 +713,29 @@ const InsuranceCoverFire = ({name}) => {
         };
         addRef.push(saveData);
     };
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
 
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     return(
-        <div>
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {
@@ -659,16 +788,29 @@ const InsuranceCoverAll = ({name}) => {
         addRef.push(saveData);
     };
 
+    //a function to  send data to insurance_messages table in the database
+    const handleSend = () => {
+        const handleRef = firebase.database().ref('Insurance_Messages');
+
+        const saveData = {
+            insurance_Company: name.insuranceCompany,
+            userId: user.email,
+            date,
+        };
+        handleRef.push(saveData);
+    };
+
     //popup function
     const togglePopup = () => {
         setIsopen(!isOpen);
     };
     return(
-        <div>
+        <div className="insurance-results">
             <h3>
-                <Link onClick={() => {
+                <Link className="result" onClick={() => {
                     handleRequestQuote();
                     togglePopup();
+                    handleSend();
                 }}>{name.insuranceCompany}</Link>
             </h3>
             {

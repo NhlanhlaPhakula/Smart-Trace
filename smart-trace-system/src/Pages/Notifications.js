@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../Components/Firebase';
-import MessageList, { MessagesList } from './Messages';
+import MessageList, { InsuranceMessagesResults, MessagesList } from './Messages';
 import NotificationDetails from './NotificationDetails';
 
 const Nofications = () => {
@@ -9,6 +9,7 @@ const Nofications = () => {
     const [notificationList, setNotificationList] = useState();
     const [notificationStateList, setNotificationStateList] = useState();
     const [messagesList,setMessagesList] = useState();
+    const [insuranceList,setInsuranceList] = useState();
 
     //function to display all notifications automatically
     useEffect(() => {
@@ -51,6 +52,19 @@ const Nofications = () => {
         });
     },[]);
 
+    //a function to display insurance messages
+    useEffect(() => {
+        const findRef = firebase.database().ref('Insurance_Messages').orderByChild('userId').equalTo(user.email);
+        findRef.on('value',(snapshot) => {
+            const insuranceMessages = snapshot.val();
+            const insuranceList = [];
+            for(let id in insuranceMessages) {
+                insuranceList.push({ id, ... insuranceMessages[id]});
+            }
+            setInsuranceList(insuranceList);
+        });
+    },[]);
+
     return(
         <div className="notifications">
             <br/>
@@ -58,6 +72,7 @@ const Nofications = () => {
             {notificationList ? notificationList.map((names, index) => <NotificationDetails name={names} key={index} />) : ''}
             {notificationStateList ? notificationStateList.map((name, index) => <MessageList  name={name} key={index} />) : ''}
             {messagesList ? messagesList.map((names,index) => <MessagesList names={names} key={index}/>):''}
+            {insuranceList ? insuranceList.map((names,index) => <InsuranceMessagesResults names={names} key={index}/>): ''}
         </div>
     );
 };

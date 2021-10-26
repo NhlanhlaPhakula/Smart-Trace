@@ -43,11 +43,8 @@ const AboutUs = () => {
                     </div>
                     <div className="information">
                         <h3>
-                        Lebogang Motimedi<br/>
-                        215052188<br/>
-                        Business analyst<br/>
-                        Tasks: stakeholders requirements , documentation head , presentation along with N Phakula<br/>
-                        UI design of the system along with N Phakula, project team coordinator.<br/>
+                        Thabelo Mutshinyane<br/>
+                        217032007<br/>
                         </h3>
                     </div>
                 </div>

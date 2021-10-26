@@ -46,3 +46,25 @@ const MessagesList = ({names}) => {
     );
 };
 export{MessagesList};
+
+const InsuranceMessagesResults = ({names}) => {
+    const user = firebase.auth().currentUser;
+    return(
+        <div className="insurance">
+            <br/>
+            <hr/>
+            <u><h4>Insurance Quote Feedback</h4></u>
+            <h3>{names.insurance_Company}</h3>
+            <h6>**{names.date}**</h6>
+            <h5>Hey {user.email}!</h5>
+            <h3>Thank You For Choosing {names.insurance_Company}</h3>
+                    <p>We will have our service providers to contact you<br/>
+                    as soon as possible to do a quote with you.<br/>
+                    In the interim, please feel free to see if we can provide further<br/>
+                    assistance with some of our other insurance products.</p>
+            <br/>
+            <hr/>
+        </div>
+    );
+};
+export {InsuranceMessagesResults};

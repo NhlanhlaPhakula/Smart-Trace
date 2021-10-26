@@ -21,7 +21,7 @@ const Tab = () => {
                 <div className="divs">
                     <h1 className="heading">Insurance</h1>
                     <h4>Partner up with an insurance that understands you</h4>
-                    <Link className="link" to="">Check Insurance </Link>
+                    <Link className="link" to="/insuranceQ">Check Insurance </Link>
                 </div><br/><br/>
                 <div className="divs">
                     <h1 className="heading">Register Possessions</h1>
