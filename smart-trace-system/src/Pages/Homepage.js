@@ -102,12 +102,15 @@ const Homepage = ({handleLogout, openMenu, closeMenu}) => {
                         <li>
                             <a href="/admin">Admin</a>
                         </li>
+                        <li>
+                            <button onClick={handleLogout}>Logout</button>
+                        </li>
                     </ul>
                     </BrowserRouter>
                 </aside>
                 <h2 className="app">SMART TRACE</h2>
                 <h1 className="user">{user.email}</h1>
-                <button onClick={handleLogout}>Logout</button>
+                
             </nav>
             <BrowserRouter>
             <main className="main">
