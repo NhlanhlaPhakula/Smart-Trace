@@ -11,6 +11,7 @@ const Admin = () => {
     const [serialNumber, setSerialNumber] = useState('');
     const [url, setUrl] = useState('');
     const [category, setCategory] = useState();
+    const [price,setPrice] = useState();
    // const [userId, setUserId] = useState();
 
    //popup function variable
@@ -118,6 +119,7 @@ const Admin = () => {
                     itemName,
                     itemDescription,
                     category,
+                    price,
                 };
                 saveRef.push(savingData);
                 clearInputs();
@@ -153,7 +155,10 @@ const Admin = () => {
             </div>
             <h1>Admin</h1>
             <div className="product-input-fields">
-                <label>Item Name : </label><input type="text" required value={itemName} onChange={e=> setItemName(e.target.value)}/><br/>
+                <label>Item Name : </label><input type="text" required value={itemName} onChange={e=> setItemName(e.target.value)}/>
+                <br/><br/>
+                <h6>**Note that You need to add the following at the end of the serial number for security purposes:**</h6>
+                <h5>\n</h5>
                 <label>Serial Number : </label><input type="number" required value={serialNumber} onChange={e=> setSerialNumber(e.target.value)}/><br/>
                 <label>Item Description : </label><input type="text" required value={itemDescription} onChange={e=> setItemDescription(e.target.value)}/><br/>
                 <label>Category :</label><select value={category} onChange={e=> setCategory(e.target.value)}>
@@ -172,14 +177,15 @@ const Admin = () => {
                     <option value="Radio">Radio</option>
                     <option value="Television">Television</option>
                     <option value="Washing Machine">Washing Machine</option>
-                </select>
+                </select><br/>
+                <label>Price :</label><input type="text" required value={price} onChange={e=> setPrice(e.target.value)} />
             </div>
             <button onClick={() => {
                 handleCheckFirst();
                 togglePopup();
             }}>Add Item</button>
-            <br>
-            </br>
+            <br/>
+            <br/>
             
         </div>
     );

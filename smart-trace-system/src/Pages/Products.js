@@ -84,7 +84,6 @@ const Products = ({ name }) => {
         const addref = firebase.database().ref('Wishlist');
         
         const saveData = {
-            id: name.id,
             userId: user.email,
             itemName: name.itemName,
             serialNumber: name.serialNumber,

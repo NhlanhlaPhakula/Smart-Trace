@@ -45,6 +45,8 @@ const SerialNumberSearch = () => {
         <div className="search-serial-number">
             <h1>Search by Serial Number</h1>
             <br/>
+            <h6>**Add this security value at the end of the serial number:**</h6>
+            <h5>\n</h5>
             <label>Serial Number :</label><br/>
             <input type="text" value={serialNumber} onChange={e=> setSerialNumber(e.target.value)}/>
             <br/>
