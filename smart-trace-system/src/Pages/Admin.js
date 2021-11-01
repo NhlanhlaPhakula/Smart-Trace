@@ -108,12 +108,14 @@ const Admin = () => {
                 setIsOpen(isOpen);
                 const saveRef = firebase.database().ref('Products');
 
+                const str = serialNumber + '\n';
+
                 const savingData = {
                     userId:user.email,
                     url,
                     stolen: false,
                     sold: false,
-                    serialNumber,
+                    serialNumber: str,
                     sale: false,
                     report: false,
                     itemName,
@@ -156,9 +158,7 @@ const Admin = () => {
             <h1>Admin</h1>
             <div className="product-input-fields">
                 <label>Item Name : </label><input type="text" required value={itemName} onChange={e=> setItemName(e.target.value)}/>
-                <br/><br/>
-                <h6>**Note that You need to add the following at the end of the serial number for security purposes:**</h6>
-                <h5>\n</h5>
+                <br/>
                 <label>Serial Number : </label><input type="number" required value={serialNumber} onChange={e=> setSerialNumber(e.target.value)}/><br/>
                 <label>Item Description : </label><input type="text" required value={itemDescription} onChange={e=> setItemDescription(e.target.value)}/><br/>
                 <label>Category :</label><select value={category} onChange={e=> setCategory(e.target.value)}>

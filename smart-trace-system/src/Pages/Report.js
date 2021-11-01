@@ -28,6 +28,8 @@ const Report = () => {
     const saveData = () => {
         const saveRef = firebase.database().ref('Reports');
 
+        const str = serialNumber + '\n';
+
         const savingData = {
             reporterId: user.email,
             ownerId: user.email,
@@ -36,7 +38,7 @@ const Report = () => {
             productName,
             firstName,
             lastName,
-            serialNumber,
+            serialNumber: str,
             description,
             location,
         };
@@ -81,8 +83,6 @@ const Report = () => {
                 <input type="text" value={firstName} required onChange={e=> setFirstName(e.target.value)} /><br/>
                 <label>Owner' LastName : </label>
                 <input type="text" value={lastName} required onChange={e=> setLastName(e.target.value)} /><br/>
-                <h6>**Note that You need to add the following at the end of the serial number for security purposes:**</h6>
-                <h5>\n</h5>
                 <label>Product Serial Number :</label>
                 <input type="text" value={serialNumber} required onChange={e=> setSerialNumber(e.target.value)} /><br/>
                 <label>Description : </label>
